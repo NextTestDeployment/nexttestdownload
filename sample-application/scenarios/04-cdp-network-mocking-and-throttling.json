@@ -1,0 +1,66 @@
+{
+  "name": "04 CDP Network Mocking & Throttling Suite",
+  "data": {
+    "baseUrl": "http://127.0.0.1:3100"
+  },
+  "testCases": [
+    {
+      "testCaseId": "1",
+      "Case": "Chrome DevTools Protocol Network Throttling and Synthetic Mocking",
+      "isRun": true,
+      "hardStop": false,
+      "tagNames": ["cdp", "network", "mocking"],
+      "testSteps": [
+        {
+          "steps": "Open Chrome browser",
+          "action": "openBrowserChrome",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "${baseUrl}",
+          "isRun": true,
+          "hardStop": true
+        },
+        {
+          "steps": "Apply Slow 3G network throttling profile",
+          "action": "throttleNetwork",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "Slow 3G",
+          "isRun": true
+        },
+        {
+          "steps": "Mock student list endpoint with synthetic VIP student record",
+          "action": "mockApiResponse",
+          "locatorType": "NA",
+          "locatorTypeValue": "*/api/students*",
+          "value": "[{\"studentId\":\"VIP-999\",\"name\":\"Elena Rostova (Mocked)\",\"program\":\"Quantum AI Computing\",\"year\":4,\"status\":\"VIP\"}]",
+          "isRun": true
+        },
+        {
+          "steps": "Navigate to students page to verify mocked response",
+          "action": "enterUrl",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "${baseUrl}/#students",
+          "isRun": true
+        },
+        {
+          "steps": "Reset all network throttling and mocks back to normal",
+          "action": "resetNetwork",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Close browser",
+          "action": "closeBrowser",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        }
+      ]
+    }
+  ]
+}

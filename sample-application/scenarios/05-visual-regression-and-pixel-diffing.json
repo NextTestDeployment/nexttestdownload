@@ -1,0 +1,58 @@
+{
+  "name": "05 Visual Regression & Pixel Diffing Suite",
+  "data": {
+    "baseUrl": "http://127.0.0.1:3100"
+  },
+  "testCases": [
+    {
+      "testCaseId": "1",
+      "Case": "Perceptual Visual Baseline and Component Snapshot Validation",
+      "isRun": true,
+      "hardStop": false,
+      "tagNames": ["visual", "diffing", "regression"],
+      "testSteps": [
+        {
+          "steps": "Open Chrome and maximize window for consistent viewport",
+          "action": "openBrowserChrome",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "${baseUrl}",
+          "isRun": true,
+          "hardStop": true
+        },
+        {
+          "steps": "Fix window dimensions for pixel reproducibility",
+          "action": "windowSize",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "1280,800",
+          "isRun": true
+        },
+        {
+          "steps": "Verify full page visual snapshot against golden baseline (1.0% tolerance)",
+          "action": "validateVisualBaseline",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "campusflow-login-page:1.0",
+          "isRun": true
+        },
+        {
+          "steps": "Verify specific component card visual baseline (0.5% tolerance)",
+          "action": "validateVisualBaseline",
+          "locatorType": "css",
+          "locatorTypeValue": "form",
+          "value": "campusflow-login-card:0.5",
+          "isRun": true
+        },
+        {
+          "steps": "Close browser",
+          "action": "closeBrowser",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        }
+      ]
+    }
+  ]
+}

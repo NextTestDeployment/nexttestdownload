@@ -1,0 +1,22 @@
+{
+  "LocatorFiles": [{ "Name": "campus-locators.json", "Prefix": "campus" }],
+  "DataFiles": [],
+  "TestCases": [{
+    "TestCaseId": "campus-fee-grid-search",
+    "Case": "CampusFlow: search the fee ledger and inspect payment status",
+    "IsRun": true,
+    "tagNames": ["campusflow", "fees", "grid", "search"],
+    "TestSteps": [
+      { "Steps": "Open CampusFlow", "Action": "openbrowserChrome", "Value": null, "IsRun": true },
+      { "Steps": "Open the fee ledger", "Action": "enterurl", "Value": "http://127.0.0.1:3100", "IsRun": true },
+      { "Steps": "Sign in", "Action": "Click", "LocatorType": "css", "LocatorTypeValue": "campus.loginSubmit", "Value": "", "IsRun": true },
+      { "Steps": "Wait for data", "Action": "Sleep", "Value": "700", "IsRun": false },
+      { "Steps": "Navigate to fees", "Action": "Click", "LocatorType": "css", "LocatorTypeValue": "campus.navFees", "Value": "", "IsRun": true },
+      { "Steps": "Find the first seeded fee receipt", "Action": "SendKeys", "LocatorType": "css", "LocatorTypeValue": "campus.tableSearch", "Value": "RCPT-26-801", "IsRun": true },
+      { "Steps": "Verify the fee record is shown", "Action": "ValidateContainsText", "LocatorType": "css", "LocatorTypeValue": "campus.tableBody", "Value": "RCPT-26-801", "IsRun": true },
+      { "Steps": "Verify the fee amount is rendered", "Action": "ValidateContainsText", "LocatorType": "css", "LocatorTypeValue": "campus.tableBody", "Value": "₹5,000", "IsRun": true },
+      { "Steps": "Close browser", "Action": "CloseBrowser", "Value": "", "IsRun": false }
+    ]
+  }],
+  "TestData": {}
+}

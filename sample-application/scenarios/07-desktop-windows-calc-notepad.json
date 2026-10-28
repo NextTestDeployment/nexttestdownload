@@ -1,0 +1,135 @@
+{
+  "platform": "WINDOWS",
+  "serverUrl": "http://127.0.0.1:4723",
+  "appPath": "notepad.exe",
+  "locatorFiles": [],
+  "dataFiles": [],
+  "testCases": [
+    {
+      "testCaseId": "WIN-NOTE-CALC-01",
+      "Case": "Integrated Desktop Notepad & Calculator Sum Workflow",
+      "isRun": true,
+      "testSteps": [
+        {
+          "steps": "1. Wait for Notepad window to render",
+          "action": "pause",
+          "value": "1200",
+          "isRun": true
+        },
+        {
+          "steps": "2. Focus Notepad editor text area",
+          "action": "click",
+          "locatorType": "xpath",
+          "locatorTypeValue": "//*[@ClassName='RichEditD2DPT' or @ClassName='Edit' or @Name='Text editor']",
+          "isRun": true
+        },
+        {
+          "steps": "3. Type greeting message 'hi abhay'",
+          "action": "enterText",
+          "locatorType": "xpath",
+          "locatorTypeValue": "//*[@ClassName='RichEditD2DPT' or @ClassName='Edit' or @Name='Text editor']",
+          "value": "hi abhay\n",
+          "isRun": true
+        },
+        {
+          "steps": "4. Launch Windows Calculator application",
+          "action": "startApp",
+          "value": "calc.exe",
+          "isRun": true
+        },
+        {
+          "steps": "5. Pause for Calculator window to open",
+          "action": "pause",
+          "value": "1500",
+          "isRun": true
+        },
+        {
+          "steps": "6. Calculator: Enter number '2'",
+          "action": "useKeyboard",
+          "value": "2",
+          "isRun": true
+        },
+        {
+          "steps": "7. Calculator: Enter number '5'",
+          "action": "useKeyboard",
+          "value": "5",
+          "isRun": true
+        },
+        {
+          "steps": "8. Calculator: Enter '+' (Plus operator)",
+          "action": "useKeyboard",
+          "value": "+",
+          "isRun": true
+        },
+        {
+          "steps": "9. Calculator: Enter number '1'",
+          "action": "useKeyboard",
+          "value": "1",
+          "isRun": true
+        },
+        {
+          "steps": "10. Calculator: Enter number '7'",
+          "action": "useKeyboard",
+          "value": "7",
+          "isRun": true
+        },
+        {
+          "steps": "11. Calculator: Calculate sum via '=' (Enter)",
+          "action": "useKeyboard",
+          "value": "ENTER",
+          "isRun": true
+        },
+        {
+          "steps": "12. Calculator: Pause to verify calculation (25 + 17 = 42)",
+          "action": "pause",
+          "value": "800",
+          "isRun": true
+        },
+        {
+          "steps": "13. Calculator: Copy calculation result to clipboard via CTRL+C",
+          "action": "useKeyboard",
+          "value": "CTRL+C",
+          "isRun": true
+        },
+        {
+          "steps": "14. Calculator: Close Calculator application",
+          "action": "closeApp",
+          "value": "calc",
+          "isRun": true
+        },
+        {
+          "steps": "15. Notepad: Focus Notepad text editor again",
+          "action": "click",
+          "locatorType": "xpath",
+          "locatorTypeValue": "//*[@ClassName='RichEditD2DPT' or @ClassName='Edit' or @Name='Text editor']",
+          "isRun": true
+        },
+        {
+          "steps": "16. Notepad: Type sum result prefix",
+          "action": "enterText",
+          "locatorType": "xpath",
+          "locatorTypeValue": "//*[@ClassName='RichEditD2DPT' or @ClassName='Edit' or @Name='Text editor']",
+          "value": "Sum of 25 + 17 calculated from Windows Calculator = ",
+          "isRun": true
+        },
+        {
+          "steps": "17. Notepad: Paste calculation result directly from clipboard",
+          "action": "paste",
+          "isRun": true
+        },
+        {
+          "steps": "18. Notepad: Add trailing newline confirmation",
+          "action": "enterText",
+          "value": "\nAutomation completed successfully with NextTest Desktop Engine!\n",
+          "isRun": true
+        },
+        {
+          "steps": "19. Capture complete desktop screenshot evidence",
+          "action": "takingScreenshot",
+          "value": "notepad-calc-sum-result.png",
+          "isRun": true
+        }
+      ]
+    }
+  ]
+}

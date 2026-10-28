@@ -1,0 +1,83 @@
+{
+  "name": "03 Comprehensive Validations & Assertions Suite",
+  "data": {
+    "baseUrl": "http://127.0.0.1:3100"
+  },
+  "testCases": [
+    {
+      "testCaseId": "1",
+      "Case": "DOM Text, Attribute, CSS, and Element State Assertions",
+      "isRun": true,
+      "hardStop": false,
+      "tagNames": ["validations", "assertions"],
+      "testSteps": [
+        {
+          "steps": "Open Chrome to CampusFlow",
+          "action": "openBrowserChrome",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "${baseUrl}",
+          "isRun": true,
+          "hardStop": true
+        },
+        {
+          "steps": "Validate exact URL",
+          "action": "validateUrl",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "${baseUrl}",
+          "isRun": true
+        },
+        {
+          "steps": "Validate partial URL contains hostname",
+          "action": "validateContainsUrl",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "127.0.0.1",
+          "isRun": true
+        },
+        {
+          "steps": "Validate page title",
+          "action": "validateTitle",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "CampusFlow · Student Services",
+          "isRun": true
+        },
+        {
+          "steps": "Verify login button is displayed",
+          "action": "isDisplayed",
+          "locatorType": "css",
+          "locatorTypeValue": "button[type='submit']",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Verify login button is enabled",
+          "action": "isEnabled",
+          "locatorType": "css",
+          "locatorTypeValue": "button[type='submit']",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Validate button attribute type='submit'",
+          "action": "validateAttribute",
+          "locatorType": "css",
+          "locatorTypeValue": "button[type='submit']",
+          "value": "submit",
+          "actualValue": "type",
+          "isRun": true
+        },
+        {
+          "steps": "Close browser",
+          "action": "closeBrowser",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        }
+      ]
+    }
+  ]
+}

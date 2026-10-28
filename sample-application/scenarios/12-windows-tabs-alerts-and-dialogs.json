@@ -1,0 +1,74 @@
+{
+  "name": "12 Multi-Window, Tabs, Alerts & Dialogs Suite",
+  "data": {
+    "baseUrl": "http://127.0.0.1:3100"
+  },
+  "testCases": [
+    {
+      "testCaseId": "1",
+      "Case": "Browser Tab Switching and Native Dialog Handling",
+      "isRun": true,
+      "hardStop": false,
+      "tagNames": ["tabs", "windows", "alerts"],
+      "testSteps": [
+        {
+          "steps": "Open Chrome to CampusFlow",
+          "action": "openBrowserChrome",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "${baseUrl}",
+          "isRun": true,
+          "hardStop": true
+        },
+        {
+          "steps": "Store handle of base window",
+          "action": "setBaseWindowHandle",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "mainWindow",
+          "isRun": true
+        },
+        {
+          "steps": "Open a new blank browser tab",
+          "action": "addTab",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Navigate second tab to documentation or blank page",
+          "action": "enterUrl",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "about:blank",
+          "isRun": true
+        },
+        {
+          "steps": "Switch to last opened tab and close it",
+          "action": "switchToLastWindowAndClose",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Verify returned safely to primary base window",
+          "action": "switchToBaseWindow",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Close browser",
+          "action": "closeBrowser",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        }
+      ]
+    }
+  ]
+}

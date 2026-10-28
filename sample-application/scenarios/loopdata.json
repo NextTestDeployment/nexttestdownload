@@ -1,0 +1,8 @@
+{
+  "rows": [
+    { "ColumnHeader": "2026-1001", "FirstName": "Aarav", "Email": "student1@campus.test" },
+    { "ColumnHeader": "2026-1002", "FirstName": "Diya", "Email": "student2@campus.test" },
+    { "ColumnHeader": "2026-1003", "FirstName": "Kabir", "Email": "student3@campus.test" },
+    { "ColumnHeader": "2026-1004", "FirstName": "Anaya", "Email": "student4@campus.test" }
+  ]
+}

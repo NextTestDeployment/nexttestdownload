@@ -1,0 +1,40 @@
+{
+  "LocatorFiles": [{ "Name": "campus-locators.json", "Prefix": "campus" }],
+  "DataFiles": [],
+  "TestCases": [{
+    "TestCaseId": "campus-admin-student-crud",
+    "Case": "CampusFlow: administrator creates, edits, and deletes a student",
+    "IsRun": true,
+    "tagNames": ["campusflow", "students", "crud", "ui"],
+    "TestSteps": [
+      { "Steps": "Open CampusFlow", "Action": "openbrowserChrome", "Value": null, "IsRun": true },
+      { "Steps": "Navigate to student portal", "Action": "enterurl", "Value": "http://127.0.0.1:3100", "IsRun": true },
+      { "Steps": "Sign in as administrator", "Action": "Click", "LocatorType": "css", "LocatorTypeValue": "campus.loginSubmit", "Value": "", "IsRun": true },
+      { "Steps": "Wait for dashboard data", "Action": "Sleep", "Value": "700", "IsRun": true },
+      { "Steps": "Open student directory", "Action": "Click", "LocatorType": "css", "LocatorTypeValue": "campus.navStudents", "Value": "", "IsRun": true },
+      { "Steps": "Start a student registration", "Action": "Click", "LocatorType": "css", "LocatorTypeValue": "campus.addRecord", "Value": "", "IsRun": true },
+      { "Steps": "Enter unique student number", "Action": "SendKeys", "LocatorType": "css", "LocatorTypeValue": "campus.studentNo", "Value": "2026-QA-9001", "IsRun": true },
+      { "Steps": "Enter first name", "Action": "SendKeys", "LocatorType": "css", "LocatorTypeValue": "campus.firstName", "Value": "NextTest", "IsRun": true },
+      { "Steps": "Enter last name", "Action": "SendKeys", "LocatorType": "css", "LocatorTypeValue": "campus.lastName", "Value": "Sample", "IsRun": true },
+      { "Steps": "Enter student email", "Action": "SendKeys", "LocatorType": "css", "LocatorTypeValue": "campus.email", "Value": "nexttest.student@example.test", "IsRun": true },
+      { "Steps": "Enter contact number", "Action": "SendKeys", "LocatorType": "css", "LocatorTypeValue": "campus.phone", "Value": "+91 9000000001", "IsRun": true },
+      { "Steps": "Choose a course", "Action": "SelectDropdownByText", "LocatorType": "css", "LocatorTypeValue": "campus.courseId", "Value": "Applied Computing Foundations", "IsRun": true },
+      { "Steps": "Set enrollment date", "Action": "SendKeys", "LocatorType": "css", "LocatorTypeValue": "campus.enrollmentDate", "Value": "2026-10-20", "IsRun": true },
+      { "Steps": "Set registration active", "Action": "SelectDropdownByText", "LocatorType": "css", "LocatorTypeValue": "campus.status", "Value": "Active", "IsRun": true },
+      { "Steps": "Save student registration", "Action": "Click", "LocatorType": "css", "LocatorTypeValue": "campus.saveRecord", "Value": "", "IsRun": true },
+      { "Steps": "Wait for registration save", "Action": "Sleep", "Value": "400", "IsRun": true },
+      { "Steps": "Find the new student row", "Action": "SendKeys", "LocatorType": "css", "LocatorTypeValue": "campus.tableSearch", "Value": "2026-QA-9001", "IsRun": true },
+      { "Steps": "Confirm the new registration appears", "Action": "ValidateContainsText", "LocatorType": "css", "LocatorTypeValue": "campus.tableBody", "Value": "2026-QA-9001", "IsRun": true },
+      { "Steps": "Edit the new student", "Action": "Click", "LocatorType": "xpath", "LocatorTypeValue": "//tr[td[normalize-space()='2026-QA-9001']]//button[@data-action='edit']", "Value": "", "IsRun": true },
+      { "Steps": "Change first name", "Action": "Clear", "LocatorType": "css", "LocatorTypeValue": "campus.firstName", "Value": "", "IsRun": true },
+      { "Steps": "Save updated first name", "Action": "SendKeys", "LocatorType": "css", "LocatorTypeValue": "campus.firstName", "Value": "UpdatedQA", "IsRun": true },
+      { "Steps": "Save student changes", "Action": "Click", "LocatorType": "css", "LocatorTypeValue": "campus.saveRecord", "Value": "", "IsRun": true },
+      { "Steps": "Wait for updated row", "Action": "Sleep", "Value": "350", "IsRun": true },
+      { "Steps": "Confirm the update is visible", "Action": "ValidateContainsText", "LocatorType": "css", "LocatorTypeValue": "campus.tableBody", "Value": "UpdatedQA", "IsRun": true },
+      { "Steps": "Delete the test student", "Action": "Click", "LocatorType": "xpath", "LocatorTypeValue": "//tr[td[normalize-space()='2026-QA-9001']]//button[@data-action='delete']", "Value": "", "IsRun": true },
+      { "Steps": "Confirm deletion", "Action": "AlertAccept", "Value": "", "IsRun": true },
+      { "Steps": "Close browser", "Action": "CloseBrowser", "Value": "", "IsRun": true }
+    ]
+  }],
+  "TestData": {}
+}

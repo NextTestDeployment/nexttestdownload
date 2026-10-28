@@ -1,0 +1,397 @@
+{
+  "name": "16 CampusFlow Complete Multi-Tab REST API Automation Suite",
+  "defaultBaseUrl": "http://127.0.0.1:3100",
+  "baseUrls": [
+    "http://127.0.0.1:3100"
+  ],
+  "requests": [
+    {
+      "Method": "GET",
+      "Url": "/api/health",
+      "BaseUrl": "http://127.0.0.1:3100",
+      "FullUrl": "http://127.0.0.1:3100/api/health",
+      "Headers": "{\"Content-Type\":\"application/json\"}",
+      "Body": "",
+      "ExpectedStatus": "200"
+    },
+    {
+      "Method": "POST",
+      "Url": "/api/auth/login",
+      "BaseUrl": "http://127.0.0.1:3100",
+      "FullUrl": "http://127.0.0.1:3100/api/auth/login",
+      "Headers": "{\"Content-Type\":\"application/json\"}",
+      "Body": "{\"email\":\"admin@campus.test\",\"password\":\"CampusDemo!26\"}",
+      "ExpectedStatus": "200",
+      "extractName": "authToken",
+      "extractPath": "$.token"
+    },
+    {
+      "Method": "GET",
+      "Url": "/api/auth/me",
+      "BaseUrl": "http://127.0.0.1:3100",
+      "FullUrl": "http://127.0.0.1:3100/api/auth/me",
+      "Headers": "{\"Authorization\":\"Bearer {{authToken}}\",\"Content-Type\":\"application/json\"}",
+      "Body": "",
+      "ExpectedStatus": "200"
+    },
+    {
+      "Method": "GET",
+      "Url": "/api/summary",
+      "BaseUrl": "http://127.0.0.1:3100",
+      "FullUrl": "http://127.0.0.1:3100/api/summary",
+      "Headers": "{\"Authorization\":\"Bearer {{authToken}}\",\"Content-Type\":\"application/json\"}",
+      "Body": "",
+      "ExpectedStatus": "200"
+    },
+    {
+      "Method": "GET",
+      "Url": "/api/students",
+      "BaseUrl": "http://127.0.0.1:3100",
+      "FullUrl": "http://127.0.0.1:3100/api/students",
+      "Headers": "{\"Authorization\":\"Bearer {{authToken}}\",\"Content-Type\":\"application/json\"}",
+      "Body": "",
+      "ExpectedStatus": "200"
+    },
+    {
+      "Method": "GET",
+      "Url": "/api/courses",
+      "BaseUrl": "http://127.0.0.1:3100",
+      "FullUrl": "http://127.0.0.1:3100/api/courses",
+      "Headers": "{\"Authorization\":\"Bearer {{authToken}}\",\"Content-Type\":\"application/json\"}",
+      "Body": "",
+      "ExpectedStatus": "200"
+    },
+    {
+      "Method": "GET",
+      "Url": "/api/teachers",
+      "BaseUrl": "http://127.0.0.1:3100",
+      "FullUrl": "http://127.0.0.1:3100/api/teachers",
+      "Headers": "{\"Authorization\":\"Bearer {{authToken}}\",\"Content-Type\":\"application/json\"}",
+      "Body": "",
+      "ExpectedStatus": "200"
+    },
+    {
+      "Method": "GET",
+      "Url": "/api/subjects",
+      "BaseUrl": "http://127.0.0.1:3100",
+      "FullUrl": "http://127.0.0.1:3100/api/subjects",
+      "Headers": "{\"Authorization\":\"Bearer {{authToken}}\",\"Content-Type\":\"application/json\"}",
+      "Body": "",
+      "ExpectedStatus": "200"
+    },
+    {
+      "Method": "GET",
+      "Url": "/api/feePayments",
+      "BaseUrl": "http://127.0.0.1:3100",
+      "FullUrl": "http://127.0.0.1:3100/api/feePayments",
+      "Headers": "{\"Authorization\":\"Bearer {{authToken}}\",\"Content-Type\":\"application/json\"}",
+      "Body": "",
+      "ExpectedStatus": "200"
+    },
+    {
+      "Method": "GET",
+      "Url": "/api/notes",
+      "BaseUrl": "http://127.0.0.1:3100",
+      "FullUrl": "http://127.0.0.1:3100/api/notes",
+      "Headers": "{\"Authorization\":\"Bearer {{authToken}}\",\"Content-Type\":\"application/json\"}",
+      "Body": "",
+      "ExpectedStatus": "200"
+    },
+    {
+      "Method": "GET",
+      "Url": "/api/students/ST001",
+      "BaseUrl": "http://127.0.0.1:3100",
+      "FullUrl": "http://127.0.0.1:3100/api/students/ST001",
+      "Headers": "{\"Authorization\":\"Bearer {{authToken}}\",\"Content-Type\":\"application/json\"}",
+      "Body": "",
+      "ExpectedStatus": "200"
+    },
+    {
+      "Method": "GET",
+      "Url": "/api/students?q=Aarav",
+      "BaseUrl": "http://127.0.0.1:3100",
+      "FullUrl": "http://127.0.0.1:3100/api/students?q=Aarav",
+      "Headers": "{\"Authorization\":\"Bearer {{authToken}}\",\"Content-Type\":\"application/json\"}",
+      "Body": "",
+      "ExpectedStatus": "200"
+    }
+  ],
+  "data": {
+    "baseUrl": "http://127.0.0.1:3100"
+  },
+  "testCases": [
+    {
+      "testCaseId": "API-16-ALL-TABS",
+      "Case": "Authenticate via REST API and Query All CampusFlow Tabs (Summary, Students, Courses, Teachers, Subjects, Fees, Notes)",
+      "isRun": true,
+      "hardStop": false,
+      "tagNames": ["api", "rest", "jwt", "token-chaining", "campusflow", "multi-tab", "data-query"],
+      "testSteps": [
+        {
+          "steps": "1. Verify public health check endpoint",
+          "action": "api-GET",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "/api/health",
+          "actualValue": "{\"BaseUrl\":\"http://127.0.0.1:3100\",\"Url\":\"/api/health\",\"Headers\":{\"Content-Type\":\"application/json\"}}",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "2. Validate health check status is ok",
+          "action": "validateJPath",
+          "locatorType": "NA",
+          "locatorTypeValue": "$.status",
+          "value": "ok",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "3. Authenticate with Administrator credentials to obtain JWT token",
+          "action": "api-POST",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "/api/auth/login",
+          "actualValue": "{\"BaseUrl\":\"http://127.0.0.1:3100\",\"Url\":\"/api/auth/login\",\"Headers\":{\"Content-Type\":\"application/json\"},\"Body\":{\"email\":\"admin@campus.test\",\"password\":\"CampusDemo!26\"}}",
+          "isRun": true,
+          "hardStop": true
+        },
+        {
+          "steps": "4. Extract JWT auth token into variable authToken",
+          "action": "SetModuleTextFromJpath-authToken",
+          "locatorType": "NA",
+          "locatorTypeValue": "$.token",
+          "value": "",
+          "isRun": true,
+          "hardStop": true
+        },
+        {
+          "steps": "5. Validate authenticated user role is ADMIN",
+          "action": "validateJPath",
+          "locatorType": "NA",
+          "locatorTypeValue": "$.user.role",
+          "value": "ADMIN",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "6. Query authenticated user profile (/api/auth/me)",
+          "action": "api-GET",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "/api/auth/me",
+          "actualValue": "{\"BaseUrl\":\"http://127.0.0.1:3100\",\"Url\":\"/api/auth/me\",\"Headers\":{\"Authorization\":\"Bearer {{authToken}}\",\"Content-Type\":\"application/json\"}}",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "7. Validate profile email matches administrator",
+          "action": "validateJPath",
+          "locatorType": "NA",
+          "locatorTypeValue": "$.email",
+          "value": "admin@campus.test",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "8. Tab 1 - Query Dashboard / Summary overview (/api/summary)",
+          "action": "api-GET",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "/api/summary",
+          "actualValue": "{\"BaseUrl\":\"http://127.0.0.1:3100\",\"Url\":\"/api/summary\",\"Headers\":{\"Authorization\":\"Bearer {{authToken}}\",\"Content-Type\":\"application/json\"}}",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "9. Validate summary dashboard reports 30 active courses",
+          "action": "validateJPath",
+          "locatorType": "NA",
+          "locatorTypeValue": "$.courses",
+          "value": "30",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "10. Tab 2 - Query Students directory (/api/students)",
+          "action": "api-GET",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "/api/students",
+          "actualValue": "{\"BaseUrl\":\"http://127.0.0.1:3100\",\"Url\":\"/api/students\",\"Headers\":{\"Authorization\":\"Bearer {{authToken}}\",\"Content-Type\":\"application/json\"}}",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "11. Validate first student email is student1@campus.test",
+          "action": "validateJPath",
+          "locatorType": "NA",
+          "locatorTypeValue": "$[0].email",
+          "value": "student1@campus.test",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "12. Validate first student number is 2026-1001",
+          "action": "validateJPath",
+          "locatorType": "NA",
+          "locatorTypeValue": "$[0].studentNo",
+          "value": "2026-1001",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "13. Tab 3 - Query Academic Courses catalog (/api/courses)",
+          "action": "api-GET",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "/api/courses",
+          "actualValue": "{\"BaseUrl\":\"http://127.0.0.1:3100\",\"Url\":\"/api/courses\",\"Headers\":{\"Authorization\":\"Bearer {{authToken}}\",\"Content-Type\":\"application/json\"}}",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "14. Validate first course code is CRS-001",
+          "action": "validateJPath",
+          "locatorType": "NA",
+          "locatorTypeValue": "$[0].code",
+          "value": "CRS-001",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "15. Validate first course name is Applied Computing Foundations",
+          "action": "validateJPath",
+          "locatorType": "NA",
+          "locatorTypeValue": "$[0].name",
+          "value": "Applied Computing Foundations",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "16. Tab 4 - Query Teachers and Faculty directory (/api/teachers)",
+          "action": "api-GET",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "/api/teachers",
+          "actualValue": "{\"BaseUrl\":\"http://127.0.0.1:3100\",\"Url\":\"/api/teachers\",\"Headers\":{\"Authorization\":\"Bearer {{authToken}}\",\"Content-Type\":\"application/json\"}}",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "17. Validate first teacher employee number is EMP-3101",
+          "action": "validateJPath",
+          "locatorType": "NA",
+          "locatorTypeValue": "$[0].employeeNo",
+          "value": "EMP-3101",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "18. Validate first teacher name is Anaya Sharma",
+          "action": "validateJPath",
+          "locatorType": "NA",
+          "locatorTypeValue": "$[0].name",
+          "value": "Anaya Sharma",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "19. Tab 5 - Query Curriculum Subjects (/api/subjects)",
+          "action": "api-GET",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "/api/subjects",
+          "actualValue": "{\"BaseUrl\":\"http://127.0.0.1:3100\",\"Url\":\"/api/subjects\",\"Headers\":{\"Authorization\":\"Bearer {{authToken}}\",\"Content-Type\":\"application/json\"}}",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "20. Validate first subject code is SUB-401",
+          "action": "validateJPath",
+          "locatorType": "NA",
+          "locatorTypeValue": "$[0].code",
+          "value": "SUB-401",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "21. Tab 6 - Query Fees Tracking and Billing (/api/feePayments)",
+          "action": "api-GET",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "/api/feePayments",
+          "actualValue": "{\"BaseUrl\":\"http://127.0.0.1:3100\",\"Url\":\"/api/feePayments\",\"Headers\":{\"Authorization\":\"Bearer {{authToken}}\",\"Content-Type\":\"application/json\"}}",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "22. Validate first fee receipt number is RCPT-26-801",
+          "action": "validateJPath",
+          "locatorType": "NA",
+          "locatorTypeValue": "$[0].receiptNo",
+          "value": "RCPT-26-801",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "23. Tab 7 - Query Study Community Notes (/api/notes)",
+          "action": "api-GET",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "/api/notes",
+          "actualValue": "{\"BaseUrl\":\"http://127.0.0.1:3100\",\"Url\":\"/api/notes\",\"Headers\":{\"Authorization\":\"Bearer {{authToken}}\",\"Content-Type\":\"application/json\"}}",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "24. Validate first note record ID is NO001",
+          "action": "validateJPath",
+          "locatorType": "NA",
+          "locatorTypeValue": "$[0].id",
+          "value": "NO001",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "25. Single Record Lookup - Query specific student record by ID (/api/students/ST001)",
+          "action": "api-GET",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "/api/students/ST001",
+          "actualValue": "{\"BaseUrl\":\"http://127.0.0.1:3100\",\"Url\":\"/api/students/ST001\",\"Headers\":{\"Authorization\":\"Bearer {{authToken}}\",\"Content-Type\":\"application/json\"}}",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "26. Validate retrieved student firstName is Aarav",
+          "action": "validateJPath",
+          "locatorType": "NA",
+          "locatorTypeValue": "$.firstName",
+          "value": "Aarav",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "27. Search Filtering Query - Filter students table by query q=Aarav",
+          "action": "api-GET",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "/api/students?q=Aarav",
+          "actualValue": "{\"BaseUrl\":\"http://127.0.0.1:3100\",\"Url\":\"/api/students?q=Aarav\",\"Headers\":{\"Authorization\":\"Bearer {{authToken}}\",\"Content-Type\":\"application/json\"}}",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "28. Validate filtered search result matches student Aarav Rao",
+          "action": "validateJPath",
+          "locatorType": "NA",
+          "locatorTypeValue": "$[0].lastName",
+          "value": "Rao",
+          "isRun": true,
+          "hardStop": false
+        }
+      ]
+    }
+  ]
+}

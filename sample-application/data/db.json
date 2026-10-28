@@ -1,0 +1,2354 @@
+{
+  "meta": {
+    "app": "CampusFlow",
+    "version": 1,
+    "resetAt": "2026-10-20T00:00:00.000Z"
+  },
+  "users": [
+    {
+      "id": "USR-ADMIN",
+      "name": "Campus Administrator",
+      "email": "admin@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "ADMIN",
+      "studentId": null
+    },
+    {
+      "id": "USR-TEACHER",
+      "name": "Demo Teacher",
+      "email": "teacher@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "TEACHER",
+      "studentId": null
+    },
+    {
+      "id": "USR001",
+      "name": "Aarav Rao",
+      "email": "student1@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST001"
+    },
+    {
+      "id": "USR002",
+      "name": "Diya Mehta",
+      "email": "student2@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST002"
+    },
+    {
+      "id": "USR003",
+      "name": "Kabir Nair",
+      "email": "student3@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST003"
+    },
+    {
+      "id": "USR004",
+      "name": "Anaya Kapoor",
+      "email": "student4@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST004"
+    },
+    {
+      "id": "USR005",
+      "name": "Vivaan Das",
+      "email": "student5@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST005"
+    },
+    {
+      "id": "USR006",
+      "name": "Isha Iyer",
+      "email": "student6@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST006"
+    },
+    {
+      "id": "USR007",
+      "name": "Reyansh Gupta",
+      "email": "student7@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST007"
+    },
+    {
+      "id": "USR008",
+      "name": "Meera Khan",
+      "email": "student8@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST008"
+    },
+    {
+      "id": "USR009",
+      "name": "Arjun Sharma",
+      "email": "student9@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST009"
+    },
+    {
+      "id": "USR010",
+      "name": "Kiara Patel",
+      "email": "student10@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST010"
+    },
+    {
+      "id": "USR011",
+      "name": "Advik Rao",
+      "email": "student11@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST011"
+    },
+    {
+      "id": "USR012",
+      "name": "Saanvi Mehta",
+      "email": "student12@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST012"
+    },
+    {
+      "id": "USR013",
+      "name": "Rohan Nair",
+      "email": "student13@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST013"
+    },
+    {
+      "id": "USR014",
+      "name": "Tara Kapoor",
+      "email": "student14@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST014"
+    },
+    {
+      "id": "USR015",
+      "name": "Neil Das",
+      "email": "student15@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST015"
+    },
+    {
+      "id": "USR016",
+      "name": "Aditi Iyer",
+      "email": "student16@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST016"
+    },
+    {
+      "id": "USR017",
+      "name": "Dev Gupta",
+      "email": "student17@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST017"
+    },
+    {
+      "id": "USR018",
+      "name": "Myra Khan",
+      "email": "student18@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST018"
+    },
+    {
+      "id": "USR019",
+      "name": "Ishaan Sharma",
+      "email": "student19@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST019"
+    },
+    {
+      "id": "USR020",
+      "name": "Sara Patel",
+      "email": "student20@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST020"
+    },
+    {
+      "id": "USR021",
+      "name": "Kunal Rao",
+      "email": "student21@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST021"
+    },
+    {
+      "id": "USR022",
+      "name": "Naina Mehta",
+      "email": "student22@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST022"
+    },
+    {
+      "id": "USR023",
+      "name": "Veer Nair",
+      "email": "student23@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST023"
+    },
+    {
+      "id": "USR024",
+      "name": "Riya Kapoor",
+      "email": "student24@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST024"
+    },
+    {
+      "id": "USR025",
+      "name": "Yash Das",
+      "email": "student25@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST025"
+    },
+    {
+      "id": "USR026",
+      "name": "Aanya Iyer",
+      "email": "student26@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST026"
+    },
+    {
+      "id": "USR027",
+      "name": "Om Gupta",
+      "email": "student27@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST027"
+    },
+    {
+      "id": "USR028",
+      "name": "Mira Khan",
+      "email": "student28@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST028"
+    },
+    {
+      "id": "USR029",
+      "name": "Arnav Sharma",
+      "email": "student29@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST029"
+    },
+    {
+      "id": "USR030",
+      "name": "Zoya Patel",
+      "email": "student30@campus.test",
+      "passwordHash": "$2a$10$IuNhg.I6qdfDLLjUh6XUOOdK0XlcSmHTj8BgqutRMdXzuLj2ro8oG",
+      "role": "STUDENT",
+      "studentId": "ST030"
+    }
+  ],
+  "students": [
+    {
+      "id": "ST001",
+      "studentNo": "2026-1001",
+      "firstName": "Aarav",
+      "lastName": "Rao",
+      "email": "student1@campus.test",
+      "phone": "+91 9810000000",
+      "courseId": "CO001",
+      "enrollmentDate": "2026-01-01",
+      "status": "Active",
+      "userId": "USR001"
+    },
+    {
+      "id": "ST002",
+      "studentNo": "2026-1002",
+      "firstName": "Diya",
+      "lastName": "Mehta",
+      "email": "student2@campus.test",
+      "phone": "+91 9810000001",
+      "courseId": "CO002",
+      "enrollmentDate": "2026-02-02",
+      "status": "Active",
+      "userId": "USR002"
+    },
+    {
+      "id": "ST003",
+      "studentNo": "2026-1003",
+      "firstName": "Kabir",
+      "lastName": "Nair",
+      "email": "student3@campus.test",
+      "phone": "+91 9810000002",
+      "courseId": "CO003",
+      "enrollmentDate": "2026-03-03",
+      "status": "Active",
+      "userId": "USR003"
+    },
+    {
+      "id": "ST004",
+      "studentNo": "2026-1004",
+      "firstName": "Anaya",
+      "lastName": "Kapoor",
+      "email": "student4@campus.test",
+      "phone": "+91 9810000003",
+      "courseId": "CO004",
+      "enrollmentDate": "2026-04-04",
+      "status": "Pending",
+      "userId": "USR004"
+    },
+    {
+      "id": "ST005",
+      "studentNo": "2026-1005",
+      "firstName": "Vivaan",
+      "lastName": "Das",
+      "email": "student5@campus.test",
+      "phone": "+91 9810000004",
+      "courseId": "CO005",
+      "enrollmentDate": "2026-05-05",
+      "status": "On hold",
+      "userId": "USR005"
+    },
+    {
+      "id": "ST006",
+      "studentNo": "2026-1006",
+      "firstName": "Isha",
+      "lastName": "Iyer",
+      "email": "student6@campus.test",
+      "phone": "+91 9810000005",
+      "courseId": "CO006",
+      "enrollmentDate": "2026-06-06",
+      "status": "Active",
+      "userId": "USR006"
+    },
+    {
+      "id": "ST007",
+      "studentNo": "2026-1007",
+      "firstName": "Reyansh",
+      "lastName": "Gupta",
+      "email": "student7@campus.test",
+      "phone": "+91 9810000006",
+      "courseId": "CO007",
+      "enrollmentDate": "2026-07-07",
+      "status": "Active",
+      "userId": "USR007"
+    },
+    {
+      "id": "ST008",
+      "studentNo": "2026-1008",
+      "firstName": "Meera",
+      "lastName": "Khan",
+      "email": "student8@campus.test",
+      "phone": "+91 9810000007",
+      "courseId": "CO008",
+      "enrollmentDate": "2026-08-08",
+      "status": "Active",
+      "userId": "USR008"
+    },
+    {
+      "id": "ST009",
+      "studentNo": "2026-1009",
+      "firstName": "Arjun",
+      "lastName": "Sharma",
+      "email": "student9@campus.test",
+      "phone": "+91 9810000008",
+      "courseId": "CO009",
+      "enrollmentDate": "2026-01-09",
+      "status": "Pending",
+      "userId": "USR009"
+    },
+    {
+      "id": "ST010",
+      "studentNo": "2026-1010",
+      "firstName": "Kiara",
+      "lastName": "Patel",
+      "email": "student10@campus.test",
+      "phone": "+91 9810000009",
+      "courseId": "CO010",
+      "enrollmentDate": "2026-02-10",
+      "status": "On hold",
+      "userId": "USR010"
+    },
+    {
+      "id": "ST011",
+      "studentNo": "2026-1011",
+      "firstName": "Advik",
+      "lastName": "Rao",
+      "email": "student11@campus.test",
+      "phone": "+91 9810000010",
+      "courseId": "CO011",
+      "enrollmentDate": "2026-03-11",
+      "status": "Active",
+      "userId": "USR011"
+    },
+    {
+      "id": "ST012",
+      "studentNo": "2026-1012",
+      "firstName": "Saanvi",
+      "lastName": "Mehta",
+      "email": "student12@campus.test",
+      "phone": "+91 9810000011",
+      "courseId": "CO012",
+      "enrollmentDate": "2026-04-12",
+      "status": "Active",
+      "userId": "USR012"
+    },
+    {
+      "id": "ST013",
+      "studentNo": "2026-1013",
+      "firstName": "Rohan",
+      "lastName": "Nair",
+      "email": "student13@campus.test",
+      "phone": "+91 9810000012",
+      "courseId": "CO013",
+      "enrollmentDate": "2026-05-13",
+      "status": "Active",
+      "userId": "USR013"
+    },
+    {
+      "id": "ST014",
+      "studentNo": "2026-1014",
+      "firstName": "Tara",
+      "lastName": "Kapoor",
+      "email": "student14@campus.test",
+      "phone": "+91 9810000013",
+      "courseId": "CO014",
+      "enrollmentDate": "2026-06-14",
+      "status": "Pending",
+      "userId": "USR014"
+    },
+    {
+      "id": "ST015",
+      "studentNo": "2026-1015",
+      "firstName": "Neil",
+      "lastName": "Das",
+      "email": "student15@campus.test",
+      "phone": "+91 9810000014",
+      "courseId": "CO015",
+      "enrollmentDate": "2026-07-15",
+      "status": "On hold",
+      "userId": "USR015"
+    },
+    {
+      "id": "ST016",
+      "studentNo": "2026-1016",
+      "firstName": "Aditi",
+      "lastName": "Iyer",
+      "email": "student16@campus.test",
+      "phone": "+91 9810000015",
+      "courseId": "CO016",
+      "enrollmentDate": "2026-08-16",
+      "status": "Active",
+      "userId": "USR016"
+    },
+    {
+      "id": "ST017",
+      "studentNo": "2026-1017",
+      "firstName": "Dev",
+      "lastName": "Gupta",
+      "email": "student17@campus.test",
+      "phone": "+91 9810000016",
+      "courseId": "CO017",
+      "enrollmentDate": "2026-01-17",
+      "status": "Active",
+      "userId": "USR017"
+    },
+    {
+      "id": "ST018",
+      "studentNo": "2026-1018",
+      "firstName": "Myra",
+      "lastName": "Khan",
+      "email": "student18@campus.test",
+      "phone": "+91 9810000017",
+      "courseId": "CO018",
+      "enrollmentDate": "2026-02-18",
+      "status": "Active",
+      "userId": "USR018"
+    },
+    {
+      "id": "ST019",
+      "studentNo": "2026-1019",
+      "firstName": "Ishaan",
+      "lastName": "Sharma",
+      "email": "student19@campus.test",
+      "phone": "+91 9810000018",
+      "courseId": "CO019",
+      "enrollmentDate": "2026-03-19",
+      "status": "Pending",
+      "userId": "USR019"
+    },
+    {
+      "id": "ST020",
+      "studentNo": "2026-1020",
+      "firstName": "Sara",
+      "lastName": "Patel",
+      "email": "student20@campus.test",
+      "phone": "+91 9810000019",
+      "courseId": "CO020",
+      "enrollmentDate": "2026-04-20",
+      "status": "On hold",
+      "userId": "USR020"
+    },
+    {
+      "id": "ST021",
+      "studentNo": "2026-1021",
+      "firstName": "Kunal",
+      "lastName": "Rao",
+      "email": "student21@campus.test",
+      "phone": "+91 9810000020",
+      "courseId": "CO021",
+      "enrollmentDate": "2026-05-21",
+      "status": "Active",
+      "userId": "USR021"
+    },
+    {
+      "id": "ST022",
+      "studentNo": "2026-1022",
+      "firstName": "Naina",
+      "lastName": "Mehta",
+      "email": "student22@campus.test",
+      "phone": "+91 9810000021",
+      "courseId": "CO022",
+      "enrollmentDate": "2026-06-22",
+      "status": "Active",
+      "userId": "USR022"
+    },
+    {
+      "id": "ST023",
+      "studentNo": "2026-1023",
+      "firstName": "Veer",
+      "lastName": "Nair",
+      "email": "student23@campus.test",
+      "phone": "+91 9810000022",
+      "courseId": "CO023",
+      "enrollmentDate": "2026-07-23",
+      "status": "Active",
+      "userId": "USR023"
+    },
+    {
+      "id": "ST024",
+      "studentNo": "2026-1024",
+      "firstName": "Riya",
+      "lastName": "Kapoor",
+      "email": "student24@campus.test",
+      "phone": "+91 9810000023",
+      "courseId": "CO024",
+      "enrollmentDate": "2026-08-24",
+      "status": "Pending",
+      "userId": "USR024"
+    },
+    {
+      "id": "ST025",
+      "studentNo": "2026-1025",
+      "firstName": "Yash",
+      "lastName": "Das",
+      "email": "student25@campus.test",
+      "phone": "+91 9810000024",
+      "courseId": "CO025",
+      "enrollmentDate": "2026-01-25",
+      "status": "On hold",
+      "userId": "USR025"
+    },
+    {
+      "id": "ST026",
+      "studentNo": "2026-1026",
+      "firstName": "Aanya",
+      "lastName": "Iyer",
+      "email": "student26@campus.test",
+      "phone": "+91 9810000025",
+      "courseId": "CO026",
+      "enrollmentDate": "2026-02-26",
+      "status": "Active",
+      "userId": "USR026"
+    },
+    {
+      "id": "ST027",
+      "studentNo": "2026-1027",
+      "firstName": "Om",
+      "lastName": "Gupta",
+      "email": "student27@campus.test",
+      "phone": "+91 9810000026",
+      "courseId": "CO027",
+      "enrollmentDate": "2026-03-27",
+      "status": "Active",
+      "userId": "USR027"
+    },
+    {
+      "id": "ST028",
+      "studentNo": "2026-1028",
+      "firstName": "Mira",
+      "lastName": "Khan",
+      "email": "student28@campus.test",
+      "phone": "+91 9810000027",
+      "courseId": "CO028",
+      "enrollmentDate": "2026-04-01",
+      "status": "Active",
+      "userId": "USR028"
+    },
+    {
+      "id": "ST029",
+      "studentNo": "2026-1029",
+      "firstName": "Arnav",
+      "lastName": "Sharma",
+      "email": "student29@campus.test",
+      "phone": "+91 9810000028",
+      "courseId": "CO029",
+      "enrollmentDate": "2026-05-02",
+      "status": "Pending",
+      "userId": "USR029"
+    },
+    {
+      "id": "ST030",
+      "studentNo": "2026-1030",
+      "firstName": "Zoya",
+      "lastName": "Patel",
+      "email": "student30@campus.test",
+      "phone": "+91 9810000029",
+      "courseId": "CO030",
+      "enrollmentDate": "2026-06-03",
+      "status": "On hold",
+      "userId": "USR030"
+    },
+    {
+      "studentNo": "123",
+      "firstName": "Abhay",
+      "lastName": "Velankar",
+      "email": "abhay.velankar@gmail.com",
+      "phone": "123456789",
+      "courseId": "CO009",
+      "enrollmentDate": "2026-10-20",
+      "status": "Pending",
+      "id": "ST031"
+    },
+    {
+      "studentNo": "2026-QA-9001",
+      "firstName": "UpdatedQA",
+      "lastName": "Sample",
+      "email": "nexttest.student@example.test",
+      "phone": "+91 9000000001",
+      "courseId": "CO001",
+      "enrollmentDate": "61020-02-20",
+      "status": "Active",
+      "id": "ST032"
+    },
+    {
+      "studentNo": "2026-QA-9001",
+      "firstName":"NextTest",
+      "lastName": "Sample",
+      "email": "nexttest.student@example.test",
+      "phone": "+91 9000000001",
+      "courseId": "CO001",
+      "enrollmentDate": "61020-02-20",
+      "status": "Active",
+      "id": "ST033"
+    },
+    {
+      "studentNo": "2026-QA-9001",
+      "firstName":"NextTest",
+      "lastName": "Sample",
+      "email": "nexttest.student@example.test",
+      "phone": "+91 9000000001",
+      "courseId": "CO001",
+      "enrollmentDate": "61020-02-20",
+      "status": "Active",
+      "id": "ST034"
+    },
+    {
+      "studentNo": "2026-QA-9001",
+      "firstName":"NextTest",
+      "lastName": "Sample",
+      "email": "nexttest.student@example.test",
+      "phone": "+91 9000000001",
+      "courseId": "CO001",
+      "enrollmentDate": "61020-02-20",
+      "status": "Active",
+      "id": "ST035"
+    },
+    {
+      "studentNo": "2026-QA-9001",
+      "firstName":"NextTest",
+      "lastName": "Sample",
+      "email": "nexttest.student@example.test",
+      "phone": "+91 9000000001",
+      "courseId": "CO001",
+      "enrollmentDate": "61020-02-20",
+      "status": "Active",
+      "id": "ST036"
+    },
+    {
+      "studentNo": "2026-QA-9001",
+      "firstName":"NextTest",
+      "lastName": "Sample",
+      "email": "nexttest.student@example.test",
+      "phone": "+91 9000000001",
+      "courseId": "CO001",
+      "enrollmentDate": "61020-02-20",
+      "status": "Active",
+      "id": "ST037"
+    },
+    {
+      "studentNo": "2026-QA-9001",
+      "firstName":"NextTest",
+      "lastName": "Sample",
+      "email": "nexttest.student@example.test",
+      "phone": "+91 9000000001",
+      "courseId": "CO001",
+      "enrollmentDate": "61020-02-20",
+      "status": "Active",
+      "id": "ST038"
+    },
+    {
+      "studentNo": "2026-QA-9001",
+      "firstName":"NextTest",
+      "lastName": "Sample",
+      "email": "nexttest.student@example.test",
+      "phone": "+91 9000000001",
+      "courseId": "CO001",
+      "enrollmentDate": "61020-02-20",
+      "status": "Active",
+      "id": "ST039"
+    },
+    {
+      "studentNo": "2026-QA-9001",
+      "firstName":"NextTest",
+      "lastName": "Sample",
+      "email": "nexttest.student@example.test",
+      "phone": "+91 9000000001",
+      "courseId": "CO001",
+      "enrollmentDate": "61020-02-20",
+      "status": "Active",
+      "id": "ST040"
+    },
+    {
+      "studentNo": "2026-QA-9001",
+      "firstName":"NextTest",
+      "lastName": "Sample",
+      "email": "nexttest.student@example.test",
+      "phone": "+91 9000000001",
+      "courseId": "CO001",
+      "enrollmentDate": "61020-02-20",
+      "status": "Active",
+      "id": "ST041"
+    },
+    {
+      "studentNo": "2026-QA-9001",
+      "firstName":"NextTest",
+      "lastName": "Sample",
+      "email": "nexttest.student@example.test",
+      "phone": "+91 9000000001",
+      "courseId": "CO001",
+      "enrollmentDate": "61020-02-20",
+      "status": "Active",
+      "id": "ST043"
+    },
+    {
+      "studentNo": "2026-QA-9001",
+      "firstName":"NextTest",
+      "lastName": "Sample",
+      "email": "nexttest.student@example.test",
+      "phone": "+91 9000000001",
+      "courseId": "CO001",
+      "enrollmentDate": "61020-02-20",
+      "status": "Active",
+      "id": "ST044"
+    },
+    {
+      "studentNo": "2026-QA-9001",
+      "firstName":"NextTest",
+      "lastName": "Sample",
+      "email": "nexttest.student@example.test",
+      "phone": "+91 9000000001",
+      "courseId": "CO001",
+      "enrollmentDate": "61020-02-20",
+      "status": "Active",
+      "id": "ST045"
+    },
+    {
+      "studentNo": "2026-QA-9001",
+      "firstName":"NextTest",
+      "lastName": "Sample",
+      "email": "nexttest.student@example.test",
+      "phone": "+91 9000000001",
+      "courseId": "CO001",
+      "enrollmentDate": "61020-02-20",
+      "status": "Active",
+      "id": "ST046"
+    },
+    {
+      "studentNo": "2026-QA-9001",
+      "firstName":"NextTest",
+      "lastName": "Sample",
+      "email": "nexttest.student@example.test",
+      "phone": "+91 9000000001",
+      "courseId": "CO001",
+      "enrollmentDate": "61020-02-20",
+      "status": "Active",
+      "id": "ST047"
+    },
+    {
+      "studentNo": "2026-QA-9001",
+      "firstName":"NextTest",
+      "lastName": "Sample",
+      "email": "nexttest.student@example.test",
+      "phone": "+91 9000000001",
+      "courseId": "CO001",
+      "enrollmentDate": "61020-02-20",
+      "status": "Active",
+      "id": "ST048"
+    },
+    {
+      "studentNo": "2026-QA-9001",
+      "firstName":"NextTest",
+      "lastName": "Sample",
+      "email": "nexttest.student@example.test",
+      "phone": "+91 9000000001",
+      "courseId": "CO001",
+      "enrollmentDate": "61020-02-20",
+      "status": "Active",
+      "id": "ST049"
+    }
+  ],
+  "courses": [
+    {
+      "id": "CO001",
+      "code": "CRS-001",
+      "name": "Applied Computing Foundations",
+      "level": "Certificate",
+      "durationMonths": 6,
+      "feeAmount": 18000,
+      "status": "Active"
+    },
+    {
+      "id": "CO002",
+      "code": "CRS-002",
+      "name": "Business Studies Foundations",
+      "level": "Diploma",
+      "durationMonths": 9,
+      "feeAmount": 19700,
+      "status": "Active"
+    },
+    {
+      "id": "CO003",
+      "code": "CRS-003",
+      "name": "Data Analytics Foundations",
+      "level": "Bachelor",
+      "durationMonths": 12,
+      "feeAmount": 21400,
+      "status": "Active"
+    },
+    {
+      "id": "CO004",
+      "code": "CRS-004",
+      "name": "Digital Design Foundations",
+      "level": "Master",
+      "durationMonths": 18,
+      "feeAmount": 23100,
+      "status": "Active"
+    },
+    {
+      "id": "CO005",
+      "code": "CRS-005",
+      "name": "Electronics Foundations",
+      "level": "Certificate",
+      "durationMonths": 24,
+      "feeAmount": 24800,
+      "status": "Active"
+    },
+    {
+      "id": "CO006",
+      "code": "CRS-006",
+      "name": "Environmental Science Foundations",
+      "level": "Diploma",
+      "durationMonths": 36,
+      "feeAmount": 26500,
+      "status": "Active"
+    },
+    {
+      "id": "CO007",
+      "code": "CRS-007",
+      "name": "Applied Computing Practice",
+      "level": "Bachelor",
+      "durationMonths": 6,
+      "feeAmount": 28200,
+      "status": "Active"
+    },
+    {
+      "id": "CO008",
+      "code": "CRS-008",
+      "name": "Business Studies Practice",
+      "level": "Master",
+      "durationMonths": 9,
+      "feeAmount": 29900,
+      "status": "Active"
+    },
+    {
+      "id": "CO009",
+      "code": "CRS-009",
+      "name": "Data Analytics Practice",
+      "level": "Certificate",
+      "durationMonths": 12,
+      "feeAmount": 31600,
+      "status": "Active"
+    },
+    {
+      "id": "CO010",
+      "code": "CRS-010",
+      "name": "Digital Design Practice",
+      "level": "Diploma",
+      "durationMonths": 18,
+      "feeAmount": 33300,
+      "status": "Active"
+    },
+    {
+      "id": "CO011",
+      "code": "CRS-011",
+      "name": "Electronics Practice",
+      "level": "Bachelor",
+      "durationMonths": 24,
+      "feeAmount": 35000,
+      "status": "Active"
+    },
+    {
+      "id": "CO012",
+      "code": "CRS-012",
+      "name": "Environmental Science Practice",
+      "level": "Master",
+      "durationMonths": 36,
+      "feeAmount": 36700,
+      "status": "Active"
+    },
+    {
+      "id": "CO013",
+      "code": "CRS-013",
+      "name": "Applied Computing and Research",
+      "level": "Certificate",
+      "durationMonths": 6,
+      "feeAmount": 38400,
+      "status": "Active"
+    },
+    {
+      "id": "CO014",
+      "code": "CRS-014",
+      "name": "Business Studies and Research",
+      "level": "Diploma",
+      "durationMonths": 9,
+      "feeAmount": 40100,
+      "status": "Active"
+    },
+    {
+      "id": "CO015",
+      "code": "CRS-015",
+      "name": "Data Analytics and Research",
+      "level": "Bachelor",
+      "durationMonths": 12,
+      "feeAmount": 41800,
+      "status": "Active"
+    },
+    {
+      "id": "CO016",
+      "code": "CRS-016",
+      "name": "Digital Design and Research",
+      "level": "Master",
+      "durationMonths": 18,
+      "feeAmount": 43500,
+      "status": "Active"
+    },
+    {
+      "id": "CO017",
+      "code": "CRS-017",
+      "name": "Electronics and Research",
+      "level": "Certificate",
+      "durationMonths": 24,
+      "feeAmount": 45200,
+      "status": "Active"
+    },
+    {
+      "id": "CO018",
+      "code": "CRS-018",
+      "name": "Environmental Science and Research",
+      "level": "Diploma",
+      "durationMonths": 36,
+      "feeAmount": 46900,
+      "status": "Active"
+    },
+    {
+      "id": "CO019",
+      "code": "CRS-019",
+      "name": "Applied Computing Professional Diploma",
+      "level": "Bachelor",
+      "durationMonths": 6,
+      "feeAmount": 48600,
+      "status": "Active"
+    },
+    {
+      "id": "CO020",
+      "code": "CRS-020",
+      "name": "Business Studies Professional Diploma",
+      "level": "Master",
+      "durationMonths": 9,
+      "feeAmount": 50300,
+      "status": "Active"
+    },
+    {
+      "id": "CO021",
+      "code": "CRS-021",
+      "name": "Data Analytics Professional Diploma",
+      "level": "Certificate",
+      "durationMonths": 12,
+      "feeAmount": 52000,
+      "status": "Active"
+    },
+    {
+      "id": "CO022",
+      "code": "CRS-022",
+      "name": "Digital Design Professional Diploma",
+      "level": "Diploma",
+      "durationMonths": 18,
+      "feeAmount": 53700,
+      "status": "Active"
+    },
+    {
+      "id": "CO023",
+      "code": "CRS-023",
+      "name": "Electronics Professional Diploma",
+      "level": "Bachelor",
+      "durationMonths": 24,
+      "feeAmount": 55400,
+      "status": "Active"
+    },
+    {
+      "id": "CO024",
+      "code": "CRS-024",
+      "name": "Environmental Science Professional Diploma",
+      "level": "Master",
+      "durationMonths": 36,
+      "feeAmount": 57100,
+      "status": "Active"
+    },
+    {
+      "id": "CO025",
+      "code": "CRS-025",
+      "name": "Applied Computing Advanced Studies",
+      "level": "Certificate",
+      "durationMonths": 6,
+      "feeAmount": 58800,
+      "status": "Active"
+    },
+    {
+      "id": "CO026",
+      "code": "CRS-026",
+      "name": "Business Studies Advanced Studies",
+      "level": "Diploma",
+      "durationMonths": 9,
+      "feeAmount": 60500,
+      "status": "Active"
+    },
+    {
+      "id": "CO027",
+      "code": "CRS-027",
+      "name": "Data Analytics Advanced Studies",
+      "level": "Bachelor",
+      "durationMonths": 12,
+      "feeAmount": 62200,
+      "status": "Active"
+    },
+    {
+      "id": "CO028",
+      "code": "CRS-028",
+      "name": "Digital Design Advanced Studies",
+      "level": "Master",
+      "durationMonths": 18,
+      "feeAmount": 63900,
+      "status": "Active"
+    },
+    {
+      "id": "CO029",
+      "code": "CRS-029",
+      "name": "Electronics Advanced Studies",
+      "level": "Certificate",
+      "durationMonths": 24,
+      "feeAmount": 65600,
+      "status": "Active"
+    },
+    {
+      "id": "CO030",
+      "code": "CRS-030",
+      "name": "Environmental Science Advanced Studies",
+      "level": "Diploma",
+      "durationMonths": 36,
+      "feeAmount": 19300,
+      "status": "Draft"
+    }
+  ],
+  "teachers": [
+    {
+      "id": "TE001",
+      "employeeNo": "EMP-3101",
+      "name": "Anaya Sharma",
+      "email": "teacher1@campus.test",
+      "department": "Computing",
+      "status": "Active"
+    },
+    {
+      "id": "TE002",
+      "employeeNo": "EMP-3102",
+      "name": "Vivaan Patel",
+      "email": "teacher2@campus.test",
+      "department": "Business",
+      "status": "Active"
+    },
+    {
+      "id": "TE003",
+      "employeeNo": "EMP-3103",
+      "name": "Isha Rao",
+      "email": "teacher3@campus.test",
+      "department": "Sciences",
+      "status": "Active"
+    },
+    {
+      "id": "TE004",
+      "employeeNo": "EMP-3104",
+      "name": "Reyansh Mehta",
+      "email": "teacher4@campus.test",
+      "department": "Design",
+      "status": "Active"
+    },
+    {
+      "id": "TE005",
+      "employeeNo": "EMP-3105",
+      "name": "Meera Nair",
+      "email": "teacher5@campus.test",
+      "department": "Mathematics",
+      "status": "Active"
+    },
+    {
+      "id": "TE006",
+      "employeeNo": "EMP-3106",
+      "name": "Arjun Kapoor",
+      "email": "teacher6@campus.test",
+      "department": "Computing",
+      "status": "Active"
+    },
+    {
+      "id": "TE007",
+      "employeeNo": "EMP-3107",
+      "name": "Kiara Das",
+      "email": "teacher7@campus.test",
+      "department": "Business",
+      "status": "Active"
+    },
+    {
+      "id": "TE008",
+      "employeeNo": "EMP-3108",
+      "name": "Advik Iyer",
+      "email": "teacher8@campus.test",
+      "department": "Sciences",
+      "status": "Active"
+    },
+    {
+      "id": "TE009",
+      "employeeNo": "EMP-3109",
+      "name": "Saanvi Gupta",
+      "email": "teacher9@campus.test",
+      "department": "Design",
+      "status": "Active"
+    },
+    {
+      "id": "TE010",
+      "employeeNo": "EMP-3110",
+      "name": "Rohan Khan",
+      "email": "teacher10@campus.test",
+      "department": "Mathematics",
+      "status": "Active"
+    },
+    {
+      "id": "TE011",
+      "employeeNo": "EMP-3111",
+      "name": "Tara Sharma",
+      "email": "teacher11@campus.test",
+      "department": "Computing",
+      "status": "Active"
+    },
+    {
+      "id": "TE012",
+      "employeeNo": "EMP-3112",
+      "name": "Neil Patel",
+      "email": "teacher12@campus.test",
+      "department": "Business",
+      "status": "Active"
+    },
+    {
+      "id": "TE013",
+      "employeeNo": "EMP-3113",
+      "name": "Aditi Rao",
+      "email": "teacher13@campus.test",
+      "department": "Sciences",
+      "status": "Active"
+    },
+    {
+      "id": "TE014",
+      "employeeNo": "EMP-3114",
+      "name": "Dev Mehta",
+      "email": "teacher14@campus.test",
+      "department": "Design",
+      "status": "Active"
+    },
+    {
+      "id": "TE015",
+      "employeeNo": "EMP-3115",
+      "name": "Myra Nair",
+      "email": "teacher15@campus.test",
+      "department": "Mathematics",
+      "status": "Active"
+    },
+    {
+      "id": "TE016",
+      "employeeNo": "EMP-3116",
+      "name": "Ishaan Kapoor",
+      "email": "teacher16@campus.test",
+      "department": "Computing",
+      "status": "Active"
+    },
+    {
+      "id": "TE017",
+      "employeeNo": "EMP-3117",
+      "name": "Sara Das",
+      "email": "teacher17@campus.test",
+      "department": "Business",
+      "status": "Active"
+    },
+    {
+      "id": "TE018",
+      "employeeNo": "EMP-3118",
+      "name": "Kunal Iyer",
+      "email": "teacher18@campus.test",
+      "department": "Sciences",
+      "status": "Active"
+    },
+    {
+      "id": "TE019",
+      "employeeNo": "EMP-3119",
+      "name": "Naina Gupta",
+      "email": "teacher19@campus.test",
+      "department": "Design",
+      "status": "Active"
+    },
+    {
+      "id": "TE020",
+      "employeeNo": "EMP-3120",
+      "name": "Veer Khan",
+      "email": "teacher20@campus.test",
+      "department": "Mathematics",
+      "status": "Active"
+    },
+    {
+      "id": "TE021",
+      "employeeNo": "EMP-3121",
+      "name": "Riya Sharma",
+      "email": "teacher21@campus.test",
+      "department": "Computing",
+      "status": "Active"
+    },
+    {
+      "id": "TE022",
+      "employeeNo": "EMP-3122",
+      "name": "Yash Patel",
+      "email": "teacher22@campus.test",
+      "department": "Business",
+      "status": "Active"
+    },
+    {
+      "id": "TE023",
+      "employeeNo": "EMP-3123",
+      "name": "Aanya Rao",
+      "email": "teacher23@campus.test",
+      "department": "Sciences",
+      "status": "Active"
+    },
+    {
+      "id": "TE024",
+      "employeeNo": "EMP-3124",
+      "name": "Om Mehta",
+      "email": "teacher24@campus.test",
+      "department": "Design",
+      "status": "Active"
+    },
+    {
+      "id": "TE025",
+      "employeeNo": "EMP-3125",
+      "name": "Mira Nair",
+      "email": "teacher25@campus.test",
+      "department": "Mathematics",
+      "status": "Active"
+    },
+    {
+      "id": "TE026",
+      "employeeNo": "EMP-3126",
+      "name": "Arnav Kapoor",
+      "email": "teacher26@campus.test",
+      "department": "Computing",
+      "status": "Active"
+    },
+    {
+      "id": "TE027",
+      "employeeNo": "EMP-3127",
+      "name": "Zoya Das",
+      "email": "teacher27@campus.test",
+      "department": "Business",
+      "status": "Active"
+    },
+    {
+      "id": "TE028",
+      "employeeNo": "EMP-3128",
+      "name": "Aarav Iyer",
+      "email": "teacher28@campus.test",
+      "department": "Sciences",
+      "status": "Active"
+    },
+    {
+      "id": "TE029",
+      "employeeNo": "EMP-3129",
+      "name": "Diya Gupta",
+      "email": "teacher29@campus.test",
+      "department": "Design",
+      "status": "On leave"
+    },
+    {
+      "id": "TE030",
+      "employeeNo": "EMP-3130",
+      "name": "Kabir Khan",
+      "email": "teacher30@campus.test",
+      "department": "Mathematics",
+      "status": "Active"
+    }
+  ],
+  "subjects": [
+    {
+      "id": "SU001",
+      "code": "SUB-401",
+      "name": "Introduction to Programming",
+      "courseId": "CO001",
+      "teacherId": "TE001",
+      "credits": 2,
+      "status": "Active"
+    },
+    {
+      "id": "SU002",
+      "code": "SUB-402",
+      "name": "Applied Accounting",
+      "courseId": "CO002",
+      "teacherId": "TE002",
+      "credits": 3,
+      "status": "Active"
+    },
+    {
+      "id": "SU003",
+      "code": "SUB-403",
+      "name": "Foundations of Statistics",
+      "courseId": "CO003",
+      "teacherId": "TE003",
+      "credits": 4,
+      "status": "Active"
+    },
+    {
+      "id": "SU004",
+      "code": "SUB-404",
+      "name": "Research in User Experience",
+      "courseId": "CO004",
+      "teacherId": "TE004",
+      "credits": 5,
+      "status": "Active"
+    },
+    {
+      "id": "SU005",
+      "code": "SUB-405",
+      "name": "Professional Networks",
+      "courseId": "CO005",
+      "teacherId": "TE005",
+      "credits": 2,
+      "status": "Active"
+    },
+    {
+      "id": "SU006",
+      "code": "SUB-406",
+      "name": "Introduction to Project Management",
+      "courseId": "CO006",
+      "teacherId": "TE006",
+      "credits": 3,
+      "status": "Active"
+    },
+    {
+      "id": "SU007",
+      "code": "SUB-407",
+      "name": "Applied Programming",
+      "courseId": "CO007",
+      "teacherId": "TE007",
+      "credits": 4,
+      "status": "Active"
+    },
+    {
+      "id": "SU008",
+      "code": "SUB-408",
+      "name": "Foundations of Accounting",
+      "courseId": "CO008",
+      "teacherId": "TE008",
+      "credits": 5,
+      "status": "Active"
+    },
+    {
+      "id": "SU009",
+      "code": "SUB-409",
+      "name": "Research in Statistics",
+      "courseId": "CO009",
+      "teacherId": "TE009",
+      "credits": 2,
+      "status": "Active"
+    },
+    {
+      "id": "SU010",
+      "code": "SUB-410",
+      "name": "Professional User Experience",
+      "courseId": "CO010",
+      "teacherId": "TE010",
+      "credits": 3,
+      "status": "Active"
+    },
+    {
+      "id": "SU011",
+      "code": "SUB-411",
+      "name": "Introduction to Networks",
+      "courseId": "CO011",
+      "teacherId": "TE011",
+      "credits": 4,
+      "status": "Active"
+    },
+    {
+      "id": "SU012",
+      "code": "SUB-412",
+      "name": "Applied Project Management",
+      "courseId": "CO012",
+      "teacherId": "TE012",
+      "credits": 5,
+      "status": "Active"
+    },
+    {
+      "id": "SU013",
+      "code": "SUB-413",
+      "name": "Foundations of Programming",
+      "courseId": "CO013",
+      "teacherId": "TE013",
+      "credits": 2,
+      "status": "Active"
+    },
+    {
+      "id": "SU014",
+      "code": "SUB-414",
+      "name": "Research in Accounting",
+      "courseId": "CO014",
+      "teacherId": "TE014",
+      "credits": 3,
+      "status": "Active"
+    },
+    {
+      "id": "SU015",
+      "code": "SUB-415",
+      "name": "Professional Statistics",
+      "courseId": "CO015",
+      "teacherId": "TE015",
+      "credits": 4,
+      "status": "Active"
+    },
+    {
+      "id": "SU016",
+      "code": "SUB-416",
+      "name": "Introduction to User Experience",
+      "courseId": "CO016",
+      "teacherId": "TE016",
+      "credits": 5,
+      "status": "Active"
+    },
+    {
+      "id": "SU017",
+      "code": "SUB-417",
+      "name": "Applied Networks",
+      "courseId": "CO017",
+      "teacherId": "TE017",
+      "credits": 2,
+      "status": "Active"
+    },
+    {
+      "id": "SU018",
+      "code": "SUB-418",
+      "name": "Foundations of Project Management",
+      "courseId": "CO018",
+      "teacherId": "TE018",
+      "credits": 3,
+      "status": "Active"
+    },
+    {
+      "id": "SU019",
+      "code": "SUB-419",
+      "name": "Research in Programming",
+      "courseId": "CO019",
+      "teacherId": "TE019",
+      "credits": 4,
+      "status": "Active"
+    },
+    {
+      "id": "SU020",
+      "code": "SUB-420",
+      "name": "Professional Accounting",
+      "courseId": "CO020",
+      "teacherId": "TE020",
+      "credits": 5,
+      "status": "Active"
+    },
+    {
+      "id": "SU021",
+      "code": "SUB-421",
+      "name": "Introduction to Statistics",
+      "courseId": "CO021",
+      "teacherId": "TE021",
+      "credits": 2,
+      "status": "Active"
+    },
+    {
+      "id": "SU022",
+      "code": "SUB-422",
+      "name": "Applied User Experience",
+      "courseId": "CO022",
+      "teacherId": "TE022",
+      "credits": 3,
+      "status": "Active"
+    },
+    {
+      "id": "SU023",
+      "code": "SUB-423",
+      "name": "Foundations of Networks",
+      "courseId": "CO023",
+      "teacherId": "TE023",
+      "credits": 4,
+      "status": "Active"
+    },
+    {
+      "id": "SU024",
+      "code": "SUB-424",
+      "name": "Research in Project Management",
+      "courseId": "CO024",
+      "teacherId": "TE024",
+      "credits": 5,
+      "status": "Active"
+    },
+    {
+      "id": "SU025",
+      "code": "SUB-425",
+      "name": "Professional Programming",
+      "courseId": "CO025",
+      "teacherId": "TE025",
+      "credits": 2,
+      "status": "Active"
+    },
+    {
+      "id": "SU026",
+      "code": "SUB-426",
+      "name": "Introduction to Accounting",
+      "courseId": "CO026",
+      "teacherId": "TE026",
+      "credits": 3,
+      "status": "Active"
+    },
+    {
+      "id": "SU027",
+      "code": "SUB-427",
+      "name": "Applied Statistics",
+      "courseId": "CO027",
+      "teacherId": "TE027",
+      "credits": 4,
+      "status": "Active"
+    },
+    {
+      "id": "SU028",
+      "code": "SUB-428",
+      "name": "Foundations of User Experience",
+      "courseId": "CO028",
+      "teacherId": "TE028",
+      "credits": 5,
+      "status": "Active"
+    },
+    {
+      "id": "SU029",
+      "code": "SUB-429",
+      "name": "Research in Networks",
+      "courseId": "CO029",
+      "teacherId": "TE029",
+      "credits": 2,
+      "status": "Active"
+    },
+    {
+      "id": "SU030",
+      "code": "SUB-430",
+      "name": "Professional Project Management",
+      "courseId": "CO030",
+      "teacherId": "TE030",
+      "credits": 3,
+      "status": "Active"
+    }
+  ],
+  "feePayments": [
+    {
+      "id": "FP001",
+      "receiptNo": "RCPT-26-801",
+      "studentId": "ST001",
+      "amount": 5000,
+      "dueDate": "2026-01-10",
+      "paidDate": "",
+      "status": "Due",
+      "method": ""
+    },
+    {
+      "id": "FP002",
+      "receiptNo": "RCPT-26-802",
+      "studentId": "ST002",
+      "amount": 6250,
+      "dueDate": "2026-02-10",
+      "paidDate": "2026-02-02",
+      "status": "Paid",
+      "method": "Card"
+    },
+    {
+      "id": "FP003",
+      "receiptNo": "RCPT-26-803",
+      "studentId": "ST003",
+      "amount": 7500,
+      "dueDate": "2026-03-10",
+      "paidDate": "2026-03-03",
+      "status": "Paid",
+      "method": "Bank transfer"
+    },
+    {
+      "id": "FP004",
+      "receiptNo": "RCPT-26-804",
+      "studentId": "ST004",
+      "amount": 8750,
+      "dueDate": "2026-04-10",
+      "paidDate": "2026-04-04",
+      "status": "Paid",
+      "method": "Cash"
+    },
+    {
+      "id": "FP005",
+      "receiptNo": "RCPT-26-805",
+      "studentId": "ST005",
+      "amount": 10000,
+      "dueDate": "2026-05-10",
+      "paidDate": "",
+      "status": "Due",
+      "method": ""
+    },
+    {
+      "id": "FP006",
+      "receiptNo": "RCPT-26-806",
+      "studentId": "ST006",
+      "amount": 11250,
+      "dueDate": "2026-06-10",
+      "paidDate": "2026-06-06",
+      "status": "Paid",
+      "method": "Card"
+    },
+    {
+      "id": "FP007",
+      "receiptNo": "RCPT-26-807",
+      "studentId": "ST007",
+      "amount": 12500,
+      "dueDate": "2026-07-10",
+      "paidDate": "2026-07-07",
+      "status": "Paid",
+      "method": "Bank transfer"
+    },
+    {
+      "id": "FP008",
+      "receiptNo": "RCPT-26-808",
+      "studentId": "ST008",
+      "amount": 13750,
+      "dueDate": "2026-08-10",
+      "paidDate": "2026-08-08",
+      "status": "Partial",
+      "method": "Cash"
+    },
+    {
+      "id": "FP009",
+      "receiptNo": "RCPT-26-809",
+      "studentId": "ST009",
+      "amount": 15000,
+      "dueDate": "2026-09-10",
+      "paidDate": "",
+      "status": "Due",
+      "method": ""
+    },
+    {
+      "id": "FP010",
+      "receiptNo": "RCPT-26-810",
+      "studentId": "ST010",
+      "amount": 16250,
+      "dueDate": "2026-10-10",
+      "paidDate": "2026-10-01",
+      "status": "Paid",
+      "method": "Card"
+    },
+    {
+      "id": "FP011",
+      "receiptNo": "RCPT-26-811",
+      "studentId": "ST011",
+      "amount": 17500,
+      "dueDate": "2026-01-10",
+      "paidDate": "2026-01-02",
+      "status": "Paid",
+      "method": "Bank transfer"
+    },
+    {
+      "id": "FP012",
+      "receiptNo": "RCPT-26-812",
+      "studentId": "ST012",
+      "amount": 18750,
+      "dueDate": "2026-02-10",
+      "paidDate": "2026-02-03",
+      "status": "Paid",
+      "method": "Cash"
+    },
+    {
+      "id": "FP013",
+      "receiptNo": "RCPT-26-813",
+      "studentId": "ST013",
+      "amount": 5000,
+      "dueDate": "2026-03-10",
+      "paidDate": "",
+      "status": "Due",
+      "method": ""
+    },
+    {
+      "id": "FP014",
+      "receiptNo": "RCPT-26-814",
+      "studentId": "ST014",
+      "amount": 6250,
+      "dueDate": "2026-04-10",
+      "paidDate": "2026-04-05",
+      "status": "Paid",
+      "method": "Card"
+    },
+    {
+      "id": "FP015",
+      "receiptNo": "RCPT-26-815",
+      "studentId": "ST015",
+      "amount": 7500,
+      "dueDate": "2026-05-10",
+      "paidDate": "2026-05-06",
+      "status": "Partial",
+      "method": "Bank transfer"
+    },
+    {
+      "id": "FP016",
+      "receiptNo": "RCPT-26-816",
+      "studentId": "ST016",
+      "amount": 8750,
+      "dueDate": "2026-06-10",
+      "paidDate": "2026-06-07",
+      "status": "Paid",
+      "method": "Cash"
+    },
+    {
+      "id": "FP017",
+      "receiptNo": "RCPT-26-817",
+      "studentId": "ST017",
+      "amount": 10000,
+      "dueDate": "2026-07-10",
+      "paidDate": "",
+      "status": "Due",
+      "method": ""
+    },
+    {
+      "id": "FP018",
+      "receiptNo": "RCPT-26-818",
+      "studentId": "ST018",
+      "amount": 11250,
+      "dueDate": "2026-08-10",
+      "paidDate": "2026-08-09",
+      "status": "Paid",
+      "method": "Card"
+    },
+    {
+      "id": "FP019",
+      "receiptNo": "RCPT-26-819",
+      "studentId": "ST019",
+      "amount": 12500,
+      "dueDate": "2026-09-10",
+      "paidDate": "2026-09-01",
+      "status": "Paid",
+      "method": "Bank transfer"
+    },
+    {
+      "id": "FP020",
+      "receiptNo": "RCPT-26-820",
+      "studentId": "ST020",
+      "amount": 13750,
+      "dueDate": "2026-10-10",
+      "paidDate": "2026-10-02",
+      "status": "Paid",
+      "method": "Cash"
+    },
+    {
+      "id": "FP021",
+      "receiptNo": "RCPT-26-821",
+      "studentId": "ST021",
+      "amount": 15000,
+      "dueDate": "2026-01-10",
+      "paidDate": "",
+      "status": "Due",
+      "method": ""
+    },
+    {
+      "id": "FP022",
+      "receiptNo": "RCPT-26-822",
+      "studentId": "ST022",
+      "amount": 16250,
+      "dueDate": "2026-02-10",
+      "paidDate": "2026-02-04",
+      "status": "Partial",
+      "method": "Card"
+    },
+    {
+      "id": "FP023",
+      "receiptNo": "RCPT-26-823",
+      "studentId": "ST023",
+      "amount": 17500,
+      "dueDate": "2026-03-10",
+      "paidDate": "2026-03-05",
+      "status": "Paid",
+      "method": "Bank transfer"
+    },
+    {
+      "id": "FP024",
+      "receiptNo": "RCPT-26-824",
+      "studentId": "ST024",
+      "amount": 18750,
+      "dueDate": "2026-04-10",
+      "paidDate": "2026-04-06",
+      "status": "Paid",
+      "method": "Cash"
+    },
+    {
+      "id": "FP025",
+      "receiptNo": "RCPT-26-825",
+      "studentId": "ST025",
+      "amount": 5000,
+      "dueDate": "2026-05-10",
+      "paidDate": "",
+      "status": "Due",
+      "method": ""
+    },
+    {
+      "id": "FP026",
+      "receiptNo": "RCPT-26-826",
+      "studentId": "ST026",
+      "amount": 6250,
+      "dueDate": "2026-06-10",
+      "paidDate": "2026-06-08",
+      "status": "Paid",
+      "method": "Card"
+    },
+    {
+      "id": "FP027",
+      "receiptNo": "RCPT-26-827",
+      "studentId": "ST027",
+      "amount": 7500,
+      "dueDate": "2026-07-10",
+      "paidDate": "2026-07-09",
+      "status": "Paid",
+      "method": "Bank transfer"
+    },
+    {
+      "id": "FP028",
+      "receiptNo": "RCPT-26-828",
+      "studentId": "ST028",
+      "amount": 8750,
+      "dueDate": "2026-08-10",
+      "paidDate": "2026-08-01",
+      "status": "Paid",
+      "method": "Cash"
+    },
+    {
+      "id": "FP029",
+      "receiptNo": "RCPT-26-829",
+      "studentId": "ST029",
+      "amount": 10000,
+      "dueDate": "2026-09-10",
+      "paidDate": "",
+      "status": "Due",
+      "method": ""
+    },
+    {
+      "id": "FP030",
+      "receiptNo": "RCPT-26-830",
+      "studentId": "ST030",
+      "amount": 11250,
+      "dueDate": "2026-10-10",
+      "paidDate": "2026-10-03",
+      "status": "Paid",
+      "method": "Card"
+    }
+  ],
+  "notes": [
+    {
+      "id": "NO001",
+      "studentId": "ST001",
+      "subjectId": "SU001",
+      "teacherId": "TE001",
+      "title": "Introduction to Programming: study note 1",
+      "content": "Key learning points for Introduction to Programming. Add your own examples, questions, and references here.",
+      "status": "Draft",
+      "sharedWith": [
+        "student3@campus.test"
+      ],
+      "feedback": "",
+      "updatedAt": "2026-09-01T00:00:00.000Z"
+    },
+    {
+      "id": "NO002",
+      "studentId": "ST002",
+      "subjectId": "SU002",
+      "teacherId": "TE002",
+      "title": "Applied Accounting: study note 2",
+      "content": "Key learning points for Applied Accounting. Add your own examples, questions, and references here.",
+      "status": "Submitted",
+      "sharedWith": [],
+      "feedback": "",
+      "updatedAt": "2026-09-02T00:00:00.000Z"
+    },
+    {
+      "id": "NO003",
+      "studentId": "ST003",
+      "subjectId": "SU003",
+      "teacherId": "TE003",
+      "title": "Foundations of Statistics: study note 3",
+      "content": "Key learning points for Foundations of Statistics. Add your own examples, questions, and references here.",
+      "status": "Reviewed",
+      "sharedWith": [],
+      "feedback": "Good summary. Add one practical example.",
+      "updatedAt": "2026-09-03T00:00:00.000Z"
+    },
+    {
+      "id": "NO004",
+      "studentId": "ST004",
+      "subjectId": "SU004",
+      "teacherId": "TE004",
+      "title": "Research in User Experience: study note 4",
+      "content": "Key learning points for Research in User Experience. Add your own examples, questions, and references here.",
+      "status": "Draft",
+      "sharedWith": [],
+      "feedback": "",
+      "updatedAt": "2026-09-04T00:00:00.000Z"
+    },
+    {
+      "id": "NO005",
+      "studentId": "ST005",
+      "subjectId": "SU005",
+      "teacherId": "TE005",
+      "title": "Professional Networks: study note 5",
+      "content": "Key learning points for Professional Networks. Add your own examples, questions, and references here.",
+      "status": "Submitted",
+      "sharedWith": [],
+      "feedback": "",
+      "updatedAt": "2026-09-05T00:00:00.000Z"
+    },
+    {
+      "id": "NO006",
+      "studentId": "ST006",
+      "subjectId": "SU006",
+      "teacherId": "TE006",
+      "title": "Introduction to Project Management: study note 6",
+      "content": "Key learning points for Introduction to Project Management. Add your own examples, questions, and references here.",
+      "status": "Reviewed",
+      "sharedWith": [
+        "student8@campus.test"
+      ],
+      "feedback": "Good summary. Add one practical example.",
+      "updatedAt": "2026-09-06T00:00:00.000Z"
+    },
+    {
+      "id": "NO007",
+      "studentId": "ST007",
+      "subjectId": "SU007",
+      "teacherId": "TE007",
+      "title": "Applied Programming: study note 7",
+      "content": "Key learning points for Applied Programming. Add your own examples, questions, and references here.",
+      "status": "Draft",
+      "sharedWith": [],
+      "feedback": "",
+      "updatedAt": "2026-09-07T00:00:00.000Z"
+    },
+    {
+      "id": "NO008",
+      "studentId": "ST008",
+      "subjectId": "SU008",
+      "teacherId": "TE008",
+      "title": "Foundations of Accounting: study note 8",
+      "content": "Key learning points for Foundations of Accounting. Add your own examples, questions, and references here.",
+      "status": "Submitted",
+      "sharedWith": [],
+      "feedback": "",
+      "updatedAt": "2026-09-08T00:00:00.000Z"
+    },
+    {
+      "id": "NO009",
+      "studentId": "ST009",
+      "subjectId": "SU009",
+      "teacherId": "TE009",
+      "title": "Research in Statistics: study note 9",
+      "content": "Key learning points for Research in Statistics. Add your own examples, questions, and references here.",
+      "status": "Reviewed",
+      "sharedWith": [],
+      "feedback": "Good summary. Add one practical example.",
+      "updatedAt": "2026-09-09T00:00:00.000Z"
+    },
+    {
+      "id": "NO010",
+      "studentId": "ST010",
+      "subjectId": "SU010",
+      "teacherId": "TE010",
+      "title": "Professional User Experience: study note 10",
+      "content": "Key learning points for Professional User Experience. Add your own examples, questions, and references here.",
+      "status": "Draft",
+      "sharedWith": [],
+      "feedback": "",
+      "updatedAt": "2026-09-10T00:00:00.000Z"
+    },
+    {
+      "id": "NO011",
+      "studentId": "ST011",
+      "subjectId": "SU011",
+      "teacherId": "TE011",
+      "title": "Introduction to Networks: study note 11",
+      "content": "Key learning points for Introduction to Networks. Add your own examples, questions, and references here.",
+      "status": "Submitted",
+      "sharedWith": [
+        "student13@campus.test"
+      ],
+      "feedback": "",
+      "updatedAt": "2026-09-11T00:00:00.000Z"
+    },
+    {
+      "id": "NO012",
+      "studentId": "ST012",
+      "subjectId": "SU012",
+      "teacherId": "TE012",
+      "title": "Applied Project Management: study note 12",
+      "content": "Key learning points for Applied Project Management. Add your own examples, questions, and references here.",
+      "status": "Reviewed",
+      "sharedWith": [],
+      "feedback": "Good summary. Add one practical example.",
+      "updatedAt": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "NO013",
+      "studentId": "ST013",
+      "subjectId": "SU013",
+      "teacherId": "TE013",
+      "title": "Foundations of Programming: study note 13",
+      "content": "Key learning points for Foundations of Programming. Add your own examples, questions, and references here.",
+      "status": "Draft",
+      "sharedWith": [],
+      "feedback": "",
+      "updatedAt": "2026-09-13T00:00:00.000Z"
+    },
+    {
+      "id": "NO014",
+      "studentId": "ST014",
+      "subjectId": "SU014",
+      "teacherId": "TE014",
+      "title": "Research in Accounting: study note 14",
+      "content": "Key learning points for Research in Accounting. Add your own examples, questions, and references here.",
+      "status": "Submitted",
+      "sharedWith": [],
+      "feedback": "",
+      "updatedAt": "2026-09-14T00:00:00.000Z"
+    },
+    {
+      "id": "NO015",
+      "studentId": "ST015",
+      "subjectId": "SU015",
+      "teacherId": "TE015",
+      "title": "Professional Statistics: study note 15",
+      "content": "Key learning points for Professional Statistics. Add your own examples, questions, and references here.",
+      "status": "Reviewed",
+      "sharedWith": [],
+      "feedback": "Good summary. Add one practical example.",
+      "updatedAt": "2026-09-15T00:00:00.000Z"
+    },
+    {
+      "id": "NO016",
+      "studentId": "ST016",
+      "subjectId": "SU016",
+      "teacherId": "TE016",
+      "title": "Introduction to User Experience: study note 16",
+      "content": "Key learning points for Introduction to User Experience. Add your own examples, questions, and references here.",
+      "status": "Draft",
+      "sharedWith": [
+        "student18@campus.test"
+      ],
+      "feedback": "",
+      "updatedAt": "2026-09-16T00:00:00.000Z"
+    },
+    {
+      "id": "NO017",
+      "studentId": "ST017",
+      "subjectId": "SU017",
+      "teacherId": "TE017",
+      "title": "Applied Networks: study note 17",
+      "content": "Key learning points for Applied Networks. Add your own examples, questions, and references here.",
+      "status": "Submitted",
+      "sharedWith": [],
+      "feedback": "",
+      "updatedAt": "2026-09-17T00:00:00.000Z"
+    },
+    {
+      "id": "NO018",
+      "studentId": "ST018",
+      "subjectId": "SU018",
+      "teacherId": "TE018",
+      "title": "Foundations of Project Management: study note 18",
+      "content": "Key learning points for Foundations of Project Management. Add your own examples, questions, and references here.",
+      "status": "Reviewed",
+      "sharedWith": [],
+      "feedback": "Good summary. Add one practical example.",
+      "updatedAt": "2026-09-18T00:00:00.000Z"
+    },
+    {
+      "id": "NO019",
+      "studentId": "ST019",
+      "subjectId": "SU019",
+      "teacherId": "TE019",
+      "title": "Research in Programming: study note 19",
+      "content": "Key learning points for Research in Programming. Add your own examples, questions, and references here.",
+      "status": "Draft",
+      "sharedWith": [],
+      "feedback": "",
+      "updatedAt": "2026-09-19T00:00:00.000Z"
+    },
+    {
+      "id": "NO020",
+      "studentId": "ST020",
+      "subjectId": "SU020",
+      "teacherId": "TE020",
+      "title": "Professional Accounting: study note 20",
+      "content": "Key learning points for Professional Accounting. Add your own examples, questions, and references here.",
+      "status": "Submitted",
+      "sharedWith": [],
+      "feedback": "",
+      "updatedAt": "2026-09-20T00:00:00.000Z"
+    },
+    {
+      "id": "NO021",
+      "studentId": "ST021",
+      "subjectId": "SU021",
+      "teacherId": "TE021",
+      "title": "Introduction to Statistics: study note 21",
+      "content": "Key learning points for Introduction to Statistics. Add your own examples, questions, and references here.",
+      "status": "Reviewed",
+      "sharedWith": [
+        "student23@campus.test"
+      ],
+      "feedback": "Good summary. Add one practical example.",
+      "updatedAt": "2026-09-21T00:00:00.000Z"
+    },
+    {
+      "id": "NO022",
+      "studentId": "ST022",
+      "subjectId": "SU022",
+      "teacherId": "TE022",
+      "title": "Applied User Experience: study note 22",
+      "content": "Key learning points for Applied User Experience. Add your own examples, questions, and references here.",
+      "status": "Draft",
+      "sharedWith": [],
+      "feedback": "",
+      "updatedAt": "2026-09-22T00:00:00.000Z"
+    },
+    {
+      "id": "NO023",
+      "studentId": "ST023",
+      "subjectId": "SU023",
+      "teacherId": "TE023",
+      "title": "Foundations of Networks: study note 23",
+      "content": "Key learning points for Foundations of Networks. Add your own examples, questions, and references here.",
+      "status": "Submitted",
+      "sharedWith": [],
+      "feedback": "",
+      "updatedAt": "2026-09-23T00:00:00.000Z"
+    },
+    {
+      "id": "NO024",
+      "studentId": "ST024",
+      "subjectId": "SU024",
+      "teacherId": "TE024",
+      "title": "Research in Project Management: study note 24",
+      "content": "Key learning points for Research in Project Management. Add your own examples, questions, and references here.",
+      "status": "Reviewed",
+      "sharedWith": [],
+      "feedback": "Good summary. Add one practical example.",
+      "updatedAt": "2026-09-24T00:00:00.000Z"
+    },
+    {
+      "id": "NO025",
+      "studentId": "ST025",
+      "subjectId": "SU025",
+      "teacherId": "TE025",
+      "title": "Professional Programming: study note 25",
+      "content": "Key learning points for Professional Programming. Add your own examples, questions, and references here.",
+      "status": "Draft",
+      "sharedWith": [],
+      "feedback": "",
+      "updatedAt": "2026-09-25T00:00:00.000Z"
+    },
+    {
+      "id": "NO026",
+      "studentId": "ST026",
+      "subjectId": "SU026",
+      "teacherId": "TE026",
+      "title": "Introduction to Accounting: study note 26",
+      "content": "Key learning points for Introduction to Accounting. Add your own examples, questions, and references here.",
+      "status": "Submitted",
+      "sharedWith": [
+        "student28@campus.test"
+      ],
+      "feedback": "",
+      "updatedAt": "2026-09-26T00:00:00.000Z"
+    },
+    {
+      "id": "NO027",
+      "studentId": "ST027",
+      "subjectId": "SU027",
+      "teacherId": "TE027",
+      "title": "Applied Statistics: study note 27",
+      "content": "Key learning points for Applied Statistics. Add your own examples, questions, and references here.",
+      "status": "Reviewed",
+      "sharedWith": [],
+      "feedback": "Good summary. Add one practical example.",
+      "updatedAt": "2026-09-27T00:00:00.000Z"
+    },
+    {
+      "id": "NO028",
+      "studentId": "ST028",
+      "subjectId": "SU028",
+      "teacherId": "TE028",
+      "title": "Foundations of User Experience: study note 28",
+      "content": "Key learning points for Foundations of User Experience. Add your own examples, questions, and references here.",
+      "status": "Draft",
+      "sharedWith": [],
+      "feedback": "",
+      "updatedAt": "2026-09-28T00:00:00.000Z"
+    },
+    {
+      "id": "NO029",
+      "studentId": "ST029",
+      "subjectId": "SU029",
+      "teacherId": "TE029",
+      "title": "Research in Networks: study note 29",
+      "content": "Key learning points for Research in Networks. Add your own examples, questions, and references here.",
+      "status": "Submitted",
+      "sharedWith": [],
+      "feedback": "",
+      "updatedAt": "2026-09-29T00:00:00.000Z"
+    },
+    {
+      "id": "NO030",
+      "studentId": "ST030",
+      "subjectId": "SU030",
+      "teacherId": "TE030",
+      "title": "Professional Project Management: study note 30",
+      "content": "Key learning points for Professional Project Management. Add your own examples, questions, and references here.",
+      "status": "Reviewed",
+      "sharedWith": [],
+      "feedback": "Good summary. Add one practical example.",
+      "updatedAt": "2026-09-30T00:00:00.000Z"
+    },
+    {
+      "subjectId": "SU001",
+      "title": "NextTest shared study note",
+      "content": "Variables store values. Functions group reusable logic. Add a practical example and review the topic with classmates.",
+      "sharedWith": [
+        "student2@campus.test"
+      ],
+      "status": "Reviewed",
+      "id": "NO031",
+      "studentId": "ST001",
+      "teacherId": "TE001",
+      "updatedAt": "2026-10-26T00:56:55.761Z",
+      "feedback": "Good summary. Please add a worked example.Good summary. Please add a worked example.Good summary. Please add a worked example.Good summary. Please add a worked example.Good summary. Please add a worked example.",
+      "reviewedBy": "Demo Teacher"
+    },
+    {
+      "subjectId": "SU001",
+      "title": "NextTest shared study note",
+      "content": "Variables store values. Functions group reusable logic. Add a practical example and review the topic with classmates.",
+      "sharedWith": [
+        "student2@campus.test"
+      ],
+      "status": "Submitted",
+      "id": "NO032",
+      "studentId": "ST001",
+      "teacherId": "TE001",
+      "updatedAt": "2026-10-20T12:45:42.027Z"
+    },
+    {
+      "subjectId": "SU001",
+      "title": "NextTest shared study note",
+      "content": "Variables store values. Functions group reusable logic. Add a practical example and review the topic with classmates.",
+      "sharedWith": [
+        "student2@campus.test"
+      ],
+      "status": "Submitted",
+      "id": "NO033",
+      "studentId": "ST001",
+      "teacherId": "TE001",
+      "updatedAt": "2026-10-26T00:42:24.015Z"
+    },
+    {
+      "subjectId": "SU001",
+      "title": "NextTest shared study note",
+      "content": "Variables store values. Functions group reusable logic. Add a practical example and review the topic with classmates.",
+      "sharedWith": [
+        "student2@campus.test"
+      ],
+      "status": "Submitted",
+      "id": "NO034",
+      "studentId": "ST001",
+      "teacherId": "TE001",
+      "updatedAt": "2026-10-26T00:56:48.412Z"
+    },
+    {
+      "subjectId": "SU001",
+      "title": "NextTest shared study note",
+      "content": "Variables store values. Functions group reusable logic. Add a practical example and review the topic with classmates.",
+      "sharedWith": [
+        "student2@campus.test"
+      ],
+      "status": "Submitted",
+      "id": "NO035",
+      "studentId": "ST001",
+      "teacherId": "TE001",
+      "updatedAt": "2026-10-26T00:56:53.562Z"
+    }
+  ]
+}

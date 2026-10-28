@@ -1,0 +1,8 @@
+{
+  "rows": [
+    { "Code": "CRS-001", "Name": "Applied Computing Foundations", "Level": "Certificate" },
+    { "Code": "CRS-002", "Name": "Business Studies Foundations", "Level": "Diploma" },
+    { "Code": "CRS-003", "Name": "Data Analytics Foundations", "Level": "Bachelor" },
+    { "Code": "CRS-004", "Name": "Digital Design Foundations", "Level": "Master" }
+  ]
+}

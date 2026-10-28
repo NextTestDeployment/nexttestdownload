@@ -1,0 +1,70 @@
+{
+  "name": "07 Dynamic Java Code & Delegate Execution Suite",
+  "data": {
+    "baseUrl": "http://127.0.0.1:3100"
+  },
+  "testCases": [
+    {
+      "testCaseId": "1",
+      "Case": "Runtime Java Compilation, Dynamic Delegate and Custom Class Plugins",
+      "isRun": true,
+      "hardStop": false,
+      "tagNames": ["java", "delegate", "plugin", "dynamic"],
+      "testSteps": [
+        {
+          "steps": "Open Chrome to CampusFlow",
+          "action": "openBrowserChrome",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "${baseUrl}",
+          "isRun": true,
+          "hardStop": true
+        },
+        {
+          "steps": "Execute dynamic Java code inline with driver and data exchange (ExecuteJavaMethod)",
+          "action": "ExecuteJavaMethod",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "String title = driver.getTitle(); data.put(\"CustomJavaExtractedTitle\", title); data.put(\"JavaValidationStatus\", \"PASS\"); return 1;",
+          "actualValue": "javaExecutionResult",
+          "isRun": true
+        },
+        {
+          "steps": "Validate that dynamic Java delegate populated the runtime data variable",
+          "action": "validateDataText",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "CampusFlow · Student Services",
+          "actualValue": "CustomJavaExtractedTitle",
+          "isRun": true
+        },
+        {
+          "steps": "Execute dynamic Java method from an external .java source file",
+          "action": "ExecuteJavaMethod",
+          "locatorType": "scripts/SampleCustomAction.java",
+          "locatorTypeValue": "com.nexttest.demo.SampleCustomAction",
+          "value": "",
+          "actualValue": "filePluginResult",
+          "isRun": true
+        },
+        {
+          "steps": "Validate status set by external Java class plugin",
+          "action": "validateDataText",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "SUCCESS",
+          "actualValue": "PluginStatus",
+          "isRun": true
+        },
+        {
+          "steps": "Close browser",
+          "action": "closeBrowser",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        }
+      ]
+    }
+  ]
+}

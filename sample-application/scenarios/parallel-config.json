@@ -1,0 +1,11 @@
+{
+  "threads": 2,
+  "headless": true,
+  "browser": "Chrome",
+  "reportPath": "target/reports/parallel-report.html",
+  "suites": [
+    "01-admin-student-crud.json",
+    "02-fee-grid-search.json",
+    "04-jwt-api-and-protected-data.json"
+  ]
+}

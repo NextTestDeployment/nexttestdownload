@@ -1,0 +1,61 @@
+{
+  "platform": "ANDROID",
+  "serverUrl": "http://127.0.0.1:4723",
+  "appPackage": "com.google.android.calculator",
+  "appActivity": "com.android.calculator2.Calculator",
+  "deviceName": "Android Device",
+  "capabilities": {
+    "noReset": true
+  },
+  "locatorFiles": [],
+  "dataFiles": [],
+  "testCases": [
+    {
+      "testCaseId": "AND-CALC-01",
+      "Case": "Android Mobile Calculator Smoke Test",
+      "isRun": true,
+      "testSteps": [
+        {
+          "steps": "1. Wait for Android app to initialize",
+          "action": "pause",
+          "value": "1500",
+          "isRun": true
+        },
+        {
+          "steps": "2. Tap digit 9",
+          "action": "tap",
+          "locatorType": "accessibilityId",
+          "locatorTypeValue": "9",
+          "isRun": true
+        },
+        {
+          "steps": "3. Tap multiply",
+          "action": "tap",
+          "locatorType": "accessibilityId",
+          "locatorTypeValue": "multiply",
+          "isRun": true
+        },
+        {
+          "steps": "4. Tap digit 8",
+          "action": "tap",
+          "locatorType": "accessibilityId",
+          "locatorTypeValue": "8",
+          "isRun": true
+        },
+        {
+          "steps": "5. Tap equals",
+          "action": "tap",
+          "locatorType": "accessibilityId",
+          "locatorTypeValue": "equals",
+          "isRun": true
+        },
+        {
+          "steps": "6. Capture mobile screenshot",
+          "action": "takingScreenshot",
+          "value": "android-calc-result.png",
+          "isRun": true
+        }
+      ]
+    }
+  ]
+}

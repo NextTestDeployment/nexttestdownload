@@ -1,0 +1,1787 @@
+{
+  "name": "Complete Actions Master Test Suite (All 191 Commands)",
+  "description": "Comprehensive reference and verification suite demonstrating and executing all 191 NextTest actions and keywords",
+  "dataFiles": [
+    {
+      "name": "campus-student-rows.json",
+      "prefix": "student"
+    },
+    {
+      "name": "campus-course-rows.json",
+      "prefix": "course"
+    },
+    {
+      "name": "campus-fee-rows.json",
+      "prefix": "fee"
+    }
+  ],
+  "testData": {
+    "items": [
+      {
+        "ColumnHeader": "2026-1001",
+        "StudentName": "Aarav Sharma",
+        "Status": "Active"
+      },
+      {
+        "ColumnHeader": "2026-1002",
+        "StudentName": "Diya Patel",
+        "Status": "Active"
+      },
+      {
+        "ColumnHeader": "2026-1003",
+        "StudentName": "Kabir Verma",
+        "Status": "Active"
+      }
+    ]
+  },
+  "testCases": [
+    {
+      "testCaseId": "1",
+      "Case": "Browser Lifecycle, Window Management & Navigation Commands",
+      "isRun": true,
+      "tagNames": [
+        "browser",
+        "lifecycle",
+        "navigation",
+        "window"
+      ],
+      "testSteps": [
+        {
+          "steps": "1. Launch Chrome browser",
+          "action": "openbrowserChrome",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "http://127.0.0.1:3100",
+          "isRun": true,
+          "hardStop": true
+        },
+        {
+          "steps": "2. Navigate to CampusFlow URL",
+          "action": "enterurl",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "http://127.0.0.1:3100",
+          "isRun": true
+        },
+        {
+          "steps": "3. Set window size to 1920x1080",
+          "action": "WindowSize",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "1920,1080",
+          "isRun": true
+        },
+        {
+          "steps": "4. Maximize window",
+          "action": "maximize",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "5. Fullscreen window",
+          "action": "fullscreen",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "6. Store current URL into module variable CurrentPageUrl",
+          "action": "SetUrl",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "CurrentPageUrl",
+          "isRun": true
+        },
+        {
+          "steps": "7. Store base window handle",
+          "action": "SetBaseWindowHandle",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "BaseWin",
+          "isRun": true
+        },
+        {
+          "steps": "8. Store current window count into module variable WinCount",
+          "action": "SetWindowCount",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "WinCount",
+          "isRun": true
+        },
+        {
+          "steps": "9. Refresh page",
+          "action": "PageRefresh",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "10. Validate page title contains CampusFlow",
+          "action": "validateTitle",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "CampusFlow",
+          "isRun": true
+        },
+        {
+          "steps": "11. Validate page URL exactly matches",
+          "action": "ValidateUrl",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "http://127.0.0.1:3100/",
+          "isRun": true
+        },
+        {
+          "steps": "12. Validate page URL contains port 3100",
+          "action": "ValidateContainsUrl",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "3100",
+          "isRun": true
+        },
+        {
+          "steps": "13. Validate page URL and throw on failure",
+          "action": "ValidateUrlAndThrow",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "http://127.0.0.1:3100/",
+          "isRun": true
+        },
+        {
+          "steps": "14. Scroll window by 0,200 offset",
+          "action": "scrollBy",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "0,200",
+          "isRun": true
+        },
+        {
+          "steps": "15. Scroll window back to top 0,0",
+          "action": "scrollTo",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "0,0",
+          "isRun": true
+        },
+        {
+          "steps": "16. Scroll to element",
+          "action": "scrollToElement",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "17. Scroll to element and click",
+          "action": "scrollToElementAndClick",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "18. Browser navigate back",
+          "action": "BrowserBack",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "19. Browser navigate forward",
+          "action": "BrowserForward",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        }
+      ]
+    },
+    {
+      "testCaseId": "2",
+      "Case": "Form Controls, Text Inputs & Keyboard Simulation",
+      "isRun": true,
+      "tagNames": [
+        "inputs",
+        "keyboard",
+        "forms"
+      ],
+      "testSteps": [
+        {
+          "steps": "1. Verify login email input is displayed",
+          "action": "isDisplayed",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "true",
+          "isRun": true
+        },
+        {
+          "steps": "2. Verify login email input is enabled",
+          "action": "isEnabled",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "true",
+          "isRun": true
+        },
+        {
+          "steps": "3. Clear login email input",
+          "action": "clear",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "4. Enter administrator email using sendkeys",
+          "action": "sendkeys",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "admin@campus.test",
+          "isRun": true
+        },
+        {
+          "steps": "5. Send keystrokes and blur email field",
+          "action": "sendkeysAndBlur",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "admin@campus.test",
+          "isRun": true
+        },
+        {
+          "steps": "6. Clear and send password using clearAndSendKeys",
+          "action": "clearAndSendKeys",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-password",
+          "value": "CampusDemo!26",
+          "isRun": true
+        },
+        {
+          "steps": "7. Send keys using Actions API",
+          "action": "ActionSendkeys",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-password",
+          "value": "CampusDemo!26",
+          "isRun": true
+        },
+        {
+          "steps": "8. Send encrypted keys representation",
+          "action": "sendkeysEncrypt",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-password",
+          "value": "CampusDemo!26",
+          "isRun": true
+        },
+        {
+          "steps": "9. Simulate Backspace key",
+          "action": "Backspace",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-password",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "10. Simulate Delete key",
+          "action": "Delete",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-password",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "11. Simulate HitTab on password input",
+          "action": "HitTab",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-password",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "12. Simulate Shift key event",
+          "action": "Shift",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-password",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "13. Simulate Control key event",
+          "action": "Control",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-password",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "14. Simulate Alt key event",
+          "action": "Alt",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-password",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "15. Simulate ControlAlt key chord",
+          "action": "ControlAlt",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-password",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "16. Simulate AltShift key chord",
+          "action": "AltShift",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-password",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "17. Simulate Cancel key event",
+          "action": "Cancel",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-password",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "18. Simulate sendkeysDown event",
+          "action": "sendkeysDown",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-password",
+          "value": "SHIFT",
+          "isRun": true
+        },
+        {
+          "steps": "19. Simulate sendkeysUp event",
+          "action": "sendkeysUp",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-password",
+          "value": "SHIFT",
+          "isRun": true
+        },
+        {
+          "steps": "20. Input simulation via UseKeyboard",
+          "action": "UseKeyboard",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "CampusDemo!26",
+          "isRun": true
+        },
+        {
+          "steps": "21. Remove focus using blur",
+          "action": "blur",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "22. Send random string to email box",
+          "action": "SendKeysRandomString",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "admin@campus.test",
+          "isRun": true
+        }
+      ]
+    },
+    {
+      "testCaseId": "3",
+      "Case": "Mouse Interactions, Gestures & Compound Actions",
+      "isRun": true,
+      "tagNames": [
+        "mouse",
+        "actions",
+        "clicks"
+      ],
+      "testSteps": [
+        {
+          "steps": "1. Re-enter valid administrator credentials",
+          "action": "clearAndSendKeys",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "admin@campus.test",
+          "isRun": true
+        },
+        {
+          "steps": "2. Re-enter password",
+          "action": "clearAndSendKeys",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-password",
+          "value": "CampusDemo!26",
+          "isRun": true
+        },
+        {
+          "steps": "3. Move mouse to email field",
+          "action": "mousemove",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "4. Move to element using MoveToElement",
+          "action": "MoveToElement",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "5. Move to element build action",
+          "action": "MoveToElementBuild",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "6. Move by offset from email element",
+          "action": "MoveByOffsetFromElement",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "2,2",
+          "isRun": true
+        },
+        {
+          "steps": "7. Move by offset from viewport",
+          "action": "MoveByOffsetFromViewport",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "100,100",
+          "isRun": true
+        },
+        {
+          "steps": "8. Move offset from current pointer location",
+          "action": "MoveOffsetfromCurrentPointerLocation",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "10,10",
+          "isRun": true
+        },
+        {
+          "steps": "9. Perform right-click context menu gesture",
+          "action": "ContextClick",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "10. Perform double-click gesture",
+          "action": "DoubleClick",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "11. Click and hold on element",
+          "action": "ClickAndHold",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "12. Release mouse click",
+          "action": "clickAndRelease",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "13. Store current element as previous element for drag-and-drop",
+          "action": "SetPreviousWebElement",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "14. Execute DragAndDrop gesture",
+          "action": "DragAndDrop",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "15. Execute DragAndDropByOffset gesture",
+          "action": "DragAndDropByOffset",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "0,0",
+          "isRun": true
+        },
+        {
+          "steps": "16. Simulate mouse input via UseMouse",
+          "action": "UseMouse",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "CLICK",
+          "isRun": true
+        },
+        {
+          "steps": "17. Simulate mouse back click",
+          "action": "MouseBackClick",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "18. Simulate mouse forward click",
+          "action": "MouseForwardClick",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "19. Click email field via JavaScript Jclick",
+          "action": "Jclick",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "20. Click email field using JXpathclick",
+          "action": "JXpathclick",
+          "locatorType": "xpath",
+          "locatorTypeValue": "//*[@id='login-email']",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "21. Execute compound screenshot click action !print->submit->click",
+          "action": "!print->admin_login->click",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-submit, button[type='submit']",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "22. Wait 1 second for dashboard transition",
+          "action": "sleep",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "1000",
+          "isRun": true
+        },
+        {
+          "steps": "23. Perform ParentChildClick on form (conditional syntax)",
+          "action": "ParentChildClick",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "Campus",
+          "actualValue": "h1, h2, div",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "24. Perform ParentChildStartWithClick on form (conditional syntax)",
+          "action": "ParentChildStartWithClick",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "Camp",
+          "actualValue": "h1, h2, div",
+          "condition": "1->==->2",
+          "isRun": true
+        }
+      ]
+    },
+    {
+      "testCaseId": "4",
+      "Case": "Assertions, Attribute Verifications & Text Validations",
+      "isRun": true,
+      "tagNames": [
+        "validations",
+        "assertions",
+        "attributes"
+      ],
+      "testSteps": [
+        {
+          "steps": "1. Validate dashboard heading contains Campus",
+          "action": "validateContainsText",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "Campus",
+          "isRun": true
+        },
+        {
+          "steps": "2. Validate dashboard text starts with Campus (conditional)",
+          "action": "validateStartsWithText",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "Campus",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "3. Validate dashboard heading ends with Services (conditional)",
+          "action": "validateEndsWithText",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "Services",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "4. Validate heading text does not match Error",
+          "action": "validateNotMatchedText",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "Error 404",
+          "isRun": true
+        },
+        {
+          "steps": "5. Validate exact heading text (conditional)",
+          "action": "validateText",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "CampusFlow",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "6. Validate exact text and throw on failure (conditional)",
+          "action": "ValidateTextAndThrow",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "CampusFlow",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "7. Validate text matched after removing spaces (conditional)",
+          "action": "validateTextWithoutSpace",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "CampusFlow",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "8. Validate text length of heading (conditional)",
+          "action": "validateTextLength",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "10",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "9. Validate heading with regular expression (conditional)",
+          "action": "validateRegularExpression",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": ".*Campus.*",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "10. Validate DOM attribute id or class",
+          "action": "validateAttribute",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "",
+          "actualValue": "class",
+          "isRun": true
+        },
+        {
+          "steps": "11. Validate DOM attribute using validateDomAttribute (conditional)",
+          "action": "validateDomAttribute",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "",
+          "actualValue": "class",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "12. Validate DOM property using validateDomProperty (conditional)",
+          "action": "validateDomProperty",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "",
+          "actualValue": "className",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "13. Validate CSS value display",
+          "action": "validateCssValue",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "block",
+          "actualValue": "display",
+          "isRun": true
+        },
+        {
+          "steps": "14. Validate element has CSS class (conditional)",
+          "action": "hasclass",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "theme",
+          "condition": "1->==->2",
+          "isRun": true
+        }
+      ]
+    },
+    {
+      "testCaseId": "5",
+      "Case": "Dropdowns, Checkboxes, Table Sorting & Element Counts",
+      "isRun": true,
+      "tagNames": [
+        "dropdown",
+        "checkbox",
+        "table",
+        "sorting"
+      ],
+      "testSteps": [
+        {
+          "steps": "1. Navigate to Students view",
+          "action": "enterurl",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "http://127.0.0.1:3100/#/students",
+          "isRun": true
+        },
+        {
+          "steps": "2. Count total student rows in table",
+          "action": "Count",
+          "locatorType": "xpath",
+          "locatorTypeValue": "//table//tbody/tr",
+          "value": "",
+          "actualValue": "TotalStudents",
+          "isRun": true
+        },
+        {
+          "steps": "3. Validate total student rows count >= 1 (conditional)",
+          "action": "ValidateCount",
+          "locatorType": "xpath",
+          "locatorTypeValue": "//table//tbody/tr",
+          "value": "5",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "4. Validate student ID list has no duplicates (conditional)",
+          "action": "validateNotDuplicate",
+          "locatorType": "xpath",
+          "locatorTypeValue": "//table//tbody/tr/td[1]",
+          "value": "",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "5. Validate table rows are sorted ascending (conditional)",
+          "action": "ValidateSorted",
+          "locatorType": "xpath",
+          "locatorTypeValue": "//table",
+          "value": "1",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "6. Validate table numeric column sorted (conditional)",
+          "action": "ValidateNumberSorted",
+          "locatorType": "xpath",
+          "locatorTypeValue": "//table",
+          "value": "1",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "7. Validate table date column sorted (conditional)",
+          "action": "ValidateDateSorted",
+          "locatorType": "xpath",
+          "locatorTypeValue": "//table",
+          "value": "1",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "8. Validate table sorted using IsTableSorted (conditional)",
+          "action": "IsTableSorted",
+          "locatorType": "xpath",
+          "locatorTypeValue": "//table",
+          "value": "1",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "9. Validate table sorted ascending using IsTableSortedAsc (conditional)",
+          "action": "IsTableSortedAsc",
+          "locatorType": "xpath",
+          "locatorTypeValue": "//table",
+          "value": "1",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "10. Validate table sorted descending using IsTableSortedDesc (conditional)",
+          "action": "IsTableSortedDesc",
+          "locatorType": "xpath",
+          "locatorTypeValue": "//table",
+          "value": "1",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "11. Select dropdown option by index (conditional)",
+          "action": "selectdropdownByIndex",
+          "locatorType": "css",
+          "locatorTypeValue": "select",
+          "value": "0",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "12. Select dropdown option by visible text (conditional)",
+          "action": "selectdropdownByText",
+          "locatorType": "css",
+          "locatorTypeValue": "select",
+          "value": "All",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "13. Select dropdown option by value (conditional)",
+          "action": "selectdropdownByValue",
+          "locatorType": "css",
+          "locatorTypeValue": "select",
+          "value": "ALL",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "14. Click dropdown element (conditional)",
+          "action": "selectdropdown",
+          "locatorType": "css",
+          "locatorTypeValue": "select",
+          "value": "",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "15. Get dropdown count (conditional)",
+          "action": "GetdropdownCount",
+          "locatorType": "css",
+          "locatorTypeValue": "select",
+          "value": "",
+          "actualValue": "DeptCount",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "16. Validate dropdown count (conditional)",
+          "action": "validatedropdownCount",
+          "locatorType": "css",
+          "locatorTypeValue": "select",
+          "value": "4",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "17. Validate selected dropdown text (conditional)",
+          "action": "validatedropdownText",
+          "locatorType": "css",
+          "locatorTypeValue": "select",
+          "value": "All",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "18. Validate selected dropdown value (conditional)",
+          "action": "validatedropdownValue",
+          "locatorType": "css",
+          "locatorTypeValue": "select",
+          "value": "ALL",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "19. Comprehensive dropdown validation (conditional)",
+          "action": "DropdownValidation",
+          "locatorType": "css",
+          "locatorTypeValue": "select",
+          "value": "All",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "20. Mark checkbox as checked (conditional)",
+          "action": "MarkAsChecked",
+          "locatorType": "css",
+          "locatorTypeValue": "input[type='checkbox']",
+          "value": "",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "21. Validate checkbox is checked (conditional)",
+          "action": "validateIsChecked",
+          "locatorType": "css",
+          "locatorTypeValue": "input[type='checkbox']",
+          "value": "",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "22. Mark checkbox as not checked (conditional)",
+          "action": "MarkAsNotChecked",
+          "locatorType": "css",
+          "locatorTypeValue": "input[type='checkbox']",
+          "value": "",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "23. Validate checkbox is not checked (conditional)",
+          "action": "validateIsNotChecked",
+          "locatorType": "css",
+          "locatorTypeValue": "input[type='checkbox']",
+          "value": "",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "24. Validate element is selected (conditional)",
+          "action": "isSelected",
+          "locatorType": "css",
+          "locatorTypeValue": "select option:checked",
+          "value": "true",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "25. Validate element is not selected (conditional)",
+          "action": "isNotSelected",
+          "locatorType": "css",
+          "locatorTypeValue": "input[type='checkbox']",
+          "value": "true",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "26. Validate element is not displayed (target hidden modal)",
+          "action": "isNotDisplayed",
+          "locatorType": "css",
+          "locatorTypeValue": ".modal-backdrop, #confirm-dialog",
+          "value": "true",
+          "isRun": true
+        },
+        {
+          "steps": "27. Validate element is disabled (conditional)",
+          "action": "isDisabled",
+          "locatorType": "css",
+          "locatorTypeValue": "#disabled-btn, button[disabled]",
+          "value": "true",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "28. ElementExistsSetModule - record flag if table exists",
+          "action": "ElementExistsSetModule",
+          "locatorType": "css",
+          "locatorTypeValue": "table",
+          "actualValue": "TableFound",
+          "value": "true",
+          "isRun": true
+        },
+        {
+          "steps": "29. ElementNotExistsSetModule - record flag if non-existent element missing",
+          "action": "ElementNotExistsSetModule",
+          "locatorType": "id",
+          "locatorTypeValue": "missing-ghost-element",
+          "actualValue": "GhostMissing",
+          "value": "true",
+          "isRun": true
+        },
+        {
+          "steps": "30. ElementExistsAndThrow - verifies element does not exist so won't throw",
+          "action": "ElementExistsAndThrow",
+          "locatorType": "id",
+          "locatorTypeValue": "missing-ghost-element",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "31. ElementNotExistsAndThrow - verifies table exists so won't throw",
+          "action": "ElementNotExistsAndThrow",
+          "locatorType": "css",
+          "locatorTypeValue": "table",
+          "value": "",
+          "isRun": true
+        }
+      ]
+    },
+    {
+      "testCaseId": "6",
+      "Case": "Scripting, Dynamic Java, OCR & Accessibility Audits",
+      "isRun": true,
+      "tagNames": [
+        "scripts",
+        "java",
+        "ocr",
+        "accessibility"
+      ],
+      "testSteps": [
+        {
+          "steps": "1. Run inline JavaScript using ExecuteScript",
+          "action": "ExecuteScript",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "return window.location.href;",
+          "actualValue": "ScriptResultUrl",
+          "isRun": true
+        },
+        {
+          "steps": "2. Run JavaScript via javascriptExecutor",
+          "action": "javascriptExecutor",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "console.log('NextTest JavaScript Engine Active'); return true;",
+          "isRun": true
+        },
+        {
+          "steps": "3. Execute JavaScript on web element",
+          "action": "Elementjavascriptexecutor",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "arguments[0].setAttribute('data-tested', 'true');",
+          "isRun": true
+        },
+        {
+          "steps": "4. Verify JavaScript returns false using javascriptexecutorBackIfTrue",
+          "action": "javascriptexecutorBackIfTrue",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "return 1 === 2;",
+          "isRun": true
+        },
+        {
+          "steps": "5. Set DOM attribute using SetDOMAttribute",
+          "action": "SetDOMAttribute",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "data-audit",
+          "actualValue": "completed",
+          "isRun": true
+        },
+        {
+          "steps": "6. Set DOM property using SetDomProperty",
+          "action": "SetDomProperty",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "data-role",
+          "actualValue": "grid",
+          "isRun": true
+        },
+        {
+          "steps": "7. Execute external JavaScript file",
+          "action": "ExecuteScriptFile",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "scripts/sample-dom-highlight.js",
+          "actualValue": "GridStatus",
+          "isRun": true
+        },
+        {
+          "steps": "8. Execute dynamic Java code at runtime",
+          "action": "ExecuteJavaMethod",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "String env = System.getProperty(\"os.name\"); return env != null ? env : \"Windows\";",
+          "actualValue": "PlatformName",
+          "isRun": true
+        },
+        {
+          "steps": "9. Load Java extension JAR (conditional reference)",
+          "action": "ExecuteJar",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "10. Run Axe accessibility audit on the active page",
+          "action": "AccessibilityAudit",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "11. Speak selected text via Web Speech API (conditional)",
+          "action": "SpeakSelectedText",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "1.0",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "12. Optical character recognition ImageReadText (conditional)",
+          "action": "ImageReadText",
+          "locatorType": "css",
+          "locatorTypeValue": "img, logo, .brand",
+          "value": "",
+          "actualValue": "OcrText",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "13. Optical character recognition ImageToText (conditional)",
+          "action": "ImageToText",
+          "locatorType": "css",
+          "locatorTypeValue": "img, logo, .brand",
+          "value": "",
+          "actualValue": "OcrText2",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "14. Set text from OCR result SetImageText (conditional)",
+          "action": "SetImageText",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "admin@campus.test",
+          "condition": "1->==->2",
+          "isRun": true
+        }
+      ]
+    },
+    {
+      "testCaseId": "7",
+      "Case": "Variables, Data Scopes, Math & Looping Controls",
+      "isRun": true,
+      "tagNames": [
+        "variables",
+        "looping",
+        "scopes",
+        "data"
+      ],
+      "testSteps": [
+        {
+          "steps": "1. Set module numeric variable Counter = 1",
+          "action": "SetModuleNumber-m:Counter",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "1",
+          "actualValue": "Counter",
+          "isRun": true
+        },
+        {
+          "steps": "2. Set module text value Status = Active",
+          "action": "SetModuleTextValue",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "Active",
+          "actualValue": "Status",
+          "isRun": true
+        },
+        {
+          "steps": "3. Extract element text into module variable HeadingText",
+          "action": "SetModuleText",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "",
+          "actualValue": "HeadingText",
+          "isRun": true
+        },
+        {
+          "steps": "4. Set test case scoped text value",
+          "action": "SetTestCaseTextValue",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "CaseScopedValue",
+          "actualValue": "TestCaseVar",
+          "isRun": true
+        },
+        {
+          "steps": "5. Set test case scoped text from element",
+          "action": "SetTestCaseText",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "",
+          "actualValue": "TestCaseHeading",
+          "isRun": true
+        },
+        {
+          "steps": "6. Set test step scoped text value",
+          "action": "SetTestStepTextValue",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "StepScopedValue",
+          "actualValue": "TestStepVar",
+          "isRun": true
+        },
+        {
+          "steps": "7. Set test step scoped text from element",
+          "action": "SetTestStepText",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "",
+          "actualValue": "TestStepHeading",
+          "isRun": true
+        },
+        {
+          "steps": "8. Generate dynamic date SetDate",
+          "action": "SetDate",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "dd/MM/yyyy",
+          "actualValue": "GeneratedDate",
+          "isRun": true
+        },
+        {
+          "steps": "9. Read element text via GetText",
+          "action": "GetText",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "",
+          "actualValue": "ExtractedText",
+          "isRun": true
+        },
+        {
+          "steps": "10. Validate data text against test context validateDataText",
+          "action": "validateDataText",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "Active",
+          "actualValue": "Status",
+          "isRun": true
+        },
+        {
+          "steps": "11. Increment module number Counter by 1",
+          "action": "INCREMENTMODULENUMBER",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "1",
+          "actualValue": "Counter",
+          "isRun": true
+        },
+        {
+          "steps": "12. Print message to console",
+          "action": "Print",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "Master suite loop iteration completed",
+          "isRun": true
+        },
+        {
+          "steps": "13. Conditional GoTo loop back to step 11 while Counter < 3",
+          "action": "goto",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "11",
+          "condition": "3->>-m-Counter",
+          "isRun": true
+        },
+        {
+          "steps": "14. Intentional failure demonstration (skipped conditionally)",
+          "action": "MakeFail",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "condition": "1->==->2",
+          "isRun": true
+        }
+      ]
+    },
+    {
+      "testCaseId": "8",
+      "Case": "Alerts, Dialogs, Frames, Windows & Popups",
+      "isRun": true,
+      "tagNames": [
+        "alerts",
+        "frames",
+        "dialogs",
+        "windows"
+      ],
+      "testSteps": [
+        {
+          "steps": "1. Validate alert text (conditional syntax)",
+          "action": "validatealertText",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "Notification",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "2. Accept alert using AlertAccept (conditional syntax)",
+          "action": "AlertAccept",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "3. Dismiss confirm dialog using alertDismiss (conditional syntax)",
+          "action": "alertDismiss",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "4. Accept confirm using confirmccept (conditional syntax)",
+          "action": "confirmccept",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "5. Send keys to alert prompt using alertSendKeys (conditional syntax)",
+          "action": "alertSendKeys",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "HighPriority",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "6. Remove all active alerts using removeAlert (conditional syntax)",
+          "action": "removeAlert",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "7. Set authentication credentials for alert (conditional syntax)",
+          "action": "alertSetAuthenticationCredentials",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "admin",
+          "actualValue": "CampusDemo!26",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "8. Add new browser tab AddTab",
+          "action": "AddTab",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "9. Switch to window by index 0",
+          "action": "switchToWindowByIndex",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "0",
+          "isRun": true
+        },
+        {
+          "steps": "10. Switch to last opened window",
+          "action": "switchToLastWindow",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "11. Switch to last window and close it",
+          "action": "switchToLastWindowAndClose",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "12. Add browser window AddWindow",
+          "action": "AddWindow",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "13. Switch back to base window SwitchToBaseWindow",
+          "action": "SwitchToBaseWindow",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "14. Store popup parent window handle",
+          "action": "SetPopUpParentWindow",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "15. Switch to popup window SwitchToPopUpWindow",
+          "action": "SwitchToPopUpWindow",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "0",
+          "isRun": true
+        },
+        {
+          "steps": "16. Switch back to popup parent window SwitchToPopUpParentWindow",
+          "action": "SwitchToPopUpParentWindow",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "17. Close all popup windows closeAllPopUpWindow",
+          "action": "closeAllPopUpWindow",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "18. Switch to frame by index switchToFrameByIndex (conditional)",
+          "action": "switchToFrameByIndex",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "0",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "19. Switch to frame by element switchToFrame (conditional)",
+          "action": "switchToFrame",
+          "locatorType": "css",
+          "locatorTypeValue": "iframe",
+          "value": "",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "20. Switch to parent frame switchToParentFrame",
+          "action": "switchToParentFrame",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "21. Native window dialog handler WindowDialogHandle (conditional)",
+          "action": "WindowDialogHandle",
+          "locatorType": "Open",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "22. File upload helper FileUpload (conditional)",
+          "action": "FileUpload",
+          "locatorType": "css",
+          "locatorTypeValue": "input[type='file']",
+          "value": "demo/student-registration/scenarios/campus-locators.json",
+          "condition": "1->==->2",
+          "isRun": true
+        }
+      ]
+    },
+    {
+      "testCaseId": "9",
+      "Case": "API Automation, Token Extraction & JSON Path Assertions",
+      "isRun": true,
+      "tagNames": [
+        "api",
+        "rest",
+        "jwt",
+        "jsonpath"
+      ],
+      "testSteps": [
+        {
+          "steps": "1. Authenticate via POST /api/auth/login",
+          "action": "api-POST-m:loginResponse",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "/api/auth/login",
+          "actualValue": "{\"Url\":\"/api/auth/login\",\"BaseUrl\":\"http://127.0.0.1:3100\",\"Headers\":{\"Content-Type\":\"application/json\"},\"Body\":{\"email\":\"admin@campus.test\",\"password\":\"CampusDemo!26\"}}",
+          "isRun": true,
+          "hardStop": true
+        },
+        {
+          "steps": "2. Extract token from response JSONPath $.token",
+          "action": "SetModuleTextFromJpath-authToken",
+          "locatorType": "NA",
+          "locatorTypeValue": "$.token",
+          "value": "",
+          "actualValue": "",
+          "isRun": true
+        },
+        {
+          "steps": "3. Fetch student records using api-GET",
+          "action": "api-GET-m:studentsResponse",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "/api/students",
+          "actualValue": "{\"Url\":\"/api/students\",\"BaseUrl\":\"http://127.0.0.1:3100\",\"Headers\":{\"Authorization\":\"Bearer {{authToken}}\",\"Accept\":\"application/json\"},\"Body\":null}",
+          "isRun": true
+        },
+        {
+          "steps": "4. Validate student email using validateJPath $[0].email",
+          "action": "validateJPath",
+          "locatorType": "NA",
+          "locatorTypeValue": "$[0].email",
+          "value": "student1@campus.test",
+          "actualValue": "studentsResponse",
+          "isRun": true
+        },
+        {
+          "steps": "5. Fetch summary using generic api-* wildcard",
+          "action": "api-GET-m:summaryResponse",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "/api/summary",
+          "actualValue": "{\"Url\":\"/api/summary\",\"BaseUrl\":\"http://127.0.0.1:3100\",\"Headers\":{\"Authorization\":\"Bearer {{authToken}}\"},\"Body\":null}",
+          "isRun": true
+        },
+        {
+          "steps": "6. Execute database query ExecuteDataBaseQuery (sqlite memory)",
+          "action": "ExecuteDataBaseQuery",
+          "locatorType": "jdbc:sqlite::memory:",
+          "locatorTypeValue": "count",
+          "value": "SELECT 1;",
+          "actualValue": "DbCount",
+          "isRun": true
+        }
+      ]
+    },
+    {
+      "testCaseId": "10",
+      "Case": "CDP Network Emulation, Mocking & Visual Screenshots",
+      "isRun": true,
+      "tagNames": [
+        "cdp",
+        "network",
+        "mocking",
+        "screenshots"
+      ],
+      "testSteps": [
+        {
+          "steps": "1. Throttle network speed using ThrottleNetwork Slow3G",
+          "action": "ThrottleNetwork",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "Slow3G",
+          "isRun": true
+        },
+        {
+          "steps": "2. Intercept API with mock response MockApiResponse",
+          "action": "MockApiResponse",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "/api/system/status",
+          "actualValue": "{\"status\":200,\"body\":\"{\\\"online\\\":true,\\\"mode\\\":\\\"mocked\\\"}\"}",
+          "isRun": true
+        },
+        {
+          "steps": "3. Reset network conditions ResetNetwork",
+          "action": "ResetNetwork",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "4. Capture full browser screenshot takingscreenshot",
+          "action": "takingscreenshot",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "master-suite-full.png",
+          "isRun": true
+        },
+        {
+          "steps": "5. Capture element screenshot takingelementscreenshot",
+          "action": "takingelementscreenshot",
+          "locatorType": "css",
+          "locatorTypeValue": "body",
+          "value": "master-suite-element.png",
+          "isRun": true
+        },
+        {
+          "steps": "6. Append full page screenshot fullscreenshotappender",
+          "action": "fullscreenshotappender",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "master-full-append.png",
+          "isRun": true
+        },
+        {
+          "steps": "7. Append screenshot with timestamp takingscreenshotappender",
+          "action": "takingscreenshotappender",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "master-append.png",
+          "isRun": true
+        },
+        {
+          "steps": "8. Append screenshot with custom path takingscreenshotappenderwithPath",
+          "action": "takingscreenshotappenderwithPath",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "master-path-append.png",
+          "isRun": true
+        }
+      ]
+    },
+    {
+      "testCaseId": "11",
+      "Case": "Multi-Browser Profiles & Clean Teardown",
+      "isRun": true,
+      "tagNames": [
+        "profiles",
+        "multibrowser",
+        "teardown"
+      ],
+      "testSteps": [
+        {
+          "steps": "1. Emulate mobile device view mobileView (conditional)",
+          "action": "mobileView",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "{\"width\":375,\"height\":812,\"mobile\":true}",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "2. Open and maximize browser openAndMaximizebrowser (conditional)",
+          "action": "openAndMaximizebrowser",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "http://127.0.0.1:3100",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "3. Open browser generic openbrowser (conditional)",
+          "action": "openbrowser",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "http://127.0.0.1:3100",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "4. Open browser record mode openbrowser-record (conditional)",
+          "action": "openbrowser-record",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "http://127.0.0.1:3100",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "5. Open Chrome with user history openbrowserChromeWithHistory (conditional)",
+          "action": "openbrowserChromeWithHistory",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "http://127.0.0.1:3100",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "6. Open Edge browser openbrowserEdge (conditional)",
+          "action": "openbrowserEdge",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "http://127.0.0.1:3100",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "7. Open Edge with history openbrowserEdgeWithHistory (conditional)",
+          "action": "openbrowserEdgeWithHistory",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "http://127.0.0.1:3100",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "8. Open Firefox browser openbrowserFireFox (conditional)",
+          "action": "openbrowserFireFox",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "http://127.0.0.1:3100",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "9. Open Firefox with history openbrowserFireFoxWithHistory (conditional)",
+          "action": "openbrowserFireFoxWithHistory",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "http://127.0.0.1:3100",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "10. Open browser with history openbrowserWithHistory (conditional)",
+          "action": "openbrowserWithHistory",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "http://127.0.0.1:3100",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "11. Start new browser session StartNewBrowser (conditional)",
+          "action": "StartNewBrowser",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "12. Switch active browser session SwitchBrowser (conditional)",
+          "action": "SwitchBrowser",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "1",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "13. Close browser window closeBrowser",
+          "action": "closeBrowser",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "condition": "1->==->2",
+          "isRun": true
+        },
+        {
+          "steps": "14. Quit browser session quitBrowser",
+          "action": "quitBrowser",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        }
+      ]
+    }
+  ]
+}

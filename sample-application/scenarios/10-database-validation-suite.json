@@ -1,0 +1,48 @@
+{
+  "platform": "WEB",
+  "locatorFiles": [],
+  "dataFiles": [],
+  "testCases": [
+    {
+      "testCaseId": "DB-01",
+      "Case": "Database Query and Browser Form Population",
+      "isRun": true,
+      "testSteps": [
+        {
+          "steps": "1. Open Chrome browser",
+          "action": "openChromeBrowser",
+          "value": "Chrome",
+          "isRun": true
+        },
+        {
+          "steps": "2. Query user records from database",
+          "action": "executeDatabaseQuery",
+          "locatorType": "jdbc:sqlite:sample-users.db",
+          "locatorTypeValue": "UserData",
+          "value": "SELECT 1 AS id, 'NextTest Tester' AS name, 'qa@nexttest.internal' AS email;",
+          "isRun": true
+        },
+        {
+          "steps": "3. Navigate to web application",
+          "action": "enterUrl",
+          "value": "https://example.com",
+          "isRun": true
+        },
+        {
+          "steps": "4. Verify database count returned",
+          "action": "validateCount",
+          "locatorType": "tag",
+          "locatorTypeValue": "h1",
+          "value": "1",
+          "isRun": true
+        },
+        {
+          "steps": "5. Capture execution screenshot",
+          "action": "takingScreenshot",
+          "value": "db-flow-success.png",
+          "isRun": true
+        }
+      ]
+    }
+  ]
+}

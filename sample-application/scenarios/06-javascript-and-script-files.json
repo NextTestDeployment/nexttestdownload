@@ -1,0 +1,78 @@
+{
+  "name": "06 JavaScript Execution & Script Files Suite",
+  "data": {
+    "baseUrl": "http://127.0.0.1:3100"
+  },
+  "testCases": [
+    {
+      "testCaseId": "1",
+      "Case": "Pure Inline JavaScript and External JS File Execution",
+      "isRun": true,
+      "hardStop": false,
+      "tagNames": ["javascript", "scripts", "dom"],
+      "testSteps": [
+        {
+          "steps": "Open Chrome browser",
+          "action": "openBrowserChrome",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "${baseUrl}",
+          "isRun": true,
+          "hardStop": true
+        },
+        {
+          "steps": "Execute pure JavaScript to query document title and store in variable",
+          "action": "executeScript",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "return document.title;",
+          "actualValue": "pageTitleJs",
+          "isRun": true
+        },
+        {
+          "steps": "Execute pure JavaScript to modify DOM style directly",
+          "action": "executeScript",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "document.body.style.backgroundColor = '#f0fdf4'; return window.innerHeight;",
+          "actualValue": "viewportHeight",
+          "isRun": true
+        },
+        {
+          "steps": "Execute JavaScript passing a specific DOM element as argument",
+          "action": "executeScript",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "arguments[0].style.border = '2px solid #a9cf34';",
+          "isRun": true
+        },
+        {
+          "steps": "Execute JavaScript from an external .js file on disk",
+          "action": "executeScriptFile",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "scripts/sample-dom-highlight.js",
+          "actualValue": "externalScriptResult",
+          "isRun": true
+        },
+        {
+          "steps": "Run basic automated accessibility audit on the page",
+          "action": "accessibilityAudit",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "actualValue": "a11yReport",
+          "isRun": true
+        },
+        {
+          "steps": "Close browser",
+          "action": "closeBrowser",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        }
+      ]
+    }
+  ]
+}

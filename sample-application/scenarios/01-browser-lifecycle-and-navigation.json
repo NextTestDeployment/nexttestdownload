@@ -1,0 +1,98 @@
+{
+  "name": "01 Browser Lifecycle & Navigation Suite",
+  "data": {
+    "baseUrl": "http://127.0.0.1:3100"
+  },
+  "testCases": [
+    {
+      "testCaseId": "1",
+      "Case": "Browser Window Management and Navigation Flow",
+      "isRun": true,
+      "hardStop": false,
+      "tagNames": ["browser", "navigation"],
+      "testSteps": [
+        {
+          "steps": "Launch Chrome browser and navigate to home page",
+          "action": "openBrowserChrome",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "${baseUrl}",
+          "isRun": true,
+          "hardStop": true
+        },
+        {
+          "steps": "Set viewport window size to 1920x1080",
+          "action": "windowSize",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "1920,1080",
+          "isRun": true
+        },
+        {
+          "steps": "Validate current page title",
+          "action": "validateTitle",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "CampusFlow · Student Services",
+          "isRun": true
+        },
+        {
+          "steps": "Navigate to specific URL directly",
+          "action": "enterUrl",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "${baseUrl}/#students",
+          "isRun": true
+        },
+        {
+          "steps": "Refresh current page",
+          "action": "refresh",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Navigate browser back in history",
+          "action": "mouseBackClick",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Navigate browser forward in history",
+          "action": "mouseForwardClick",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Maximize browser window",
+          "action": "openAndMaximizeBrowser",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Capture full screenshot of viewport",
+          "action": "takingScreenshot",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "browser-lifecycle-final.png",
+          "isRun": true
+        },
+        {
+          "steps": "Close browser session cleanly",
+          "action": "closeBrowser",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        }
+      ]
+    }
+  ]
+}

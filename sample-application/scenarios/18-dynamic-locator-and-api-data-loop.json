@@ -1,0 +1,105 @@
+{
+  "name": "18 Dynamic Locator and API Data Loop Suite",
+  "platform": "Web",
+  "data": {
+    "baseUrl": "http://127.0.0.1:3100",
+    "apiUrl": "http://127.0.0.1:3100/api/students"
+  },
+  "locators": {
+    "txt_Search": "//input[@id='student-search']",
+    "btn_Enroll": "//button[@id='btn-enroll']",
+    "tbl_StudentRow": "//table[@id='students-table']//tbody/tr[${rowIndex}]",
+    "btn_StudentAction": "//table[@id='students-table']//tbody/tr[${rowIndex}]//button",
+    "lbl_StudentName": "//tr[td[contains(., '${studentName}')]]"
+  },
+  "testData": {
+    "students": [
+      { "rowIndex": "1", "studentName": "Aarav Sharma", "email": "aarav@campus.edu", "course": "Computer Science", "credits": "4", "fee": "5000" },
+      { "rowIndex": "2", "studentName": "Diya Patel", "email": "diya@campus.edu", "course": "Data Analytics", "credits": "3", "fee": "4500" },
+      { "rowIndex": "3", "studentName": "Kabir Verma", "email": "kabir@campus.edu", "course": "Robotics Engineering", "credits": "4", "fee": "5200" }
+    ]
+  },
+  "testCases": [
+    {
+      "testCaseId": "TC-DYNAMIC-01",
+      "Case": "Dynamic Web Locator and Chained API Parameter Loop",
+      "dataSheetName": "students",
+      "isRun": true,
+      "hardStop": false,
+      "tagNames": ["dynamic-locators", "api-loop", "object-repository", "data-driven"],
+      "testSteps": [
+        {
+          "steps": "Open the CampusFlow web application",
+          "action": "enterurl",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "http://127.0.0.1:3100",
+          "isRun": true
+        },
+        {
+          "steps": "Wait for student table to load",
+          "action": "sleep",
+          "value": "500",
+          "isRun": true
+        },
+        {
+          "steps": "Initialize loop index variable rowIndex = 1",
+          "action": "setvar",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "1",
+          "actualValue": "rowIndex",
+          "isRun": true
+        },
+        {
+          "steps": "Set student name variable for current iteration",
+          "action": "setvar",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "Aarav Sharma",
+          "actualValue": "studentName",
+          "isRun": true
+        },
+        {
+          "steps": "Execute parameterized API POST request with dynamic JSON body",
+          "action": "api-POST-m:apiResponse",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "http://127.0.0.1:3100/api/students",
+          "actualValue": "{\"Url\":\"http://127.0.0.1:3100/api/students\",\"Headers\":{\"Content-Type\":\"application/json\"},\"Body\":{\"name\":\"{{studentName}}\",\"course\":\"Computer Science\",\"fee\":5000}}",
+          "isRun": true
+        },
+        {
+          "steps": "Assert dynamic table row locator resolving ${rowIndex}",
+          "action": "assertvisible",
+          "locatorType": "xpath",
+          "locatorTypeValue": "tbl_StudentRow",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Click dynamic action button using parameterized XPath //tr[${rowIndex}]//button",
+          "action": "click",
+          "locatorType": "xpath",
+          "locatorTypeValue": "btn_StudentAction",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Verify dynamic semantic row matching student name //tr[td[contains(., '${studentName}')]]",
+          "action": "assertvisible",
+          "locatorType": "xpath",
+          "locatorTypeValue": "lbl_StudentName",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Close browser after test",
+          "action": "closebrowser",
+          "value": "",
+          "isRun": true
+        }
+      ]
+    }
+  ]
+}

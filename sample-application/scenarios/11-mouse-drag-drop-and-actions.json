@@ -1,0 +1,58 @@
+{
+  "name": "11 Mouse Actions & Drag and Drop Suite",
+  "data": {
+    "baseUrl": "http://127.0.0.1:3100"
+  },
+  "testCases": [
+    {
+      "testCaseId": "1",
+      "Case": "Mouse Hover, Context Click, and Drag Drop Workflows",
+      "isRun": true,
+      "hardStop": false,
+      "tagNames": ["mouse", "actions", "dragdrop"],
+      "testSteps": [
+        {
+          "steps": "Open Chrome to CampusFlow",
+          "action": "openBrowserChrome",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "${baseUrl}",
+          "isRun": true,
+          "hardStop": true
+        },
+        {
+          "steps": "Move mouse to login card header",
+          "action": "moveToElement",
+          "locatorType": "css",
+          "locatorTypeValue": "h1",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Move mouse by offset (50px right, 20px down)",
+          "action": "moveByOffsetFromElement",
+          "locatorType": "css",
+          "locatorTypeValue": "h1",
+          "value": "50,20",
+          "isRun": true
+        },
+        {
+          "steps": "Context click (right click) on submit button",
+          "action": "contextClick",
+          "locatorType": "css",
+          "locatorTypeValue": "button[type='submit']",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Close browser",
+          "action": "closeBrowser",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        }
+      ]
+    }
+  ]
+}

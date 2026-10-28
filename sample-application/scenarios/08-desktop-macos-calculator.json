@@ -1,0 +1,63 @@
+{
+  "platform": "MACOS",
+  "serverUrl": "http://127.0.0.1:4723",
+  "bundleId": "com.apple.calculator",
+  "locatorFiles": [],
+  "dataFiles": [],
+  "testCases": [
+    {
+      "testCaseId": "MAC-CALC-01",
+      "Case": "macOS Native Calculator Automation",
+      "isRun": true,
+      "testSteps": [
+        {
+          "steps": "1. Wait for Calculator window",
+          "action": "pause",
+          "value": "1200",
+          "isRun": true
+        },
+        {
+          "steps": "2. Click Clear button",
+          "action": "click",
+          "locatorType": "accessibilityId",
+          "locatorTypeValue": "clear",
+          "isRun": true
+        },
+        {
+          "steps": "3. Click number 7",
+          "action": "click",
+          "locatorType": "accessibilityId",
+          "locatorTypeValue": "7",
+          "isRun": true
+        },
+        {
+          "steps": "4. Click multiply button",
+          "action": "click",
+          "locatorType": "accessibilityId",
+          "locatorTypeValue": "multiply",
+          "isRun": true
+        },
+        {
+          "steps": "5. Click number 6",
+          "action": "click",
+          "locatorType": "accessibilityId",
+          "locatorTypeValue": "6",
+          "isRun": true
+        },
+        {
+          "steps": "6. Click equals button",
+          "action": "click",
+          "locatorType": "accessibilityId",
+          "locatorTypeValue": "equals",
+          "isRun": true
+        },
+        {
+          "steps": "7. Capture macOS window screenshot",
+          "action": "takingScreenshot",
+          "value": "macos-calculator.png",
+          "isRun": true
+        }
+      ]
+    }
+  ]
+}

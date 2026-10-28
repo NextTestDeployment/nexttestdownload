@@ -1,0 +1,55 @@
+{
+  "name": "09 REST API Automation & JWT Token Chaining Suite",
+  "data": {
+    "baseUrl": "http://127.0.0.1:3100"
+  },
+  "testCases": [
+    {
+      "testCaseId": "1",
+      "Case": "Authenticate via REST API, Extract JWT, and Query Protected Endpoints",
+      "isRun": true,
+      "hardStop": false,
+      "tagNames": ["api", "rest", "jwt", "token-chaining"],
+      "testSteps": [
+        {
+          "steps": "Post login credentials to receive JWT token",
+          "action": "api-POST",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "/api/auth/login",
+          "actualValue": "{\"BaseUrl\":\"http://127.0.0.1:3100\",\"Url\":\"/api/auth/login\",\"Headers\":{\"Content-Type\":\"application/json\"},\"Body\":{\"email\":\"admin@campus.test\",\"password\":\"CampusDemo!26\"}}",
+          "isRun": true,
+          "hardStop": true
+        },
+        {
+          "steps": "Extract JWT token from JSON response body",
+          "action": "SetModuleTextFromJpath-authToken",
+          "locatorType": "NA",
+          "locatorTypeValue": "$.token",
+          "value": "",
+          "isRun": true,
+          "hardStop": true
+        },
+        {
+          "steps": "Query protected students endpoint using extracted Bearer token",
+          "action": "api-GET",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "/api/students",
+          "actualValue": "{\"BaseUrl\":\"http://127.0.0.1:3100\",\"Url\":\"/api/students\",\"Headers\":{\"Authorization\":\"Bearer {{authToken}}\",\"Content-Type\":\"application/json\"}}",
+          "isRun": true,
+          "hardStop": false
+        },
+        {
+          "steps": "Validate that first student record contains expected email address",
+          "action": "validateJPath",
+          "locatorType": "NA",
+          "locatorTypeValue": "$[0].email",
+          "value": "student1@campus.test",
+          "isRun": true,
+          "hardStop": false
+        }
+      ]
+    }
+  ]
+}

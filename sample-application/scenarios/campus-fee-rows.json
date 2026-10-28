@@ -1,0 +1,8 @@
+{
+  "rows": [
+    { "ReceiptNo": "RCPT-26-801", "StudentName": "Aarav Rao", "Status": "Due" },
+    { "ReceiptNo": "RCPT-26-802", "StudentName": "Diya Mehta", "Status": "Paid" },
+    { "ReceiptNo": "RCPT-26-803", "StudentName": "Kabir Nair", "Status": "Paid" },
+    { "ReceiptNo": "RCPT-26-804", "StudentName": "Anaya Kapoor", "Status": "Paid" }
+  ]
+}

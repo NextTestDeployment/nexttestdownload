@@ -1,0 +1,78 @@
+{
+  "name": "08 Synthetic Test Data Generation Suite",
+  "data": {},
+  "testCases": [
+    {
+      "testCaseId": "1",
+      "Case": "Dynamic Data Generation Without Collisions",
+      "isRun": true,
+      "hardStop": false,
+      "tagNames": ["data", "synthetic", "generator"],
+      "testSteps": [
+        {
+          "steps": "Generate realistic synthetic email address",
+          "action": "generateTestData",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "!Gen->email()",
+          "actualValue": "randomEmail",
+          "isRun": true
+        },
+        {
+          "steps": "Generate realistic full name",
+          "action": "generateTestData",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "!Gen->name()",
+          "actualValue": "randomName",
+          "isRun": true
+        },
+        {
+          "steps": "Generate Indian standard phone number",
+          "action": "generateTestData",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "!Gen->phone(\"IN\")",
+          "actualValue": "randomPhone",
+          "isRun": true
+        },
+        {
+          "steps": "Generate structured pattern invoice code",
+          "action": "generateTestData",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "!Gen->pattern(\"INV-####\")",
+          "actualValue": "invoiceCode",
+          "isRun": true
+        },
+        {
+          "steps": "Generate unique UUID token",
+          "action": "generateTestData",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "!Gen->uuid()",
+          "actualValue": "randomUuid",
+          "isRun": true
+        },
+        {
+          "steps": "Generate Luhn-valid 16 digit Visa test credit card",
+          "action": "generateTestData",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "!Gen->luhnCard(\"visa\")",
+          "actualValue": "testVisaCard",
+          "isRun": true
+        },
+        {
+          "steps": "Generate relative future ISO date (+14 days)",
+          "action": "generateTestData",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "!Gen->futureDate(14)",
+          "actualValue": "dueDate",
+          "isRun": true
+        }
+      ]
+    }
+  ]
+}

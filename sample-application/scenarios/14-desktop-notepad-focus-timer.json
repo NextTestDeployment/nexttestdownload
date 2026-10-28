@@ -1,0 +1,149 @@
+{
+  "platform": "WINDOWS",
+  "serverUrl": "http://127.0.0.1:4723",
+  "appPath": "notepad.exe",
+  "locatorFiles": [],
+  "dataFiles": [],
+  "testCases": [
+    {
+      "testCaseId": "WIN-NOTE-FOCUS-01",
+      "Case": "Desktop Notepad Focus Verification & 30-Second Periodic Timestamp Logger",
+      "isRun": true,
+      "tagNames": ["desktop", "windows", "notepad", "focus", "timer"],
+      "testSteps": [
+        {
+          "steps": "1. Wait for Notepad window to render",
+          "action": "pause",
+          "value": "1500",
+          "isRun": true
+        },
+        {
+          "steps": "2. Bring Notepad window to foreground focus",
+          "action": "focusWindow",
+          "value": "notepad",
+          "isRun": true
+        },
+        {
+          "steps": "3. Focus Notepad editor text area",
+          "action": "click",
+          "locatorType": "xpath",
+          "locatorTypeValue": "//*[@ClassName='RichEditD2DPT' or @ClassName='Edit' or @Name='Text editor']",
+          "isRun": true
+        },
+        {
+          "steps": "4. Check if Notepad window is currently in focus",
+          "action": "checkWindowFocus",
+          "value": "notepad",
+          "actualValue": "isNotepadFocused",
+          "isRun": true
+        },
+        {
+          "steps": "5. Validate that Notepad is in focus",
+          "action": "validateDataText",
+          "value": "FOCUSED",
+          "actualValue": "isNotepadFocused",
+          "isRun": true
+        },
+        {
+          "steps": "6. Type initial header into Notepad editor",
+          "action": "enterText",
+          "locatorType": "xpath",
+          "locatorTypeValue": "//*[@ClassName='RichEditD2DPT' or @ClassName='Edit' or @Name='Text editor']",
+          "value": "=== Sample 14: Notepad Focus & 30-Second Sequence Logger ===\n\n",
+          "isRun": true
+        },
+        {
+          "steps": "7. Capture current datetime for sequence 1",
+          "action": "setDate",
+          "value": "yyyy-MM-dd HH:mm:ss",
+          "actualValue": "dt1",
+          "isRun": true
+        },
+        {
+          "steps": "8. Notepad: Print sequence 1 and datetime in new line",
+          "action": "enterText",
+          "locatorType": "xpath",
+          "locatorTypeValue": "//*[@ClassName='RichEditD2DPT' or @ClassName='Edit' or @Name='Text editor']",
+          "value": "1 - ${dt1}\n",
+          "isRun": true
+        },
+        {
+          "steps": "9. Wait 30 seconds interval before printing next sequence",
+          "action": "pause",
+          "value": "30000",
+          "isRun": true
+        },
+        {
+          "steps": "10. Check if Notepad is still in focus after 30 seconds",
+          "action": "checkWindowFocus",
+          "value": "notepad",
+          "actualValue": "isNotepadFocused2",
+          "isRun": true
+        },
+        {
+          "steps": "11. Capture current datetime for sequence 2",
+          "action": "setDate",
+          "value": "yyyy-MM-dd HH:mm:ss",
+          "actualValue": "dt2",
+          "isRun": true
+        },
+        {
+          "steps": "12. Notepad: Print sequence 2 and datetime in new line",
+          "action": "enterText",
+          "locatorType": "xpath",
+          "locatorTypeValue": "//*[@ClassName='RichEditD2DPT' or @ClassName='Edit' or @Name='Text editor']",
+          "value": "2 - ${dt2}\n",
+          "isRun": true
+        },
+        {
+          "steps": "13. Wait 30 seconds interval before printing next sequence",
+          "action": "pause",
+          "value": "30000",
+          "isRun": true
+        },
+        {
+          "steps": "14. Check if Notepad is still in focus after 30 seconds",
+          "action": "checkWindowFocus",
+          "value": "notepad",
+          "actualValue": "isNotepadFocused3",
+          "isRun": true
+        },
+        {
+          "steps": "15. Capture current datetime for sequence 3",
+          "action": "setDate",
+          "value": "yyyy-MM-dd HH:mm:ss",
+          "actualValue": "dt3",
+          "isRun": true
+        },
+        {
+          "steps": "16. Notepad: Print sequence 3 and datetime in new line",
+          "action": "enterText",
+          "locatorType": "xpath",
+          "locatorTypeValue": "//*[@ClassName='RichEditD2DPT' or @ClassName='Edit' or @Name='Text editor']",
+          "value": "3 - ${dt3}\n",
+          "isRun": true
+        },
+        {
+          "steps": "17. Notepad: Add completion message confirmation",
+          "action": "enterText",
+          "locatorType": "xpath",
+          "locatorTypeValue": "//*[@ClassName='RichEditD2DPT' or @ClassName='Edit' or @Name='Text editor']",
+          "value": "\nPeriodic 30-second timestamp logging completed successfully with NextTest!\n",
+          "isRun": true
+        },
+        {
+          "steps": "18. Capture screenshot evidence of Notepad content",
+          "action": "takingScreenshot",
+          "value": "notepad-focus-timer-result.png",
+          "isRun": true
+        },
+        {
+          "steps": "19. Close Notepad application",
+          "action": "closeApp",
+          "value": "notepad",
+          "isRun": true
+        }
+      ]
+    }
+  ]
+}

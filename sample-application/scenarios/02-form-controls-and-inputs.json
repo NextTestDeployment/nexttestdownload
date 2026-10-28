@@ -1,0 +1,99 @@
+{
+  "name": "02 Form Controls, Inputs & Keystrokes Suite",
+  "data": {
+    "baseUrl": "http://127.0.0.1:3100"
+  },
+  "testCases": [
+    {
+      "testCaseId": "1",
+      "Case": "Interactive Form Filling and Keystroke Validation",
+      "isRun": true,
+      "hardStop": false,
+      "tagNames": ["forms", "inputs", "dropdowns"],
+      "testSteps": [
+        {
+          "steps": "Open Chrome to CampusFlow login page",
+          "action": "openBrowserChrome",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "${baseUrl}",
+          "isRun": true,
+          "hardStop": true
+        },
+        {
+          "steps": "Clear input field if previously populated",
+          "action": "clear",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Send random string to test input bounds",
+          "action": "sendKeysRandomString",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "random-prefix",
+          "actualValue": "15",
+          "isRun": true
+        },
+        {
+          "steps": "Clear and enter valid admin email",
+          "action": "clear",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Type admin email credentials",
+          "action": "sendKeys",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "admin@nexttest.local",
+          "isRun": true
+        },
+        {
+          "steps": "Blur focus away from email field",
+          "action": "blur",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Type password into password input",
+          "action": "sendKeys",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-password",
+          "value": "Admin@123",
+          "isRun": true
+        },
+        {
+          "steps": "Submit form using ENTER keystroke",
+          "action": "sendKeysEnter",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-password",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Wait for dashboard navigation",
+          "action": "sleep",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "1500",
+          "isRun": true
+        },
+        {
+          "steps": "Close browser",
+          "action": "closeBrowser",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        }
+      ]
+    }
+  ]
+}

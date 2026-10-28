@@ -1,0 +1,16 @@
+{
+  "LocatorFiles": [],
+  "DataFiles": [],
+  "TestCases": [{
+    "TestCaseId": "campus-jwt-api",
+    "Case": "CampusFlow API: log in with JWT and request protected student records",
+    "IsRun": true,
+    "tagNames": ["campusflow", "api", "jwt", "json"],
+    "TestSteps": [
+      { "Steps": "Authenticate through the JSON API", "Action": "API-POST-m:LoginResponse", "Value": "http://127.0.0.1:3100/api/auth/login", "ActualValue": "{\"Url\":\"http://127.0.0.1:3100/api/auth/login\",\"Headers\":{\"content-type\":\"application/json\"},\"Body\":{\"email\":\"admin@campus.test\",\"password\":\"CampusDemo!26\"}}", "IsRun": true },
+      { "Steps": "Read the protected student list with the returned JWT", "Action": "API-GET-m:StudentList", "Value": "http://127.0.0.1:3100/api/students", "ActualValue": "!MTC->(header-m:jpath-LoginResponse-$.token)->{\"Url\":\"http://127.0.0.1:3100/api/students\",\"Headers\":{\"Authorization\":\"Bearer header-m:jpath-LoginResponse-$.token\"}}", "IsRun": true },
+      { "Steps": "Close API-only scenario", "Action": "Print", "Value": "CampusFlow JWT API scenario completed.", "IsRun": true }
+    ]
+  }],
+  "TestData": {}
+}

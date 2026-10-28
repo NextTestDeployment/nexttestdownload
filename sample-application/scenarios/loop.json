@@ -1,0 +1,199 @@
+{
+  "LocatorFiles" : [ ],
+  "DataFiles" : [
+ 
+
+   ],
+  "TestCases" : [ 
+    {
+    "TestCaseId" : "1",
+    "Case" : "Recorded test case",
+    "IsRun" : true,
+    "IsPassed" : false,
+    "SheetName" : null,
+    "HeaderIndex" : 1,
+    "DataSheetName" : "",
+    "tagNames" : [ ],
+    "TestSteps" : [ {
+      "Steps" : "Navigate to the URL in the browser",
+      "Action" : "enterUrl",
+      "Value" : "http://localhost:3100/",
+      "IsRun" : true,
+      "IsPassed" : false,
+      "ActualValue" : null,
+      "Condition" : null,
+      "LocatorType" : "http://localhost:3100/",
+      "LocatorTypeValue" : "http://localhost:3100/",
+      "LocatorTypeNotIdValue" : null,
+      "ExecutedTime" : "2026-10-20-22-23-17",
+      "TestCaseId" : "1",
+      "onFailCase" : 0,
+      "onFail" : 0,
+      "onFailStep" : 0,
+      "onFailTry" : 0,
+      "Status" : null
+    }, {
+      "Steps" : "Validate URL: http://localhost:3100/",
+      "Action" : "validateUrl",
+      "Value" : "http://localhost:3100/",
+      "IsRun" : true,
+      "IsPassed" : false,
+      "ActualValue" : null,
+      "Condition" : "'",
+      "LocatorType" : "url",
+      "LocatorTypeValue" : "",
+      "LocatorTypeNotIdValue" : null,
+      "ExecutedTime" : "2026-10-20-22-23-17",
+      "TestCaseId" : "1",
+      "onFailCase" : 0,
+      "onFail" : 0,
+      "onFailStep" : 0,
+      "onFailTry" : 0,
+      "Status" : null
+    } ,
+
+    {
+      "Steps" : "Positive: Send valid email to login-email",
+      "Action" : "sendKeys",
+      "Value" : "admin@campus.test",
+      "IsRun" : true,
+      "LocatorType" : "XPATH:,:CssSelector",
+      "LocatorTypeValue" : "//*[@id='login-email']:,:#login-email",
+      "Condition" : "'",
+      "ActualValue" : ""
+    }, {
+      "Steps" : "Validate entered email text in login-email",
+      "Action" : "ValidateText",
+      "Value" : "admin@campus.test",
+      "IsRun" : true,
+      "LocatorType" : "XPATH:,:CssSelector",
+      "LocatorTypeValue" : "//*[@id='login-email']:,:#login-email",
+      "Condition" : "'",
+      "ActualValue" : ""
+    }, {
+      "Steps" : "Clear input field for login-email",
+      "Action" : "clear",
+      "Value" : "",
+      "IsRun" : true,
+      "LocatorType" : "XPATH:,:CssSelector",
+      "LocatorTypeValue" : "//*[@id='login-email']:,:#login-email",
+      "Condition" : "'",
+      "ActualValue" : ""
+    }, {
+      "Steps" : "Enter valid password into login-password",
+      "Action" : "sendKeys",
+      "Value" : "TestPass@1234",
+      "IsRun" : true,
+      "LocatorType" : "XPATH:,:CssSelector",
+      "LocatorTypeValue" : "//*[@id='login-password']:,:#login-password",
+      "Condition" : "'",
+      "ActualValue" : ""
+    }, {
+      "Steps" : "Validate entered password value in login-password",
+      "Action" : "ValidateText",
+      "Value" : "TestPass@1234",
+      "IsRun" : true,
+      "LocatorType" : "XPATH:,:CssSelector",
+      "LocatorTypeValue" : "//*[@id='login-password']:,:#login-password",
+      "Condition" : "'",
+      "ActualValue" : ""
+    }, {
+      "Steps" : "Clear password field",
+      "Action" : "clear",
+      "Value" : "",
+      "IsRun" : true,
+      "LocatorType" : "XPATH:,:CssSelector",
+      "LocatorTypeValue" : "//*[@id='login-password']:,:#login-password",
+      "Condition" : "'",
+      "ActualValue" : ""
+    }, {
+      "Steps" : "Loop through dynamic elements for //input",
+      "Action" : "No Action",
+      "Value" : "",
+      "IsRun" : true,
+      "LocatorType" : "XPATH",
+      "LocatorTypeValue" : "//input",
+      "Condition" : "'",
+      "ActualValue" : ""
+    }, {
+      "Steps" : "Set Loop Index to 1",
+      "Action" : "SetModuleNumber-m:Index",
+      "Value" : "1",
+      "IsRun" : true,
+      "LocatorType" : "",
+      "LocatorTypeValue" : "",
+      "Condition" : "'",
+      "ActualValue" : ""
+    }, {
+      "Steps" : "Count total matching elements",
+      "Action" : "Count-m:ElementCount",
+      "Value" : "1",
+      "IsRun" : true,
+      "LocatorType" : "XPATH",
+      "LocatorTypeValue" : "//input",
+      "Condition" : "'",
+      "ActualValue" : ""
+    }, {
+      "Steps" : "Validate dynamic item text",
+      "Action" : "Clear",
+      "Value" : "!D->Index->ColumnHeader",
+      "IsRun" : true,
+      "LocatorType" : "XPATH",
+      "LocatorTypeValue" : "//input[|{Index}|]",
+      "Condition" : "'",
+      "ActualValue" : ""
+    }, {
+      "Steps" : "Validate dynamic item text",
+      "Action" : "Clear",
+      "Value" : "!D->Index->ColumnHeader",
+      "IsRun" : true,
+      "LocatorType" : "XPATH",
+      "LocatorTypeValue" : "//input[|{Index}|]",
+      "Condition" : "'",
+      "ActualValue" : ""
+    }
+    
+    , {
+      "Steps" : "Validate dynamic item text",
+      "Action" : "validateText",
+      "Value" : "!D->Index->ColumnHeader",
+      "IsRun" : true,
+      "LocatorType" : "XPATH",
+      "LocatorTypeValue" : "//input[|{Index}|]",
+      "Condition" : "'",
+      "ActualValue" : ""
+    }, {
+      "Steps" : "Increment Loop Index",
+      "Action" : "INCREMENTMODULENUMBER",
+      "Value" : "1",
+      "IsRun" : true,
+      "LocatorType" : "",
+      "LocatorTypeValue" : "",
+      "Condition" : "'",
+      "ActualValue" : ""
+    }, {
+      "Steps" : "Loop until condition false",
+      "Action" : "GoTo",
+      "Value" : "3",
+      "IsRun" : true,
+      "LocatorType" : "",
+      "LocatorTypeValue" : "",
+      "Condition" : "'",
+      "ActualValue" : ""
+    } 
+    
+    
+    
+    ]
+  } ],
+  "TestData" : { 
+
+     "items": [
+      { "ColumnHeader": "First Item", "Status": "Active" },
+      { "ColumnHeader": "Second Item", "Status": "Active" },
+      { "ColumnHeader": "Third Item", "Status": "Completed" }
+    ]
+
+
+  }
+}

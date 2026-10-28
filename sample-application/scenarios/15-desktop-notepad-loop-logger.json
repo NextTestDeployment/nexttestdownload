@@ -1,0 +1,130 @@
+{
+  "platform" : "WINDOWS",
+  "serverUrl" : "http://127.0.0.1:4723",
+  "appPath" : "notepad.exe",
+  "data" : {
+    "MaxIterations" : "100",
+    "IntervalMs" : "30000",
+    "DateFormat" : "yyyy-MM-dd HH:mm:ss"
+  },
+  "locatorFiles" : [ ],
+  "dataFiles" : [ ],
+  "testCases" : [ {
+    "testCaseId" : "WIN-NOTE-LOOP-01",
+    "Case" : "Desktop Notepad 100-Iteration 30-Second Periodic Timestamp Logger",
+    "isRun" : true,
+    "tagNames" : [ "desktop", "windows", "notepad", "loop", "timer", "periodic" ],
+    "testSteps" : [ {
+      "steps" : "1. Launch Notepad desktop application",
+      "action" : "startApp",
+      "value" : "notepad.exe",
+      "isRun" : true
+    }, {
+      "steps" : "2. Wait for Notepad window to render",
+      "action" : "pause",
+      "value" : "1500",
+      "isRun" : true
+    }, {
+      "steps" : "3. Bring Notepad window to foreground focus",
+      "action" : "focusWindow",
+      "value" : "notepad",
+      "isRun" : true
+    }, {
+      "steps" : "4. Focus Notepad editor text area",
+      "action" : "click",
+      "locatorType" : "xpath",
+      "locatorTypeValue" : "//*[@ClassName='RichEditD2DPT' or @ClassName='Edit' or @Name='Text editor']",
+      "value" : "",
+      "isRun" : true
+    }, {
+      "steps" : "5. Check if Notepad window is currently in focus",
+      "action" : "checkWindowFocus",
+      "value" : "notepad",
+      "actualValue" : "isNotepadFocused",
+      "isRun" : true
+    }, {
+      "steps" : "6. Validate that Notepad is in focus",
+      "action" : "validateDataText",
+      "value" : "FOCUSED",
+      "actualValue" : "isNotepadFocused",
+      "isRun" : true
+    }, {
+      "steps" : "7. Type initial header into Notepad editor",
+      "action" : "enterText",
+      "locatorType" : "xpath",
+      "locatorTypeValue" : "//*[@ClassName='RichEditD2DPT' or @ClassName='Edit' or @Name='Text editor']",
+      "value" : "=== Scenario 15: Notepad Periodic 30-Second Loop Logger ===\n\n",
+      "isRun" : true
+    }, {
+      "steps" : "8. Initialize loop sequence counter Iteration to 1",
+      "action" : "SetModuleNumber-m:Iteration",
+      "value" : "1",
+      "actualValue" : "Iteration",
+      "isRun" : true
+    }, {
+      "steps" : "9. Configure total loop iterations limit MaxIterations",
+      "action" : "SetModuleNumber-m:MaxIterations",
+      "value" : "${MaxIterations}",
+      "actualValue" : "MaxIterations",
+      "isRun" : true
+    }, {
+      "steps" : "10. Configure interval delay in milliseconds IntervalMs",
+      "action" : "SetModuleNumber-m:IntervalMs",
+      "value" : "${IntervalMs}",
+      "actualValue" : "IntervalMs",
+      "isRun" : true
+    }, {
+      "steps" : "11. Loop Start: Capture current datetime.now",
+      "action" : "setDate",
+      "value" : "${DateFormat}",
+      "actualValue" : "CurrentTimestamp",
+      "isRun" : true
+    }, {
+      "steps" : "12. Notepad: Print sequence - datetime,now and change line",
+      "action" : "enterText",
+      "locatorType" : "xpath",
+      "locatorTypeValue" : "//*[@ClassName='RichEditD2DPT' or @ClassName='Edit' or @Name='Text editor']",
+      "value" : "${Iteration} - ${CurrentTimestamp}\n",
+      "isRun" : true
+    }, {
+      "steps" : "13. Maintain Notepad foreground window focus",
+      "action" : "focusWindow",
+      "value" : "notepad",
+      "isRun" : true
+    }, {
+      "steps" : "14. Wait 30 seconds interval before next sequence",
+      "action" : "pause",
+      "value" : "${IntervalMs}",
+      "isRun" : true
+    }, {
+      "steps" : "15. Increment loop iteration counter by 1",
+      "action" : "INCREMENTMODULENUMBER-m:Iteration",
+      "value" : "1",
+      "actualValue" : "Iteration",
+      "isRun" : true
+    }, {
+      "steps" : "16. Loop back to step 11 while Iteration <= MaxIterations",
+      "action" : "GoTo",
+      "value" : "11",
+      "condition" : "m-MaxIterations->>=-m-Iteration",
+      "isRun" : true
+    }, {
+      "steps" : "17. Notepad: Add completion message confirmation",
+      "action" : "enterText",
+      "locatorType" : "xpath",
+      "locatorTypeValue" : "//*[@ClassName='RichEditD2DPT' or @ClassName='Edit' or @Name='Text editor']",
+      "value" : "\n=== Periodic 30-Second Logger Completed Successfully (${MaxIterations} Iterations) ===\n",
+      "isRun" : true
+    }, {
+      "steps" : "18. Capture screenshot evidence of Notepad log content",
+      "action" : "takingScreenshot",
+      "value" : "notepad-scenario15-loop-result.png",
+      "isRun" : true
+    }, {
+      "steps" : "19. Close Notepad application",
+      "action" : "closeApp",
+      "value" : "notepad",
+      "isRun" : true
+    } ]
+  } ]
+}

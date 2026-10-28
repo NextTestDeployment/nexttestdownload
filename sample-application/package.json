@@ -1,0 +1,26 @@
+{
+  "name": "mindqa-student-registration-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Student registration and fees demo app for MindQA browser automation",
+  "scripts": {
+    "prestart": "npm run build && node scripts/ensure-data.js",
+    "start": "node server.js",
+    "dev": "concurrently -k \"node --watch server.js\" \"vite --host 127.0.0.1\"",
+    "build": "vite build",
+    "seed:initial": "node scripts/create-initial-data.js",
+    "reset-data": "node scripts/reset-data.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "vite": "^6.0.7"
+  }
+}
