@@ -289,25 +289,28 @@ An interactive, zero-code recording studio that operates directly inside the bro
 1. Click **Start Recording** on the toolbar. NextTest launches a dedicated browser session and injects an unobtrusive Heads-Up Display (HUD) banner at the top of the webpage.
 2. Every click, keystroke, dropdown selection, and navigation is captured in real time.
 3. The HUD displays the generated locator (preferring ID, unique CSS class, or robust relative XPath).
-4. **Human-Readable QA Steps**: The recording grid generates natural QA manual step descriptions (e.g. `Click on 'Submit' button`, `Enter 'admin@campus.test' into 'user Email' field`, `Select 'Fall 2026' from 'academic Term' dropdown`).
-5. **➕ Insert Step In-Between & Maintain Sequence**:
+4. **Human-Readable QA Steps & Clean Separation of Data**: The recording grid generates standardized business requirement QA steps (e.g. `Enter valid value into Email address or mobile number field`, `Click on 'Submit' button`, `Select 'Fall 2026' from 'academic Term' dropdown`), keeping specific test data parameters (`abhay`) cleanly separated in the **Value** column for parameterized execution and export.
+5. **Ergonomic Non-Overlapping 2-Row Toolbar**: Controls are organized into two dedicated rows so buttons never collide or overlap regardless of screen size:
+   - **Row 1 (Session & Export)**: `[🎬 Record]`, `[⏸ Pause]`, `[🎯 Inspect]`, `[👁 Add Assertion]`, `[▶ Replay Flow]`, `[● REC/IDLE]`, `[N steps]`, `[💾 Save JSON]`, `[📊 Export Excel]`.
+   - **Row 2 (Sequence & Management)**: `[➕ Insert Step]`, `[✏ Edit Step]`, `[⏱ Sort as Happened]`, `[⬆]`, `[⬇]`, `[🗑 Delete Step]`, `[♻️ Clear]`, plus shortcut guide.
+6. **➕ Insert Step In-Between & Maintain Sequence**:
    - Click **➕ Insert Step** (or press `Insert` or right-click any row $\rightarrow$ **Insert Step Above/Below**).
    - Enter the QA step requirement, action, locator type, selector, and parameter value.
    - Choose the target step position (`1 to N+1`). The new step is inserted right in between, and all subsequent steps are automatically shifted and re-indexed (`1..N`) with zero sequence gaps.
-6. **⏱ Sort as Happened (Chronological Order)**:
+7. **⏱ Sort as Happened (Chronological Order)**:
    - Clicking column headers (like Action or Locator) sorts the view for analysis.
    - Click **⏱ Sort as Happened** (or choose it from the Recording menu or right-click context menu) to instantly clear table sorting and restore the exact original chronological timeline (`1..N`) as events occurred in the browser session.
    - Numerical `#` column sorting ensures steps are sorted `1, 2, 3... 10` rather than alphabetical `1, 10, 2`.
-7. **⬆ Move Up / ⬇ Move Down & 🗑 Delete Step**:
+8. **⬆ Move Up / ⬇ Move Down & 🗑 Delete Step**:
    - Use toolbar buttons **⬆** / **⬇** (or `Alt+Up` / `Alt+Down`) to shift steps up or down; sequence numbers are updated automatically.
    - Use **🗑 Delete Step** (or press `Delete`) to remove unwanted steps with automatic sequence renumbering.
-8. **Inline & Modal Step Editing for Business Requirements**:
+9. **Inline & Modal Step Editing for Business Requirements**:
    - **Inline Table Editing**: Double-click or select any cell in the **Steps** column to edit the step text directly in the grid.
    - **✏ Edit Step Button**: Select a row and click `✏ Edit Step` (or double-click the row) to open an editing modal where you can rewrite the step description to match business requirements or user story acceptance criteria (e.g. `Enter valid student email address as per BR-102`), adjust the action, or modify selector/value.
    - **Custom Assertion Descriptions**: Clicking `👁 Add Assertion` provides a **Step Description** field so assertions carry business-intent labels (e.g. `Verify success confirmation banner appears`).
-9. **Export with Business-Aligned Steps**:
+10. **Export with Business-Aligned Steps**:
    - When you click `💾 Save JSON` or `📊 Export Excel`, all custom edited and inserted `Steps` descriptions are faithfully exported in the exact sequence into the JSON file and into the `Steps` sheet of the Excel workbook.
-10. Click **Stop Recording**: The captured sequence is loaded directly into the Test Cases grid ready for immediate execution, parameterized editing, or export to JSON/Excel.
+11. Click **Stop Recording**: The captured sequence is loaded directly into the Test Cases grid ready for immediate execution, parameterized editing, or export to JSON/Excel.
 
 ---
 
