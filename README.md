@@ -9,11 +9,13 @@ NextTest is an autonomous, AI-assisted, cross-platform test automation platform 
 - `NextTest.bat` - Windows launcher (with automatic first-run chunk assembly; uses existing merged binary directly on all subsequent runs).
 - `NextTest.ps1` - PowerShell launcher with auto-merge check.
 - `nexttest.sh` - Linux/macOS bash launcher with auto-merge check.
+- `split-chunks.bat` / `split-chunks.ps1` - Standalone binary chunk splitter utility.
+- `merge-chunks.bat` / `merge-chunks.ps1` - Standalone binary chunk merger utility.
 - `HELP.md` - Complete Product & UI navigation manual detailing all menus (File, Edit, Tools, View, Engine, Help), all tabs, panels, shortcuts, and dialogs. Share this file with any AI model (ChatGPT, Claude, Gemini, DeepSeek) for immediate context and guidance!
 - `COMMANDS.md` - Comprehensive master catalog of all 205 verified commands, locators, prefix modifiers (`!D->`, `!M->`, `!Gen->`, `!print->`), REST API methods, database queries, and desktop actions.
-- `sample-application/` - Complete Node.js / Express CampusFlow test target with 17 scenario suites in **both Excel (.xlsx) and JSON (.json)** formats.
-- `docs/HELP.md` - Complete Product & UI navigation manual (duplicate in docs directory).
-- `docs/COMMANDS.md` - Master catalog of all 205 commands (duplicate in docs directory).
+- `RUN_GUIDE.md` - Step-by-step execution guide and CLI options.
+- `sample-application/` - Complete Node.js / Express CampusFlow test target with scenario suites in both Excel (.xlsx) and JSON (.json) formats.
+- `docs/` - Documentation directory containing HELP.md, COMMANDS.md, and RUN_GUIDE.md.
 - `version.v` - Current version descriptor (`1.0.0`).
 - `templates/ci-cd/` - Enterprise CI/CD pipeline automation templates (GitHub Actions, Jenkins).
 
@@ -33,7 +35,8 @@ To comply with GitHub's 50MB/100MB file limits and cloud distribution constraint
 2. **First Run:** Launchers (`NextTest.bat`, `NextTest.ps1`, `nexttest.sh`) detect if the merged JAR is missing, quickly assemble the chunks once, and proceed.
 3. **Subsequent Runs:** Launchers detect that `nexttest-desktop-v1.0.0.jar` already exists and execute it immediately without re-merging.
 4. If manually reassembling without a launcher:
-   - **Windows:** `copy /b chunks\nexttest-desktop-v1.0.0.part* nexttest-desktop-v1.0.0.jar`
+   - **PowerShell:** `.\merge-chunks.ps1`
+   - **Windows CMD:** `copy /b chunks\nexttest-desktop-v1.0.0.part* nexttest-desktop-v1.0.0.jar`
    - **Linux / macOS:** `cat chunks/nexttest-desktop-v1.0.0.part* > nexttest-desktop-v1.0.0.jar`
 
 ## Quick Start
@@ -66,4 +69,10 @@ npm start
 CampusFlow will start at `http://127.0.0.1:3100`.
 
 ### 4. License Policy
-NextTest runs in **Full Unrestricted Community Edition mode until March 31, 2027**. No license file or activation is required.
+NextTest is **100% Free & Unlimited Community Edition**. Unrestricted for personal, team, commercial, and enterprise usage. No license file, activation, or expiration date.
+
+### 5. Training & Learning in Detail
+If anyone wants to learn NextTest in detail, explore hands-on test automation training, or get expert guidance, connect with [Quickitdotnet](https://quickitdotnet.in/) or contact `NextTest@quickitdotnet.in`.
+
+### 6. Automation-as-a-Service
+If you want end-to-end test automation built, managed, or maintained as a service, connect with [Quickitdotnet](https://quickitdotnet.in/) or the NextTest team at `NextTest@quickitdotnet.in`.

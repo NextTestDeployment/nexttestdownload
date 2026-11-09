@@ -29,7 +29,7 @@ if exist "!TARGET_JAR!" (
     set "EXEC_JAR=!ALIAS_JAR!"
 ) else (
     echo [INFO] First run: Assembling nexttest-desktop-v!VERSION!.jar from 30MB chunks...
-    powershell -NoProfile -ExecutionPolicy Bypass -Command "$v='!VERSION!'; $t='%TARGET_JAR%'; $a='%ALIAS_JAR%'; $d='%~dp0'; $c=Join-Path $d 'chunks'; if(-not (Test-Path $c)){ $c=Join-Path $d 'bin\chunks' }; $parts=Get-ChildItem -Path $c -Filter ('nexttest-desktop-v' + $v + '.part*') | Sort-Object Name; if($parts.Count -eq 0){ exit 1 }; $out=[System.IO.File]::Create($t); foreach($p in $parts){ $in=[System.IO.File]::OpenRead($p.FullName); $in.CopyTo($out); $in.Close() }; $out.Close(); Copy-Item -Path $t -Destination $a -Force -ErrorAction SilentlyContinue"
+    powershell -NoProfile -ExecutionPolicy Bypass -Command "$v='!VERSION!'; $t='%TARGET_JAR%'; $a='%ALIAS_JAR%'; $d='%~dp0'; $c=Join-Path $d 'chunks'; if(-not (Test-Path $c)){ $c=Join-Path $d 'bin\chunks' }; $parts=Get-ChildItem -Path $c -Filter ('nexttest-desktop-v' + $v + '.part*') | Sort-Object { [int]($_.Name -replace '.*\.part','') }; if($parts.Count -eq 0){ exit 1 }; $out=[System.IO.File]::Create($t); foreach($p in $parts){ $in=[System.IO.File]::OpenRead($p.FullName); $in.CopyTo($out); $in.Close() }; $out.Close(); Copy-Item -Path $t -Destination $a -Force -ErrorAction SilentlyContinue"
     if not exist "!TARGET_JAR!" (
         echo [ERROR] Failed to assemble binary chunks!
         pause

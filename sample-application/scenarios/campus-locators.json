@@ -25,5 +25,9 @@
   "noteTitle": "#field-title",
   "noteContent": "#field-content",
   "sharedWith": "#field-sharedWith",
-  "feedback": "#field-feedback"
+  "feedback": "#field-feedback",
+  "appAlert": "#app-alert",
+  "toastMessage": "#toast-message",
+  "dismissToast": "#dismiss-toast",
+  "appErrorAlert": "#app-error-alert"
 }

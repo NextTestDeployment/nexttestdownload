@@ -1,8 +1,8 @@
 {
-  "name": "mindqa-student-registration-demo",
+  "name": "nexttest-student-registration-demo",
   "version": "1.0.0",
   "private": true,
-  "description": "Student registration and fees demo app for MindQA browser automation",
+  "description": "Student registration and fees demo app for nexttest browser automation",
   "scripts": {
     "prestart": "npm run build && node scripts/ensure-data.js",
     "start": "node server.js",

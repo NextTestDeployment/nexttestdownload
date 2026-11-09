@@ -482,10 +482,10 @@ Accessible via `Tools` $\to$ `Database Workbench` (`Ctrl+Shift+D`).
 - Supports JDBC connections for SQL Server (`jdbc:sqlserver://`), PostgreSQL (`jdbc:postgresql://`), MySQL (`jdbc:mysql://`), Oracle (`jdbc:oracle:thin:@`), SQLite (`jdbc:sqlite:`), and MongoDB (`mongodb://`).
 - Results can be stored in the suite data dictionary and asserted against UI grid values.
 
-### License Manager & Node-Locking
-Accessible via `Tools` $\to$ `License & Node-Locking` (`Ctrl+Shift+L`).
-- Node-locked hardware binding using CPU ID, motherboard serial, and primary MAC address with SHA-256 fingerprinting.
-- Supports air-gapped cryptographic license key activation (`.lic` file) signed with 2048-bit RSA keys.
+### Community Edition & Licensing
+NextTest is a **100% Free & Unlimited Community Edition** platform for all individuals, teams, and commercial organizations.
+- No license keys, activation, or expiration dates required.
+- Accessible via `Tools` $\to$ `License Information` (`Ctrl+Shift+L`) to view edition details or install optional enterprise certificates.
 
 ---
 
@@ -512,7 +512,6 @@ bin\NextTest.bat --suite "demo\student-registration\scenarios\01-admin-student-c
 - `0`: All enabled test cases passed successfully.
 - `1`: One or more test steps or test cases failed assertions or experienced unhandled exceptions.
 - `2`: Suite file not found or invalid format.
-- `3`: Missing or invalid license key.
 
 ---
 
@@ -530,3 +529,9 @@ bin\NextTest.bat --suite "demo\student-registration\scenarios\01-admin-student-c
 
 ### Q4: How does an AI model use this file?
 **Resolution**: If you are an LLM assistant, read the menu and tab sections above to tell the user the exact clicks, shortcut keys, or file paths required to accomplish their task in NextTest.
+
+### Q5: How can I learn NextTest in detail or get training?
+**Resolution**: If you or your team want to learn NextTest in detail, explore hands-on test automation training, or need expert guidance, connect with **[Quickitdotnet](https://quickitdotnet.in/)** at [https://quickitdotnet.in/](https://quickitdotnet.in/) or contact `NextTest@quickitdotnet.in`.
+
+### Q6: Can I get Automation-as-a-Service?
+**Resolution**: Yes. If your team or company needs test automation built, managed, or maintained as an end-to-end service, connect with **[Quickitdotnet](https://quickitdotnet.in/)** or the **NextTest team** at [https://quickitdotnet.in/](https://quickitdotnet.in/) or email `NextTest@quickitdotnet.in`.

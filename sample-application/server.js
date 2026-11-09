@@ -12,7 +12,7 @@ const dbFile = path.join(dataDir, 'db.json');
 const initialFile = path.join(dataDir, 'initial-data.json');
 const resources = new Set(['students','courses','teachers','subjects','feePayments','notes']);
 const prefixes = {students:'ST',courses:'CO',teachers:'TE',subjects:'SU',feePayments:'FP',notes:'NO'};
-const jwtSecret = process.env.JWT_SECRET || 'mindqa-campus-demo-only-change-before-deploy';
+const jwtSecret = process.env.JWT_SECRET || 'nexttest-campus-demo-only-change-before-deploy';
 
 function readData(file = dbFile) { return JSON.parse(fs.readFileSync(file, 'utf8')); }
 function writeData(next) {

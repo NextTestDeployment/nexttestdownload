@@ -1,6 +1,6 @@
 # CampusFlow student registration sample
 
-CampusFlow is a React and Node.js sample application for MindQA browser/API scenarios. It includes JWT login and role-aware student notes, classmate sharing, teacher review, and JSON-backed create/read/update/delete workflows.
+CampusFlow is a React and Node.js sample application for nexttest browser/API scenarios. It includes JWT login and role-aware student notes, classmate sharing, teacher review, and JSON-backed create/read/update/delete workflows.
 
 ## Start
 
