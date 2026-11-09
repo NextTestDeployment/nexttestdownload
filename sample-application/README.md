@@ -48,6 +48,11 @@ All scenarios are available in both **JSON (`.json`)** and **Excel (`.xlsx`)** i
 - `15-desktop-notepad-loop-logger.json` — Iterative loop logging with counter increments and text verification.
 - `16-api-login-and-multi-tab-data.json` — Full REST API authentication and querying all 7 CampusFlow modules (Summary, Students, Courses, Teachers, Subjects, Fees, Notes).
 - `17-scenario-with-api-testing.json` — Dual-format collection and automated test suite compatible with both the CLI runner and API Workbench.
+- `18-dynamic-locator-and-api-data-loop.json` — Dynamic locator resolution, data mapping, and API data loops.
+- `19-encrypted-passwords-and-aes-gcm.json` — AES-GCM 256-bit encrypted credential protection with `enterEncryptedPassword` and automatic API decryption.
+- `20-verified-api-and-ui-actions.json` — Complete end-to-end verification of REST API methods (`api-GET`, `api-POST`, `api-PUT`, `api-DELETE`, `api-PATCH`) and UI actions (`typeAppend`, `selectDropDownValue`, `scrollIntoView`, `switchToIFrame`, `acceptAlert`, `type`, `switchTab`, `takeScreenshot`, `clearAndSendKeys`, `refresh`, `mouseHover`, `validateVisualBaseline`).
+
+The `scenarios/` folder includes 40+ production-ready test suites in both JSON (`.json`) and Excel (`.xlsx`) formats covering web, mobile, desktop, visual, and REST API automation.
 
 ## Security note
 

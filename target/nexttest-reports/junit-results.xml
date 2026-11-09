@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="NextTest Execution" tests="1" failures="0" errors="0" skipped="0" time="1.699">
+  <testsuite name="01-browser-lifecycle-and-navigation" tests="1" failures="0" errors="0" skipped="0" time="1.699" timestamp="2026-11-09T16:12:41.598001300Z">
+    <testcase classname="01-browser-lifecycle-and-navigation" name="Browser Window Management and Navigation Flow" time="1.699">
+      <system-out><![CDATA[
+[PASS] Step 1: Launch Chrome browser and navigate to home page (openBrowserChrome) - 1115 ms
+[PASS] Step 2: Set viewport window size to 1920x1080 (windowSize) - 64 ms
+[PASS] Step 3: Validate current page title (validateTitle) - 35 ms
+[PASS] Step 4: Navigate to specific URL directly (enterUrl) - 36 ms
+[PASS] Step 5: Refresh current page (refresh) - 59 ms
+[PASS] Step 6: Navigate browser back in history (mouseBackClick) - 36 ms
+[PASS] Step 7: Navigate browser forward in history (mouseForwardClick) - 33 ms
+[PASS] Step 8: Maximize browser window (openAndMaximizeBrowser) - 67 ms
+[PASS] Step 9: Capture full screenshot of viewport (takingScreenshot) - 103 ms
+[PASS] Step 10: Close browser session cleanly (closeBrowser) - 148 ms
+
+      ]]></system-out>
+    </testcase>
+  </testsuite>
+</testsuites>

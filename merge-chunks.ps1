@@ -23,9 +23,7 @@ if (-not $Version) {
 if (-not $ChunksDir) {
     $candidates = @(
         (Join-Path $scriptDir "chunks"),
-        (Join-Path $scriptDir "bin\chunks"),
-        (Join-Path $scriptDir "dist\chunks"),
-        (Join-Path $scriptDir "dist\bin\chunks")
+        (Join-Path $scriptDir "dist\chunks")
     )
     foreach ($c in $candidates) {
         if (Test-Path $c) {

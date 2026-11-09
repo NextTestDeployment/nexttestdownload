@@ -1,6 +1,6 @@
 {
-  "name": "Complete Actions Master Test Suite (All 191 Commands)",
-  "description": "Comprehensive reference and verification suite demonstrating and executing all 191 NextTest actions and keywords",
+  "name": "Complete Actions Master Test Suite (Comprehensive Action Verification)",
+  "description": "Comprehensive reference and verification suite demonstrating and executing NextTest actions and keywords",
   "dataFiles": [
     {
       "name": "campus-student-rows.json",
@@ -1494,7 +1494,7 @@
           "action": "FileUpload",
           "locatorType": "css",
           "locatorTypeValue": "input[type='file']",
-          "value": "demo/student-registration/scenarios/campus-locators.json",
+          "value": "nexttest/demo/student-registration/scenarios/campus-locators.json",
           "condition": "1->==->2",
           "isRun": true
         }

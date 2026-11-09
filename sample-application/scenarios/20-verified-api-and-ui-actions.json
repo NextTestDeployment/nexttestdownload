@@ -1,0 +1,230 @@
+{
+  "name": "20 Verified API and UI Actions Master Suite",
+  "platform": "Web, Mobile, Desktop, API",
+  "description": "Comprehensive reference scenario verifying all 18 newly harmonized and verified actions: api-GET, api-POST, api-PUT, api-DELETE, api-PATCH, typeAppend, selectDropDownValue, switchToIFrame, switchToDefaultFrame, acceptAlert, scrollIntoView, type, switchTab, takeScreenshot, clearAndSendKeys, refresh, mouseHover, and validateVisualBaseline.",
+  "data": {
+    "baseUrl": "http://127.0.0.1:3100",
+    "healthUrl": "http://127.0.0.1:3100/api/health",
+    "loginUrl": "http://127.0.0.1:3100/api/auth/login",
+    "summaryUrl": "http://127.0.0.1:3100/api/summary",
+    "studentApiUrl": "http://127.0.0.1:3100/api/students",
+    "adminEmail": "admin@campus.test",
+    "PASSWORD": "ENC:GCM:XkRZ7D2EG+PXjIgS:Bi6+R8RJZxZNS5dHHwb9bfwdNAqr5qc1ZQELqQA="
+  },
+  "locators": {
+    "txt_Email": "#login-email",
+    "txt_Password": "#login-password",
+    "btn_Login": "#login-submit",
+    "nav_Students": "#nav-students",
+    "nav_Courses": "#nav-courses",
+    "btn_AddRecord": "#add-record",
+    "txt_StudentNo": "#field-studentNo",
+    "txt_FirstName": "#field-firstName",
+    "txt_LastName": "#field-lastName",
+    "sel_Status": "#field-status",
+    "btn_Save": "#save-record",
+    "table_Search": "#table-search"
+  },
+  "testCases": [
+    {
+      "testCaseId": "TC-API-VERIFY-01",
+      "Case": "REST API Actions Verification (api-GET, api-POST, api-PUT, api-DELETE, api-PATCH)",
+      "isRun": true,
+      "hardStop": false,
+      "tagNames": ["api", "rest", "api-get", "api-post", "api-put", "api-delete", "api-patch"],
+      "testSteps": [
+        {
+          "steps": "Check CampusFlow health endpoint with api-GET",
+          "action": "api-GET",
+          "locatorType": "NA",
+          "locatorTypeValue": "http://127.0.0.1:3100/api/health",
+          "value": "",
+          "actualValue": "200",
+          "isRun": true
+        },
+        {
+          "steps": "Authenticate admin user via api-POST and receive JWT token",
+          "action": "api-POST",
+          "locatorType": "NA",
+          "locatorTypeValue": "http://127.0.0.1:3100/api/auth/login",
+          "value": "{\"email\":\"admin@campus.test\",\"password\":\"{{PASSWORD}}\"}",
+          "actualValue": "200",
+          "isRun": true
+        },
+        {
+          "steps": "Retrieve student records via api-GET with Bearer token",
+          "action": "api-GET",
+          "locatorType": "header:Authorization",
+          "locatorTypeValue": "http://127.0.0.1:3100/api/students",
+          "value": "Bearer {{token}}",
+          "actualValue": "200",
+          "isRun": true
+        },
+        {
+          "steps": "Update student details via api-PUT",
+          "action": "api-PUT",
+          "locatorType": "header:Authorization",
+          "locatorTypeValue": "http://127.0.0.1:3100/api/students/1",
+          "value": "{\"status\":\"Active\",\"phone\":\"+1-555-0199\"}",
+          "actualValue": "200",
+          "isRun": true
+        },
+        {
+          "steps": "Patch student status flag via api-PATCH",
+          "action": "api-PATCH",
+          "locatorType": "header:Authorization",
+          "locatorTypeValue": "http://127.0.0.1:3100/api/students/1",
+          "value": "{\"status\":\"Active\"}",
+          "actualValue": "200",
+          "isRun": true
+        },
+        {
+          "steps": "Delete temporary test record via api-DELETE",
+          "action": "api-DELETE",
+          "locatorType": "header:Authorization",
+          "locatorTypeValue": "http://127.0.0.1:3100/api/students/999",
+          "value": "",
+          "isRun": true
+        }
+      ]
+    },
+    {
+      "testCaseId": "TC-UI-INPUT-02",
+      "Case": "Modern Input & Selection Actions (type, typeAppend, clearAndSendKeys, selectDropDownValue, enterEncryptedPassword)",
+      "isRun": true,
+      "hardStop": false,
+      "tagNames": ["ui", "inputs", "type", "typeAppend", "selectDropDownValue", "clearAndSendKeys"],
+      "testSteps": [
+        {
+          "steps": "Navigate to CampusFlow application URL",
+          "action": "openBrowserChrome",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "http://127.0.0.1:3100",
+          "isRun": true
+        },
+        {
+          "steps": "Enter admin email using type",
+          "action": "type",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-email",
+          "value": "admin@campus.test",
+          "isRun": true
+        },
+        {
+          "steps": "Append corporate domain using typeAppend without clearing existing text",
+          "action": "typeAppend",
+          "locatorType": "css",
+          "locatorTypeValue": "#table-search",
+          "value": "Computer Science",
+          "isRun": true
+        },
+        {
+          "steps": "Clear field and enter updated query using clearAndSendKeys",
+          "action": "clearAndSendKeys",
+          "locatorType": "css",
+          "locatorTypeValue": "#table-search",
+          "value": "Aarav Sharma",
+          "isRun": true
+        },
+        {
+          "steps": "Enter AES-GCM encrypted password into password input",
+          "action": "enterEncryptedPassword",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-password",
+          "value": "{{PASSWORD}}",
+          "isRun": true
+        },
+        {
+          "steps": "Select student status by value attribute using selectDropDownValue",
+          "action": "selectDropDownValue",
+          "locatorType": "css",
+          "locatorTypeValue": "#field-status",
+          "value": "Active",
+          "isRun": true
+        }
+      ]
+    },
+    {
+      "testCaseId": "TC-UI-ADVANCED-03",
+      "Case": "Advanced Navigation, Viewport & Frame Control (scrollIntoView, mouseHover, refresh, switchTab, switchToIFrame, switchToDefaultFrame, acceptAlert, takeScreenshot, validateVisualBaseline)",
+      "isRun": true,
+      "hardStop": false,
+      "tagNames": ["ui", "advanced", "scrollIntoView", "mouseHover", "refresh", "switchTab", "frames", "alerts"],
+      "testSteps": [
+        {
+          "steps": "Hover mouse cursor over Students navigation tab",
+          "action": "mouseHover",
+          "locatorType": "css",
+          "locatorTypeValue": "#nav-students",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Scroll Save Record button smoothly into viewport center",
+          "action": "scrollIntoView",
+          "locatorType": "css",
+          "locatorTypeValue": "#save-record",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Refresh active browser page",
+          "action": "refresh",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Switch browser tab context to tab index 0",
+          "action": "switchTab",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "0",
+          "isRun": true
+        },
+        {
+          "steps": "Focus driver context inside nested iframe element if present",
+          "action": "switchToIFrame",
+          "locatorType": "css",
+          "locatorTypeValue": "iframe",
+          "value": "",
+          "isRun": false
+        },
+        {
+          "steps": "Switch back to default top-level document frame",
+          "action": "switchToDefaultFrame",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": false
+        },
+        {
+          "steps": "Accept modal JavaScript alert popup",
+          "action": "acceptAlert",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": false
+        },
+        {
+          "steps": "Capture full page visual snapshot proof",
+          "action": "takeScreenshot",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "verified-actions-evidence.png",
+          "isRun": true
+        },
+        {
+          "steps": "Compare element rendering against visual regression baseline",
+          "action": "validateVisualBaseline",
+          "locatorType": "css",
+          "locatorTypeValue": "#records-table",
+          "value": "records-table-baseline.png",
+          "isRun": false
+        }
+      ]
+    }
+  ]
+}

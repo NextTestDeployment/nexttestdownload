@@ -143,8 +143,9 @@ Names are case-insensitive. The runner also normalizes whitespace, `_`, and `-` 
 | `browserBack`, `browserForward` | none | Browser history navigation. |
 | `closeBrowser` | none | Closes the current browser session. |
 | `click`, `doubleClick`, `contextClick` | `locatorType`, `locatorTypeValue` | Clicks a located element. |
-| `sendKeys` | locator + `value` | Types the value into a located element. |
-| `clearAndSendKeys` | locator + `value` | Clears then types. |
+| `sendKeys` | locator + `value` | Types the value into a located element. Auto-decrypts `ENC:GCM:...` tokens if encountered. |
+| `clearAndSendKeys` | locator + `value` | Clears then types. Auto-decrypts `ENC:GCM:...` tokens if encountered. |
+| `enterEncryptedPassword` | locator + `value` | Decrypts AES-256-GCM encrypted token or `{{PASSWORD}}` placeholder in memory and types plaintext into element without logging plaintext. Supported on Web, Mobile (Appium), and Desktop. |
 | `clear` | locator | Clears a text field. |
 | `selectDropdownByText` | locator + `value` | Selects an option by visible text. |
 | `selectDropdownByValue` | locator + `value` | Selects an option by its value. |
@@ -227,6 +228,18 @@ These are examples, not proof of compatibility with every browser, operating sys
 - `executeMethod` / delegate actions are Java extension mechanisms. Use `07-dynamic-java-and-delegates.json` and its Java source sample.
 - A test suite’s `testSteps` are not a place for arbitrary Node.js, Python, or Playwright test code. Use the specific supported extension action and its sample.
 
+## Enterprise AES-GCM Encrypted Passwords & Secrets
+
+NextTest supports authenticated **AES-256-GCM** encryption for passwords, credentials, and API tokens across Web, Mobile, Desktop, and REST API testing:
+
+- **Placeholder**: Use `{{PASSWORD}}` in test steps (e.g. `value: "{{PASSWORD}}"`) or reference external data arrays.
+- **Encrypted Token Format**: `ENC:GCM:<Base64-12Byte-IV>:<Base64-CiphertextAndTag>`.
+- **Primary Action**: `enterEncryptedPassword` (aliases: `enterPassword`, `typePassword`, `sendEncryptedKeys`, `setEncryptedPassword`). Resolves `{{PASSWORD}}`, decrypts the ciphertext in memory, and types it into the element. Plaintext is never exposed in logs or reports (`••••••••`).
+- **REST API Auto-Decryption**: `api-GET`, `api-POST`, `api-PUT`, `api-DELETE`, and `api-PATCH` automatically decrypt embedded `ENC:GCM:...` tokens within URLs, HTTP headers, and JSON request bodies at transmission time.
+- **Built-in Master Key**: Out of the box, NextTest uses a built-in default master key (`NextTest$Enterprise#AES256*MasterKey!2026`) so encrypted suites run seamlessly across team members and CI/CD pipelines. Custom keys can be configured in **File ➔ Test Settings ➔ Security & Encryption** or via `NEXTTEST_ENCRYPTION_KEY`.
+- **Encryptor Tool**: Open **Tools ➔ Password Encryptor & Secret Generator…** (`Ctrl+Alt+P`) to encrypt passwords and copy tokens with one click.
+- **Sample Scenario**: See `sample-application/scenarios/19-encrypted-passwords-and-aes-gcm.json` and `.xlsx` as well as `sample-application/scenarios/20-verified-api-and-ui-actions.json` and `.xlsx`.
+
 ## CLI execution
 
 From a published distribution folder, use the launcher at that folder’s root:
@@ -235,13 +248,13 @@ From a published distribution folder, use the launcher at that folder’s root:
 .\NextTest.bat --run .\sample-application\scenarios\01-browser-lifecycle-and-navigation.json --headless --output-dir .\reports --report-formats junit,html
 ```
 
-The Java CLI equivalent after the versioned JAR has been merged is:
+The Java CLI equivalent after assembly is:
 
 ```powershell
-java -jar .\nexttest-desktop-v1.0.0.jar --run .\sample-application\scenarios\01-browser-lifecycle-and-navigation.json --headless --output-dir .\reports --report-formats junit,html
+java -jar .\nexttest-desktop.jar --run .\sample-application\scenarios\01-browser-lifecycle-and-navigation.json --headless --output-dir .\reports --report-formats junit,html
 ```
 
-The CLI accepts `--run` / `-r` (also `--suite` / `-s`), `--browser`, `--engine`, `--headless`, `--no-headless`, `--output-dir` / `-o`, `--report-formats`, `--self-healing`, `--apply-healing`, and retry/grid options. Check `java -jar <jar> --help` for the exact options of the release being used. `--parallel` is a separate application entry point and takes a parallel config file; it is not a `CiCdCliRunner` option.
+The CLI accepts `--run` / `-r` (also `--suite` / `-s`), `--browser`, `--engine`, `--headless`, `--no-headless`, `--output-dir` / `-o` (or `--report-dir` / `--reports-dir`), `--report-formats`, `--self-healing`, `--apply-healing`, and retry/grid options. Check `java -jar <jar> --help` for the exact options of the release being used. `--parallel` is a separate application entry point and takes a parallel config file; it is not a `CiCdCliRunner` option.
 
 ## Generation validation checklist
 
@@ -257,6 +270,6 @@ Before presenting a generated suite as ready:
 
 ## Catalog scope and evidence
 
-The Java runner is the implementation authority: `TestRunner.normalizeActionName`, `TestRunner.executeStep`, `TestRunner.executeExtended`, `DeviceDriverFactory`, and `PlaywrightTestRunner` determine accepted names, behavior, and platform support. The app’s `help-actions.json` powers the UI action help; its entries include aliases and examples and should not be counted as 1:1 unique verified features. Use exact shipped scenario samples for complex actions.
+The NextTest runtime catalogue registers **214 actions, prefixes, and keyword directives** (200 core test execution actions, 3 dynamic syntax prefixes, 5 Java engine extensions, and 6 integrated platform capabilities) defined in `help-actions.json`. The Java runner is the implementation authority: `TestRunner.normalizeActionName`, `TestRunner.executeStep`, `TestRunner.executeExtended`, `DeviceDriverFactory`, and `PlaywrightTestRunner` determine accepted names, normalization rules, and platform support. Use exact shipped scenario samples for complex actions.
 
 No AI-generated-suite pass rate or industry comparison is asserted by this guide. The self-healing benchmark in the source tests uses generated fixtures; it is not a live customer-app study. Any externally published benchmark must include its reproducible method, version, dataset, and limitations.

@@ -4,20 +4,23 @@ NextTest is an autonomous, AI-assisted, cross-platform test automation platform 
 
 ## Package Structure
 
-- `nexttest-desktop.jar` / `nexttest-desktop-v1.0.0.jar` - Standalone executable fat JAR containing all UI, runtime engines, drivers, and visual diffing tools.
+- `nexttest-desktop.jar` - Standalone executable fat JAR containing all UI, runtime engines, drivers, and visual diffing tools.
 - `chunks/` - Versioned, max 30MB binary slices (`nexttest-desktop-v1.0.0.part01`, `part02`, etc.) ensuring Git/GitHub and CDN safety (<30MB per chunk).
 - `NextTest.bat` - Windows launcher (with automatic first-run chunk assembly; uses existing merged binary directly on all subsequent runs).
 - `NextTest.ps1` - PowerShell launcher with auto-merge check.
 - `nexttest.sh` - Linux/macOS bash launcher with auto-merge check.
 - `split-chunks.bat` / `split-chunks.ps1` - Standalone binary chunk splitter utility.
 - `merge-chunks.bat` / `merge-chunks.ps1` - Standalone binary chunk merger utility.
-- `HELP.md` - Complete Product & UI navigation manual detailing all menus (File, Edit, Tools, View, Engine, Help), all tabs, panels, shortcuts, and dialogs. Share this file with any AI model (ChatGPT, Claude, Gemini, DeepSeek) for immediate context and guidance!
-- `COMMANDS.md` - Comprehensive master catalog of all 205 verified commands, locators, prefix modifiers (`!D->`, `!M->`, `!Gen->`, `!print->`), REST API methods, database queries, and desktop actions.
-- `RUN_GUIDE.md` - Step-by-step execution guide and CLI options.
+- `docs/` - Complete documentation directory containing:
+  - `docs/HELP.md` - Comprehensive Product & UI navigation manual detailing all menus, tabs, panels, and shortcuts.
+  - `docs/COMMANDS.md` - Master catalog and AI authoring grounding for all 214 implemented commands, locators, and syntax rules.
+  - `docs/RUN_GUIDE.md` - Step-by-step execution guide, numbered action index, and CLI usage.
+  - `docs/TRAINING_BOOK.md` - Complete 8-module test automation masterclass handbook.
+  - `docs/CHANGELOG.md` - Complete version release history.
+- `LICENSE` - Apache License 2.0 (100% free and open-source).
 - `sample-application/` - Complete Node.js / Express CampusFlow test target with scenario suites in both Excel (.xlsx) and JSON (.json) formats.
-- `docs/` - Documentation directory containing HELP.md, COMMANDS.md, and RUN_GUIDE.md.
 - `version.v` - Current version descriptor (`1.0.0`).
-- `templates/ci-cd/` - Enterprise CI/CD pipeline automation templates (GitHub Actions, Jenkins).
+- `templates/ci-cd/` - Enterprise CI/CD pipeline automation templates (GitHub Actions, Jenkinsfile, GitLab CI).
 
 ## ðŸš€ Key Enterprise Capabilities
 
@@ -33,11 +36,11 @@ NextTest is an autonomous, AI-assisted, cross-platform test automation platform 
 To comply with GitHub's 50MB/100MB file limits and cloud distribution constraints:
 1. The fat JAR is sliced into max **30MB versioned chunks** (`chunks/nexttest-desktop-v1.0.0.part*`).
 2. **First Run:** Launchers (`NextTest.bat`, `NextTest.ps1`, `nexttest.sh`) detect if the merged JAR is missing, quickly assemble the chunks once, and proceed.
-3. **Subsequent Runs:** Launchers detect that `nexttest-desktop-v1.0.0.jar` already exists and execute it immediately without re-merging.
+3. **Subsequent Runs:** Launchers detect that `nexttest-desktop.jar` already exists and execute it immediately without re-merging.
 4. If manually reassembling without a launcher:
    - **PowerShell:** `.\merge-chunks.ps1`
-   - **Windows CMD:** `copy /b chunks\nexttest-desktop-v1.0.0.part* nexttest-desktop-v1.0.0.jar`
-   - **Linux / macOS:** `cat chunks/nexttest-desktop-v1.0.0.part* > nexttest-desktop-v1.0.0.jar`
+   - **Windows CMD:** `copy /b chunks\nexttest-desktop-v1.0.0.part* nexttest-desktop.jar`
+   - **Linux / macOS:** `cat chunks/nexttest-desktop-v1.0.0.part* > nexttest-desktop.jar`
 
 ## Quick Start
 
@@ -69,7 +72,7 @@ npm start
 CampusFlow will start at `http://127.0.0.1:3100`.
 
 ### 4. License Policy
-NextTest is **100% Free & Unlimited Community Edition**. Unrestricted for personal, team, commercial, and enterprise usage. No license file, activation, or expiration date.
+NextTest is **100% Free & Open Source under the Apache License 2.0**. Completely unrestricted for personal, commercial, and enterprise usage with no license keys, node locks, or expiration dates.
 
 ### 5. Training & Learning in Detail
 If anyone wants to learn NextTest in detail, explore hands-on test automation training, or get expert guidance, connect with [Quickitdotnet](https://quickitdotnet.in/) or contact `NextTest@quickitdotnet.in`.

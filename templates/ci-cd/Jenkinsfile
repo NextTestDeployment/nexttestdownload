@@ -1,0 +1,80 @@
+pipeline {
+    agent any
+
+    tools {
+        jdk 'JDK17'
+        maven 'Maven3'
+    }
+
+    environment {
+        NEXTTEST_JAR = 'nexttest-desktop.jar'
+        TEST_SUITE = 'sample-application/scenarios/01-browser-lifecycle-and-navigation.json'
+        REPORTS_DIR = 'target/nexttest-reports'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Verify NextTest Runner') {
+            steps {
+                sh '''
+                    if [ -f "nexttest-desktop.jar" ]; then
+                        echo "Using pre-built root nexttest-desktop.jar"
+                    elif [ -f "nexttest/target/nexttest-desktop.jar" ]; then
+                        cp nexttest/target/nexttest-desktop.jar nexttest-desktop.jar
+                    elif [ -f "target/nexttest-desktop.jar" ]; then
+                        cp target/nexttest-desktop.jar nexttest-desktop.jar
+                    elif [ -f "nexttest/pom.xml" ]; then
+                        mvn -f nexttest/pom.xml clean package -DskipTests
+                        cp nexttest/target/nexttest-desktop.jar nexttest-desktop.jar
+                    else
+                        mvn clean package -DskipTests
+                        cp target/nexttest-desktop.jar nexttest-desktop.jar
+                    fi
+                '''
+            }
+        }
+
+        stage('Execute NextTest Test Suite') {
+            steps {
+                // Runs headless with AI self-healing and automatic JUnit XML + HTML report generation
+                sh """
+                    java -jar ${NEXTTEST_JAR} \
+                        --run ${TEST_SUITE} \
+                        --browser Chrome \
+                        --headless \
+                        --output-dir ${REPORTS_DIR} \
+                        --report-formats junit,html \
+                        --self-healing true
+                """
+            }
+        }
+    }
+
+    post {
+        always {
+            // Publishes test results in Jenkins UI native test results trend graph
+            junit testResults: "${REPORTS_DIR}/junit-results.xml", allowEmptyResults: false
+
+            // Archives full executive HTML report
+            publishHTML([
+                allowMissing: false,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: "${REPORTS_DIR}",
+                reportFiles: 'nexttest-report.html',
+                reportName: 'NextTest Executive Test Report'
+            ])
+        }
+        failure {
+            echo "❌ NextTest test suite execution failed! Check reports and Jenkins test trends."
+        }
+        success {
+            echo "✔ All NextTest test cases passed successfully."
+        }
+    }
+}

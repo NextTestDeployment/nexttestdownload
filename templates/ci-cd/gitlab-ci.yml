@@ -1,0 +1,39 @@
+image: maven:3.9-eclipse-temurin-17
+
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+
+stages:
+  - test
+
+nexttest_test_suite:
+  stage: test
+  before_script:
+    # Install Google Chrome for headless execution
+    - apt-get update && apt-get install -y wget gnupg
+    - wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
+    - echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
+    - apt-get update && apt-get install -y google-chrome-stable
+  script:
+    - |
+      if [ -f "nexttest-desktop.jar" ]; then
+        echo "Using pre-built root nexttest-desktop.jar"
+      elif [ -f "nexttest/target/nexttest-desktop.jar" ]; then
+        cp nexttest/target/nexttest-desktop.jar nexttest-desktop.jar
+      elif [ -f "target/nexttest-desktop.jar" ]; then
+        cp target/nexttest-desktop.jar nexttest-desktop.jar
+      elif [ -f "nexttest/pom.xml" ]; then
+        mvn -f nexttest/pom.xml clean package -DskipTests
+        cp nexttest/target/nexttest-desktop.jar nexttest-desktop.jar
+      else
+        mvn clean package -DskipTests
+        cp target/nexttest-desktop.jar nexttest-desktop.jar
+      fi
+    - java -jar nexttest-desktop.jar --run sample-application/scenarios/01-browser-lifecycle-and-navigation.json --browser Chrome --headless --output-dir target/nexttest-reports
+  artifacts:
+    when: always
+    reports:
+      junit: target/nexttest-reports/junit-results.xml
+    paths:
+      - target/nexttest-reports/
+    expire_in: 30 days

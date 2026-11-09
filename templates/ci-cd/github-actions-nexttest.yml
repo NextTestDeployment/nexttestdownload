@@ -1,4 +1,4 @@
-name: MindQA Automated Test Suite
+name: NextTest Automated Test Suite
 
 on:
   push:
@@ -12,7 +12,7 @@ on:
 
 jobs:
   test:
-    name: Run MindQA Test Suites
+    name: Run NextTest Test Suites
     runs-on: ubuntu-latest
 
     steps:
@@ -31,17 +31,29 @@ jobs:
         with:
           chrome-version: stable
 
-      - name: Build MindQA Executable JAR
+      - name: Locate or Build NextTest Executable JAR
         run: |
-          mvn clean package -DskipTests
+          if [ -f "nexttest-desktop.jar" ]; then
+            echo "Using pre-built root nexttest-desktop.jar"
+          elif [ -f "nexttest/target/nexttest-desktop.jar" ]; then
+            cp nexttest/target/nexttest-desktop.jar nexttest-desktop.jar
+          elif [ -f "target/nexttest-desktop.jar" ]; then
+            cp target/nexttest-desktop.jar nexttest-desktop.jar
+          elif [ -f "nexttest/pom.xml" ]; then
+            mvn -f nexttest/pom.xml clean package -DskipTests
+            cp nexttest/target/nexttest-desktop.jar nexttest-desktop.jar
+          else
+            mvn clean package -DskipTests
+            cp target/nexttest-desktop.jar nexttest-desktop.jar
+          fi
 
-      - name: Execute MindQA Headless Test Suite
+      - name: Execute NextTest Headless Test Suite
         run: |
-          java -jar target/mindqa-desktop-0.1.0-SNAPSHOT.jar \
-            --run ./suites/smoke-suite.xlsx \
+          java -jar nexttest-desktop.jar \
+            --run sample-application/scenarios/01-browser-lifecycle-and-navigation.json \
             --browser Chrome \
             --headless \
-            --output-dir ./target/mindqa-reports \
+            --output-dir target/nexttest-reports \
             --report-formats junit,html \
             --self-healing true
 
@@ -49,14 +61,13 @@ jobs:
         uses: dorny/test-reporter@v1
         if: always()
         with:
-          name: 'MindQA Test Results'
-          path: 'target/mindqa-reports/junit-results.xml'
+          name: 'NextTest Test Results'
+          path: 'target/nexttest-reports/junit-results.xml'
           reporter: 'java-junit'
 
       - name: Archive HTML & XML Test Reports
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: mindqa-test-reports
-          path: target/mindqa-reports/
-          retention-days: 30
+          name: nexttest-test-reports
+          path: target/nexttest-reports/

@@ -18,9 +18,6 @@ if (Test-Path $targetJar) {
 } else {
     Write-Host "[INFO] First run: Assembling nexttest-desktop-v$version.jar from 30MB chunks..." -ForegroundColor Cyan
     $chunksDir = Join-Path $scriptDir "chunks"
-    if (-not (Test-Path $chunksDir)) {
-        $chunksDir = Join-Path $scriptDir "bin\chunks"
-    }
     $parts = Get-ChildItem -Path $chunksDir -Filter "nexttest-desktop-v$version.part*" | Sort-Object { [int]($_.Name -replace '.*\.part','') }
     if ($parts.Count -eq 0) {
         Write-Error "No chunks found in '$chunksDir' for version $version!"

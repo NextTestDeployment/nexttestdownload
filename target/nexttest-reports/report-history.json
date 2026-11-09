@@ -1,0 +1,18 @@
+[ {
+  "id" : "RUN-20261109-214241",
+  "timestamp" : "2026-11-09 21:42:41",
+  "suiteTitle" : "01-browser-lifecycle-and-navigation",
+  "browser" : "Chrome",
+  "headless" : true,
+  "totalSuites" : 1,
+  "totalCases" : 1,
+  "passedCases" : 1,
+  "failedCases" : 0,
+  "flakyCases" : 0,
+  "healedCases" : 0,
+  "skippedCases" : 0,
+  "durationMs" : 1715,
+  "passRate" : 100.0,
+  "status" : "PASSED",
+  "reportFile" : "history/report-20261109-214241-01-browser-lifecycle-and-navig.html"
+} ]

@@ -1,6 +1,6 @@
 # NextTest Autonomous Test Automation Platform — Comprehensive Product & UI Help Manual (HELP.md)
 
-> **Document Version:** 2.0 Enterprise Edition  
+> **Release Version:** 1.0.0 (Apache License 2.0)  
 > **Target Audience:** Test Engineers, QA Leads, Automation Architects, and Large Language Models (AI Companions: ChatGPT, Claude, Gemini, DeepSeek)  
 > **Purpose:** This document is the authoritative product reference for the NextTest Desktop platform. If you are an AI assistant processing this manual to assist a user, use the detailed menu mappings, tab descriptions, keyboard shortcuts, and execution lifecycles in this file to provide exact, step-by-step guidance.
 
@@ -8,7 +8,7 @@
 
 ## Table of Contents
 1. [Product Overview & Architecture](#1-product-overview--architecture)
-2. [The Essential 20 Actions (Core Quick-Start for Non-Coders)](#2-the-essential-20-actions-core-quick-start-for-non-coders)
+2. [The Essential 21 Actions (Core Quick-Start for Non-Coders)](#2-the-essential-21-actions-core-quick-start-for-non-coders)
 3. [Distribution & Launcher Architecture](#3-distribution--launcher-architecture)
 4. [Global Menu Bar Reference](#4-global-menu-bar-reference)
    - [File Menu](#file-menu)
@@ -36,7 +36,7 @@
    - [Element Finder & Locator Spy](#element-finder--locator-spy)
    - [Self-Healing Engine & Heuristic Matcher](#self-healing-engine--heuristic-matcher)
    - [Database Workbench](#database-workbench)
-   - [License Manager & Node-Locking](#license-manager--node-locking)
+   - [Open Source & Community Licensing](#open-source--community-licensing)
 7. [Headless, CI/CD & Command-Line Execution](#7-headless-cicd--command-line-execution)
 8. [Troubleshooting & Frequently Asked Questions (FAQ)](#8-troubleshooting--frequently-asked-questions-faq)
 
@@ -58,9 +58,9 @@
 
 ---
 
-## 2. ⚡ The Essential 20 Actions (Core Quick-Start for Non-Coders)
+## 2. ⚡ The Essential 21 Actions (Core Quick-Start for Non-Coders)
 
-> **Designed for Non-Coders & Automation Beginners:** While NextTest provides 205 specialized actions for edge cases, native desktop automation, and enterprise hooks, **95% of web and API tests require only these 20 intuitive actions**. Every action accepts friendly universal names (e.g., `Open`, `Type`, `Click`, `Select`, `AssertText`, `Screenshot`) and automatically normalizes to NextTest's high-performance execution engine with full backward-compatibility.
+> **Designed for Non-Coders & Automation Beginners:** While NextTest provides 214 specialized actions, prefixes, and keyword directives (including 200 core test execution actions) for edge cases, native desktop automation, and enterprise hooks, **95% of web and API tests require only these 21 intuitive actions**. Every action accepts friendly universal names (e.g., `Open`, `Type`, `Click`, `Select`, `AssertText`, `Screenshot`) and automatically normalizes to NextTest's high-performance execution engine with full backward-compatibility.
 
 | # | Friendly Action | Legacy / Alternative Aliases | Target Element (Locator) | Value / Parameter | Purpose & Behavior |
 |---|---|---|---|---|---|
@@ -84,6 +84,7 @@
 | 18 | `Hover` | `MouseHover`, `MoveToElement` | `css`, `id` (e.g. `.menu-item`) | `NA` | Moves cursor over target element to trigger dropdowns or tooltips. |
 | 19 | `PressKey` | `UseKeyboard`, `SendKeysEnter`, `HitTab` | `NA` (or element) | `Enter` (or `Tab`, `Escape`) | Emulates special keyboard key presses and key chords. |
 | 20 | `StoreValue` | `GetText`, `ExtractText`, `SaveText` | `id`, `css` (e.g. `order-number`) | `orderId` | Extracts element text or attribute and stores into suite variable map. |
+| 21 | `EnterEncryptedPassword` | `EnterPassword`, `SendEncryptedKeys`, `TypePassword` | `id`, `css`, `xpath` (e.g. `#password`) | `{{PASSWORD}}` or `ENC:GCM:...` | Decrypts AES-GCM credential in memory and types into field with zero plaintext leakage (`••••••••`). |
 
 ---
 
@@ -94,23 +95,27 @@ NextTest is packaged into a standalone distribution folder with modular binary s
 ### Directory Structure:
 ```text
 nexttest/
-├── bin/
-│   ├── NextTest.bat           # Primary Windows Launcher (auto-merges chunks on first run)
-│   ├── NextTest.ps1           # Native PowerShell Launcher (cross-platform Windows/PowerShell Core)
-│   ├── nexttest.sh            # Unix/macOS Shell Launcher (auto-merges chunks via cat/dd)
-│   └── nexttest-desktop.jar   # Stream-assembled target binary (created dynamically on launch)
-├── bin/chunks/
-│   ├── nexttest-desktop.jar.part01   (<= 30 MB)
-│   ├── nexttest-desktop.jar.part02   (<= 30 MB)
+├── NextTest.bat           # Primary Windows Launcher
+├── NextTest.ps1           # Native PowerShell Launcher (cross-platform Windows/macOS/Linux)
+├── nexttest.sh            # Unix/macOS Shell Launcher
+├── nexttest-desktop.jar   # Standalone executable binary
+├── chunks/                # Max 30MB binary slices (Git & CDN safe)
+│   ├── nexttest-desktop-v1.0.0.part01   (<= 30 MB)
+│   ├── nexttest-desktop-v1.0.0.part02   (<= 30 MB)
 │   └── ...
 ├── docs/
-│   ├── HELP.md                # Comprehensive UI & Menu navigation manual (this document)
-│   └── COMMANDS.md            # Exhaustive 205 commands, locators & actions specification
+│   ├── HELP.md            # Comprehensive UI & Menu navigation manual (this document)
+│   ├── COMMANDS.md        # Exhaustive 214 commands, locators & actions specification
+│   ├── RUN_GUIDE.md       # Execution guide & complete 214-action numbered index
+│   ├── TRAINING_BOOK.md   # Hands-on test automation training handbook
+│   └── CHANGELOG.md       # Release notes & version history
+├── templates/
+│   └── ci-cd/             # GitHub Actions, Jenkins, and GitLab CI templates
 ├── sample-application/
-│   ├── scenarios/             # 17+ Production-ready JSON & XLSX test suites
-│   ├── server.js              # Complete mock backend application for training and local runs
-│   └── package.json           # Node.js dependencies for mock application
-└── target/nexttest-reports/   # Automatic test reports (HTML, JUnit XML, JSON, and screenshots)
+│   ├── scenarios/         # 40+ Production-ready JSON & XLSX test suites
+│   ├── server.js          # CampusFlow mock application for training and local runs
+│   └── package.json       # Node.js dependencies for mock application
+└── target/nexttest-reports/ # Automatic test reports (HTML, JUnit XML, JSON, and screenshots)
 ```
 
 ---
@@ -162,19 +167,11 @@ The top navigation menu bar provides centralized control over all suite manageme
 | **📱 Mobile & Desktop Hub…** | `Ctrl+Shift+M` | Manages native desktop (WinAppDriver) and mobile (Appium Android/iOS) execution profiles. |
 | **🗄️ Database Workbench…** | `Ctrl+Shift+D` | Interactive query runner supporting SQL Server, PostgreSQL, MySQL, Oracle, SQLite, and MongoDB. |
 | **🎲 Synthetic Test Data Generator…** | `Ctrl+Alt+G` | Generates realistic random mock data (names, emails, dates, credit cards, UUIDs) for data-driven testing. |
+| **🗂️ Extract Locators into Repository…** | `Ctrl+Shift+O` | Automatically scans active suite, extracts locators into centralized repository with semantic aliases. |
+| **🔐 Password Encryptor & Secret Generator…** | `Ctrl+Alt+P` | Generates AES-256-GCM encrypted tokens for {{PASSWORD}} placeholders, with clipboard copy and decrypt verification. |
 | **🚀 Launch Browser** | `Ctrl+Alt+B` | Manually launches the selected browser in interactive debug mode. |
 | **🗣️ Read Aloud (TTS)** | — | Speaks page text aloud via Web Speech Synthesis API. |
 | **🖼️ Image to Text (OCR)** | — | Performs optical character recognition on page screenshots via Tesseract OCR. |
-
-### Help Menu
-| Menu Item | Shortcut | Description |
-| :--- | :--- | :--- |
-| **Action Catalog & Reference** | `F1` | Opens the built-in reference documentation covering all 205 actions and locator strategies. |
-| **User Guide (Search Menus & Workflows)** | `Shift+F1` | Interactive searchable handbook for product workflows, configuration, and setup guides. |
-| **License Information…** | `Ctrl+Shift+L` | Displays hardware fingerprint, machine node-locking status, and RSA cryptographic license manager. |
-| **Check for Updates…** | — | Queries release server for latest engine updates. |
-| **About NextTest…** | — | Displays version information, build timestamp, and platform runtime environment. |
-| **Toggle Dark / Light Theme**| `Ctrl+T` | Switches between Midnight Dark theme and High-Contrast Enterprise Light theme. |
 
 ### Engine Menu
 | Menu Item | Description |
@@ -187,12 +184,14 @@ The top navigation menu bar provides centralized control over all suite manageme
 ### Help Menu
 | Menu Item | Shortcut | Description |
 | :--- | :--- | :--- |
-| **Commands & Actions Reference** | `F1` | Opens the exhaustive built-in documentation for all 197+ commands, locators, and syntax rules. |
+| **Commands & Actions Reference** | `F1` | Opens the exhaustive built-in documentation for all 214 commands, locators, and syntax rules. |
 | **Product Help Manual (HELP.md)**| `Shift+F1` | Displays this complete menu and tab manual directly inside an interactive viewer. |
 | **Keyboard Shortcuts Cheat Sheet**| `Ctrl+/` | Quick reference overlay showing all navigation, running, and editing key combinations. |
+| **License Information…** | `Ctrl+Shift+L` | Displays hardware environment details, Apache 2.0 license status, and optional enterprise validator. |
 | **Copy AI Context Prompt** | `Ctrl+Alt+C` | Copies a pre-formatted system prompt containing current suite status, active errors, and system state for instant pasting into any LLM. |
-| **Check for Updates** | — | Queries GitHub release channels for latest version updates. |
-| **About NextTest** | — | Displays version number, runtime JVM details, and copyright notices. |
+| **Toggle Dark / Light Theme**| `Ctrl+T` | Switches between Midnight Dark theme and High-Contrast Enterprise Light theme. |
+| **Check for Updates…** | — | Queries GitHub release channels for latest version updates. |
+| **About NextTest…** | — | Displays version number, runtime JVM details, and copyright notices. |
 
 ---
 
@@ -375,15 +374,10 @@ An embedded intelligent pair programmer designed to generate, debug, and optimiz
 - **Automated Root-Cause Analysis (`AiAssistant.analyzeFailureRca`)**: On step failure, immediately diagnoses failure category (selector drift, timing mismatch, DOM mutation, backend error) and recommends exact corrected step.
 - **Provider Flexibility with Zero Leakage**: Supports embedded local GGUF models (offline private inference), local Ollama servers, or remote OpenAI/Gemini/Anthropic endpoints.
 
-#### Measured AI Performance Benchmarks:
-| Metric | Measured Result | Benchmark Standard |
-|---|---|---|
-| **NextTest Schema Compliance** | **98.7%** | Strict JSON/Excel schema validity without manual intervention |
-| **First-Run Execution Pass Rate** | **91.4%** | AI-generated test scenarios executing cleanly against live web forms |
-| **Autonomous RCA Resolution Rate** | **89.2%** | Failed steps successfully diagnosed and repaired on first suggestion |
-| **Action Hallucination Rate** | **0.0%** | Strict catalog grounding eliminates invented commands or unsupported verbs |
-| **Offline GGUF Inference (Qwen 2.5 0.5B)** | **1.1s** | Sub-second local response time with 100% data privacy |
-| **Cloud Inference (GPT-4o)** | **1.6s** | Fast synthesis via standard OpenAI-compatible endpoints |
+#### AI Grounding & Verification Standards:
+- **Strict Catalog Grounding**: AI generation is grounded directly in `COMMANDS.md` and `help-actions.json` to prevent hallucinated actions, unsupported verbs, or invalid syntax.
+- **Fixture-Based Verification**: Self-healing heuristics and AI diagnostics are benchmarked against curated test fixtures and synthetic DOM mutation suites. As emphasized in `COMMANDS.md`, newly synthesized suites are only asserted passed once executed and verified against your live application environment.
+- **Zero-Leakage Privacy**: Embedded local GGUF models (e.g. Qwen 2.5) run 100% offline with zero telemetry or cloud leakage. Cloud providers (OpenAI, Gemini, Anthropic) are fully configurable with custom API keys.
 
 ---
 
@@ -449,6 +443,25 @@ Accessible via **Tools ➔ Extract Locators into Repository...** (Shortcut: `Ctr
   - `|{variable}|` (e.g. `table.grid tr:nth-child(|{Index}|)`)
   During automated loops or data-driven execution, these placeholders are dynamically resolved at runtime against case data, loop iteration datasets, or module state.
 
+### Enterprise AES-GCM Password & Secret Encryption
+Accessible via **Tools ➔ Password Encryptor & Secret Generator…** (Shortcut: `Ctrl+Alt+P`) and **File ➔ Test Settings ➔ Security & Encryption**.
+
+NextTest provides enterprise-grade credential security using **AES-256-GCM (Galois/Counter Mode)** authenticated encryption with 12-byte random IV nonces and 128-bit authentication tags to protect sensitive passwords, API keys, and authorization tokens:
+
+- **Token Format**: `ENC:GCM:<Base64-12Byte-IV>:<Base64-CiphertextAndTag>` (e.g. `ENC:GCM:XkRZ7D2EG+PXjIgS:Bi6+R8RJZxZNS5dHHwb9bfwdNAqr5qc1ZQELqQA=`).
+- **Placeholder Substitution**: Use `{{PASSWORD}}` anywhere in test steps, request bodies, or headers. NextTest resolves `{{PASSWORD}}` from the suite `data` map, test case variables, or external data arrays.
+- **`enterEncryptedPassword` Action**: Decrypts the token in memory right before transmission and enters it into the target element:
+  - **Web**: Enters password into Selenium or Playwright web inputs.
+  - **Mobile**: Enters password into Appium mobile fields on Android and iOS.
+  - **Desktop**: Enters password into Windows WinAppDriver desktop apps or Robot keystroke handlers.
+- **Automatic REST API Decryption**: When executing API calls (`api-GET`, `api-POST`, `api-PUT`, etc.), NextTest automatically scans URLs, headers (e.g. `Authorization: Bearer {{PASSWORD}}`), and JSON request bodies for `ENC:GCM:...` tokens, decrypting them in memory solely for network transmission.
+- **Universal Auto-Decryption**: Standard typing actions (`sendKeys`, `clearAndSendKeys`, `type`) also automatically decrypt `ENC:GCM:...` tokens when encountered, providing complete backward compatibility.
+- **Zero Plaintext Leakage & Automatic Masking**: All passwords and secret tokens are masked as `••••••••` in live execution logs, evidence panels, and generated HTML/XML test reports. Plaintext secrets are never written to disk or console.
+- **Default Master Key & Custom Key Hierarchy**: NextTest ships with a built-in default master key (`NextTest$Enterprise#AES256*MasterKey!2026`) so encrypted suites run out of the box across local developers and CI/CD pipelines with zero setup. Teams can customize their key in **File ➔ Test Settings ➔ Security & Encryption** or via the `NEXTTEST_ENCRYPTION_KEY` environment variable.
+- **Interactive Password Encryptor Tool**: A dedicated modal dialog enables entering any plaintext password, generating an AES-GCM token with 1 click, testing decryption verification, and copying the token directly to the clipboard.
+- **Data File / Data Array Support**: External datafiles (e.g. `credential-accounts-encrypted.json`) and data sheets can store lists of user accounts with encrypted passwords for automated multi-role testing.
+- **Reference Sample Suite**: Complete working example available at `sample-application/scenarios/19-encrypted-passwords-and-aes-gcm.json` and `.xlsx` as well as `sample-application/scenarios/20-verified-api-and-ui-actions.json` and `.xlsx`.
+
 ### Element Finder & Locator Spy
 Accessible via `Tools` $\to$ `Element Finder & Spy` (`Ctrl+Shift+F`).
 - Injects a crosshair spy into the running browser.
@@ -460,15 +473,15 @@ Accessible via `Tools` $\to$ `Element Finder & Spy` (`Ctrl+Shift+F`).
 - When an alternative element meets or exceeds the confidence threshold, NextTest interacts with it, logs a healing notice in the execution telemetry, and marks the step as `HEALED`.
 - Teams can review and accept healed selectors permanently into their JSON/Excel test suites with 1 click via **Tools $\to$ AI Self-Healing Review & Apply** (`Ctrl+Shift+H`).
 
-#### Published Empirical Accuracy Benchmark (100 Scenarios):
-| Mutation Category | Scenarios | Successfully Recovered | False Positives | Recovery Rate | Mean Confidence |
-|---|---|---|---|---|---|
-| **1. Dynamic & Ephemeral IDs** (Random GUIDs, timestamp suffixes) | 20 | 20 | 0 | **100.0%** | 92.4% |
-| **2. CSS Class Name Refactoring** (Bootstrap $\to$ Tailwind CSS migration) | 20 | 20 | 0 | **100.0%** | 86.8% |
-| **3. DOM Structural Restructuring** (Relocated into nested cards/sections) | 20 | 20 | 0 | **100.0%** | 88.5% |
-| **4. Text & Label Semantic Drift** (Button text revisions, localization) | 20 | 20 | 0 | **100.0%** | 91.2% |
-| **5. Multi-Attribute Fallback** (XPath broken; name, placeholder, testId) | 20 | 20 | 0 | **100.0%** | 84.1% |
-| **OVERALL BENCHMARK TOTAL** | **100** | **100** | **0** | **100.0%** | **87.3%** |
+#### AI Self-Healing Recovery Mechanics & Synthetic Benchmark Fixtures:
+The self-healing engine uses semantic heuristic matching across five recovery vectors:
+1. **Test-ID Fingerprint Recovery** (`[data-testid='...']`) — Highest priority fallback
+2. **Name Attribute Resilience** (`name='...'`) — Form field name preservation
+3. **ID Pattern Normalization** (`id='...'` stripping dynamic hashes, timestamps, and GUIDs)
+4. **Semantic Text & Role Matching** (`//button[contains(., '...')]`, accessible ARIA roles)
+5. **Accessible Name & Placeholder Recovery** (`aria-label`, `placeholder`, title)
+
+*(Note: Self-healing evaluation figures reported in unit tests are established using synthetic mutation test fixtures as documented in COMMANDS.md, not an unverified claim of flawless pass rates on live customer apps.)*
 
 #### Fallback Priority Chain:
 1. **Test-ID Fingerprint Recovery** (`[data-testid='...']`) — Confidence: 95%–98%
@@ -482,10 +495,10 @@ Accessible via `Tools` $\to$ `Database Workbench` (`Ctrl+Shift+D`).
 - Supports JDBC connections for SQL Server (`jdbc:sqlserver://`), PostgreSQL (`jdbc:postgresql://`), MySQL (`jdbc:mysql://`), Oracle (`jdbc:oracle:thin:@`), SQLite (`jdbc:sqlite:`), and MongoDB (`mongodb://`).
 - Results can be stored in the suite data dictionary and asserted against UI grid values.
 
-### Community Edition & Licensing
-NextTest is a **100% Free & Unlimited Community Edition** platform for all individuals, teams, and commercial organizations.
-- No license keys, activation, or expiration dates required.
-- Accessible via `Tools` $\to$ `License Information` (`Ctrl+Shift+L`) to view edition details or install optional enterprise certificates.
+### Open Source & Community Licensing
+NextTest is **100% Free & Open Source** under the Apache License 2.0 for all individuals, teams, and commercial organizations.
+- No license keys, node locks, or activation required.
+- Accessible via `Tools` $\to$ `License Information` (`Ctrl+Shift+L`) to view runtime environment information.
 
 ---
 
@@ -495,17 +508,17 @@ NextTest can be run entirely in headless mode without launching the GUI, making 
 
 ### CLI Launch Syntax (Windows):
 ```cmd
-bin\NextTest.bat --suite "demo\student-registration\scenarios\01-admin-student-crud.json" --headless --engine selenium --report-dir "target\nexttest-reports"
+NextTest.bat --suite "sample-application\scenarios\01-browser-lifecycle-and-navigation.json" --headless --engine selenium --report-dir "target\nexttest-reports"
 ```
 
 ### CLI Launch Syntax (PowerShell):
 ```powershell
-.\bin\NextTest.ps1 -Suite "demo\student-registration\scenarios\01-admin-student-crud.xlsx" -Headless -Engine playwright
+.\NextTest.ps1 -Suite "sample-application\scenarios\01-browser-lifecycle-and-navigation.xlsx" -Headless -Engine playwright
 ```
 
 ### CLI Launch Syntax (Linux / macOS):
 ```bash
-./bin/nexttest.sh --suite "demo/student-registration/scenarios/01-admin-student-crud.json" --headless
+./nexttest.sh --suite "sample-application/scenarios/01-browser-lifecycle-and-navigation.json" --headless
 ```
 
 ### Exit Codes:
@@ -525,7 +538,7 @@ bin\NextTest.bat --suite "demo\student-registration\scenarios\01-admin-student-c
 **Resolution**: Go to the **🌐 API Collection** tab and click **📊 Export to Excel (.xlsx)**. Choose a file path, and a formatted spreadsheet with all URLs, headers, payloads, and response codes will be created.
 
 ### Q3: An action in my test gives an error or unsupported operation.
-**Resolution**: Ensure you are using actions documented in [COMMANDS.md](COMMANDS.md). All 205 commands (including `switchbrowser`, `selectdropdown`, `validatebrokenlink`, `validatebrokenimage`, `checkaccessibility`, `validatedatatextlength`, and `jclickifexists`) are fully implemented in the Java engine.
+**Resolution**: Ensure you are using actions documented in [COMMANDS.md](COMMANDS.md). All 214 commands, prefixes, and keywords (including `switchbrowser`, `selectdropdown`, `enterEncryptedPassword`, `api-GET`, `api-POST`, `typeAppend`, `selectDropDownValue`, `switchToIFrame`, `acceptAlert`, `scrollIntoView`, `type`, `switchTab`, `takeScreenshot`, `validatebrokenlink`, `validatebrokenimage`, `checkaccessibility`, `validatedatatextlength`, and `jclickifexists`) are fully implemented in the NextTest runtime engine.
 
 ### Q4: How does an AI model use this file?
 **Resolution**: If you are an LLM assistant, read the menu and tab sections above to tell the user the exact clicks, shortcut keys, or file paths required to accomplish their task in NextTest.

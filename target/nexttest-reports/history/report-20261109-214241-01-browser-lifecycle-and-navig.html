@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NextTest CI/CD Test Report -01-browser-lifecycle-and-navigation</title>
+<style>
+    :root {
+        --bg: #0B0F19; --card: #111827; --card-alt: #1F2937; --border: #1E293B; --border-highlight: #334155;
+        --text: #F8FAFC; --muted: #94A3B8; --pass: #10B981; --fail: #EF4444; --healed: #A855F7;
+        --flaky: #F59E0B; --skip: #6B7280; --accent: #38BDF8;
+    }
+    * { box-sizing: border-box; }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        background: var(--bg); color: var(--text); margin: 0; padding: 24px 20px; line-height: 1.5;
+    }
+    .container { max-width: 1280px; margin: 0 auto; }
+
+    /* Header */
+    .header-card {
+        background: linear-gradient(135deg, #111827 0%, #1E293B 100%);
+        border: 1px solid var(--border-highlight); border-radius: 14px;
+        padding: 24px 30px; margin-bottom: 22px; display: flex; justify-content: space-between; align-items: center;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .header-title { margin: 0 0 6px 0; font-size: 22px; color: var(--accent); display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -0.3px; }
+    .subtitle { color: var(--muted); font-size: 13px; margin: 0; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .subtitle b { color: #E2E8F0; }
+    .env-badge {
+        display: inline-flex; align-items: center; gap: 6px; background: rgba(56, 189, 248, 0.12);
+        color: var(--accent); border: 1px solid rgba(56, 189, 248, 0.3); padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600;
+    }
+    .overall-pill {
+        font-size: 15px; font-weight: 800; padding: 10px 24px; border-radius: 30px;
+        text-transform: uppercase; letter-spacing: 0.8px; box-shadow: 0 0 16px rgba(0,0,0,0.4);
+    }
+
+    /* KPI Grid */
+    .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; margin-bottom: 22px; }
+    .kpi-card {
+        background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px;
+        transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .kpi-card:hover { transform: translateY(-2px); border-color: var(--border-highlight); }
+    .kpi-num { font-size: 28px; font-weight: 800; margin-bottom: 4px; line-height: 1.1; }
+    .kpi-lbl { font-size: 11px; text-transform: uppercase; color: var(--muted); font-weight: 700; letter-spacing: 0.5px; }
+
+    /* Visual Charts Row */
+    .visual-section {
+        display: grid; grid-template-columns: 340px 1fr; gap: 16px; margin-bottom: 22px;
+    }
+    @media (max-width: 900px) { .visual-section { grid-template-columns: 1fr; } }
+    .chart-card {
+        background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px;
+    }
+    .chart-title { font-size: 14px; font-weight: 700; color: #E2E8F0; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; }
+
+    /* Donut Visual */
+    .donut-wrap { display: flex; align-items: center; justify-content: space-around; gap: 16px; }
+    .donut-svg { transform: rotate(-90deg); width: 130px; height: 130px; }
+    .donut-bg { fill: none; stroke: #1E293B; stroke-width: 14; }
+    .donut-seg { fill: none; stroke-width: 14; stroke-linecap: round; transition: stroke-dasharray 0.5s ease; }
+    .donut-legend { display: flex; flex-direction: column; gap: 8px; font-size: 12px; }
+    .legend-item { display: flex; align-items: center; gap: 8px; }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+    /* Latency Bars */
+    .latency-list { display: flex; flex-direction: column; gap: 8px; max-height: 160px; overflow-y: auto; padding-right: 4px; }
+    .latency-row { display: grid; grid-template-columns: 180px 1fr 65px; gap: 10px; align-items: center; font-size: 12px; }
+    .latency-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #CBD5E1; }
+    .latency-bar-wrap { background: #1E293B; border-radius: 4px; height: 8px; overflow: hidden; }
+    .latency-bar { height: 100%; border-radius: 4px; }
+    .latency-val { text-align: right; color: var(--muted); font-family: ui-monospace, monospace; font-size: 11px; }
+
+    /* Filter Toolbar */
+    .toolbar {
+        background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+        padding: 12px 18px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .filter-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+    .filter-btn {
+        background: transparent; border: 1px solid var(--border); color: var(--muted);
+        padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.15s ease;
+    }
+    .filter-btn:hover { border-color: var(--accent); color: var(--text); }
+    .filter-btn.active { background: var(--accent); color: #0F172A; border-color: var(--accent); font-weight: 700; }
+    .search-box {
+        background: #1E293B; border: 1px solid var(--border-highlight); border-radius: 8px;
+        padding: 6px 12px; color: var(--text); font-size: 13px; width: 240px; outline: none;
+    }
+    .search-box:focus { border-color: var(--accent); }
+    .tool-btn {
+        background: transparent; border: 1px solid var(--border); color: var(--muted);
+        padding: 5px 12px; border-radius: 6px; font-size: 12px; cursor: pointer;
+    }
+    .tool-btn:hover { color: var(--text); border-color: var(--muted); }
+
+    /* Suites & Cases */
+    .suite-block { margin-bottom: 24px; }
+    .suite-header {
+        background: #1E293B; border: 1px solid var(--border); border-radius: 10px 10px 0 0;
+        padding: 14px 20px; display: flex; justify-content: space-between; align-items: center;
+    }
+    .suite-title { font-size: 15px; font-weight: 700; color: #F1F5F9; display: flex; align-items: center; gap: 8px; }
+    .case-list { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+    .case-card {
+        background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+        overflow: hidden; transition: border-color 0.15s ease;
+    }
+    .case-card:hover { border-color: var(--border-highlight); }
+    .case-head {
+        padding: 14px 20px; display: flex; justify-content: space-between; align-items: center;
+        cursor: pointer; user-select: none;
+    }
+    .case-left { display: flex; align-items: center; gap: 12px; }
+    .case-name { font-size: 14px; font-weight: 700; color: #F1F5F9; }
+    .case-right { display: flex; align-items: center; gap: 14px; }
+    .badge {
+        display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;
+    }
+    .badge-pass { background: rgba(16, 185, 129, 0.18); color: var(--pass); border: 1px solid var(--pass); }
+    .badge-flaky { background: rgba(245, 158, 11, 0.18); color: #FBBF24; border: 1px solid var(--flaky); }
+    .badge-fail { background: rgba(239, 68, 68, 0.18); color: var(--fail); border: 1px solid var(--fail); }
+    .badge-healed { background: rgba(168, 85, 247, 0.18); color: var(--healed); border: 1px solid var(--healed); }
+    .badge-skip { background: rgba(107, 114, 128, 0.18); color: var(--skip); border: 1px solid var(--skip); }
+
+    /* Accordion Steps */
+    .case-body {
+        padding: 0 20px 16px 20px; border-top: 1px solid var(--border); background: #0D131F;
+        display: none;
+    }
+    .case-body.open { display: block; }
+    .step-list { list-style: none; padding: 0; margin: 12px 0 0 0; display: flex; flex-direction: column; gap: 8px; }
+    .step-item {
+        background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+        padding: 10px 14px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
+    }
+    .step-content { flex: 1; }
+    .step-meta { display: flex; gap: 8px; align-items: center; font-size: 12px; margin-bottom: 4px; }
+    .action-pill { background: #1E293B; color: #38BDF8; padding: 1px 7px; border-radius: 4px; font-family: ui-monospace, monospace; font-size: 11px; font-weight: 600; }
+    .step-err-box {
+        background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.4); border-radius: 6px;
+        padding: 8px 12px; margin-top: 8px; font-family: ui-monospace, monospace; font-size: 11px; color: #FCA5A5;
+        display: flex; justify-content: space-between; align-items: center;
+    }
+    .step-healed-box {
+        background: rgba(168, 85, 247, 0.12); border: 1px solid rgba(168, 85, 247, 0.4); border-radius: 6px;
+        padding: 6px 12px; margin-top: 6px; font-size: 11px; color: #D8B4FE;
+    }
+    .step-visual-box {
+        background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 6px;
+        padding: 6px 12px; margin-top: 6px; font-size: 11px; color: #7DD3FC;
+    }
+    .copy-btn {
+        background: transparent; border: 1px solid rgba(239, 68, 68, 0.5); color: #FCA5A5;
+        border-radius: 4px; padding: 2px 8px; font-size: 10px; cursor: pointer;
+    }
+    .copy-btn:hover { background: rgba(239, 68, 68, 0.2); }
+    .step-timing { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; font-size: 11px; color: var(--muted); }
+    .mono { font-family: ui-monospace, Menlo, Monaco, Consolas, monospace; }
+    .arrow-icon { transition: transform 0.2s ease; display: inline-block; font-size: 11px; color: var(--muted); }
+    .open .arrow-icon { transform: rotate(180deg); }
+
+    @media print {
+        body { background: #FFF; color: #000; padding: 0; }
+        .header-card, .kpi-card, .chart-card, .case-card { background: #FFF !important; border: 1px solid #CCC !important; color: #000 !important; }
+        .header-title, .kpi-num, .case-name { color: #000 !important; }
+        .case-body { display: block !important; background: #FFF !important; }
+        .toolbar, .search-box, .filter-pills, .tool-btn { display: none !important; }
+    }
+</style>
+</head>
+<body>
+<div style="max-width:1280px; margin:0 auto 16px auto; display:flex; justify-content:space-between; align-items:center;">
+    <a href="../index.html" style="display:inline-flex; align-items:center; gap:8px; color:#38bdf8; text-decoration:none; font-size:13px; font-weight:600; padding:8px 16px; background:#1e293b; border:1px solid #334155; border-radius:20px; transition:all 0.2s;" onmouseover="this.style.background='#334155'" onmouseout="this.style.background='#1e293b'">
+        &#8592; Back to All Reports Dashboard
+    </a>
+    <span style="color:#64748b; font-size:12px; font-family:ui-monospace, monospace;">Archived Run:RUN-20261109-214241    </span>
+</div>
+<div class="container">
+    <!-- Top Navigation back to Dashboard -->
+    <div style="margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
+        <a href="index.html" style="display: inline-flex; align-items: center; gap: 8px; color: #38BDF8; text-decoration: none; font-size: 13px; font-weight: 600; padding: 6px 14px; background: #1E293B; border: 1px solid #334155; border-radius: 20px; transition: all 0.2s;">
+            &#8592; Back to All Reports Dashboard
+        </a>
+        <span style="color: #64748B; font-size: 12px;">NextTest Execution Evidence</span>
+    </div>
+    <!-- Executive Header -->
+    <div class="header-card">
+        <div>
+            <div class="header-title">⚡ NextTest CI/CD Pipeline Report</div>
+            <div class="subtitle">
+                <span>Suites: <b>01-browser-lifecycle-and-navigation</b></span>
+<span>Browser: <b>Chrome (Headless)</b></span>
+<span>Time: <b>2026-11-09 21:42:41</b></span>
+<span class="env-badge">🌐Local Browser Engine        </span>
+    </div>
+</div>
+<div>
+    <span class="overall-pill" style="background:#10B981; color: #FFF;">PASSED        </span>
+    </div>
+</div>
+
+<!-- KPI Cards -->
+<div class="kpi-row">
+    <div class="kpi-card">
+        <div class="kpi-num" style="color: var(--accent);">1    </div>
+    <div class="kpi-lbl">Total Test Cases</div>
+</div>
+<div class="kpi-card">
+    <div class="kpi-num" style="color: var(--pass);">1    </div>
+    <div class="kpi-lbl">Passed Cases</div>
+</div>
+<div class="kpi-card">
+    <div class="kpi-num" style="color: var(--fail);">0    </div>
+    <div class="kpi-lbl">Failed Cases</div>
+</div>
+<div class="kpi-card">
+    <div class="kpi-num" style="color: var(--flaky);">0    </div>
+    <div class="kpi-lbl">Flaky Tests (Retried)</div>
+</div>
+<div class="kpi-card">
+    <div class="kpi-num" style="color: var(--healed);">0    </div>
+    <div class="kpi-lbl">AI Auto-Healed Steps</div>
+</div>
+<div class="kpi-card">
+    <div class="kpi-num" style="color: #F8FAFC;">100.0%    </div>
+    <div class="kpi-lbl">Pass Rate</div>
+</div>
+<div class="kpi-card">
+    <div class="kpi-num" style="color: #94A3B8;">1.72s        </div>
+        <div class="kpi-lbl">Total Duration</div>
+    </div>
+</div>
+
+<!-- Visual Charts Section (Pure SVG, 100% Offline) -->
+<div class="visual-section">
+    <div class="chart-card">
+        <div class="chart-title">Status Distribution</div>
+        <div class="donut-wrap">
+            <svg class="donut-svg" viewBox="0 0 100 100">
+                <circle class="donut-bg" cx="50" cy="50" r="40" />
+                <circle class="donut-seg" cx="50" cy="50" r="40" stroke="var(--pass)" stroke-dasharray="251.33 251.33" stroke-dashoffset="0.00" />
+<circle class="donut-seg" cx="50" cy="50" r="40" stroke="var(--flaky)" stroke-dasharray="0.00 251.33" stroke-dashoffset="-251.33" />
+<circle class="donut-seg" cx="50" cy="50" r="40" stroke="var(--fail)" stroke-dasharray="0.00 251.33" stroke-dashoffset="-251.33" />
+<circle class="donut-seg" cx="50" cy="50" r="40" stroke="var(--skip)" stroke-dasharray="0.00 251.33" stroke-dashoffset="-251.33    " />
+</svg>
+<div class="donut-legend">
+    <div class="legend-item"><span class="legend-dot" style="background:var(--pass);"></span><span>Passed: <b>1</b></span></div>
+<div class="legend-item"><span class="legend-dot" style="background:var(--flaky);"></span><span>Flaky: <b>0</b></span></div>
+<div class="legend-item"><span class="legend-dot" style="background:var(--fail);"></span><span>Failed: <b>0</b></span></div>
+<div class="legend-item"><span class="legend-dot" style="background:var(--skip);"></span><span>Skipped: <b>0                    </b></span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <div class="chart-title">
+                <span>Execution Latency Timeline</span>
+                <span style="font-size:11px; color:var(--muted); font-weight:normal;">Duration per test case</span>
+            </div>
+            <div class="latency-list">
+<div class="latency-row"><span class="latency-name" title="Browser Window Management and Navigation Flow">Browser Window Management and Navigation Flow</span><div class="latency-bar-wrap"><div class="latency-bar" style="width: 100%; background: var(--pass);"></div></div><span class="latency-val">1699ms</span></div>        </div>
+    </div>
+</div>
+
+<!-- Interactive Filter & Search Toolbar -->
+<div class="toolbar">
+    <div class="filter-pills">
+        <button class="filter-btn active" onclick="filterCases('ALL', this)">All (1)</button>
+<button class="filter-btn" onclick="filterCases('PASS', this)">Passed (1)</button>
+<button class="filter-btn" onclick="filterCases('FAIL', this)">Failed (0)</button>
+<button class="filter-btn" onclick="filterCases('FLAKY', this)">Flaky (0)</button>
+<button class="filter-btn" onclick="filterCases('HEALED', this)">Healed (0            )</button>
+        </div>
+        <div style="display:flex; gap:10px; align-items:center;">
+            <input type="text" id="searchInput" class="search-box" placeholder="🔍 Search test cases..." onkeyup="filterSearch()" />
+            <button class="tool-btn" onclick="toggleAllCases(true)">Expand All</button>
+            <button class="tool-btn" onclick="toggleAllCases(false)">Collapse All</button>
+        </div>
+    </div>
+<div class="suite-block">
+    <div class="suite-header">
+        <div class="suite-title">📄 Suite:01-browser-lifecycle-and-navigation</div>
+<div style="font-size: 13px; color: var(--muted);">Pass Rate: <b style="color: var(--accent);">100.0% (1/1)            </b></div>
+        </div>
+        <div class="case-list">
+<div class="case-card" data-status="PASS" data-healed="false" id="case-1"><div class="case-head" onclick="toggleCase('case-1')"><div class="case-left"><span class="badge badge-pass">PASS</span><span class="case-name">Browser Window Management and Navigation Flow</span></div><div class="case-right"><span class="mono" style="color:var(--muted); font-size:12px;">1.70 s</span><span class="arrow-icon">▼</span></div></div><div class="case-body" id="case-1-body"><ul class="step-list"><li class="step-item"><div class="step-content"><div class="step-meta"><span class="badge badge-pass" style="padding:1px 6px; font-size:10px;">PASS</span> <b>Step 1:</b> Launch Chrome browser and navigate to home page <span class="action-pill">openBrowserChrome</span></div></div><div class="step-timing"><span class="mono">1115ms</span></div></li><li class="step-item"><div class="step-content"><div class="step-meta"><span class="badge badge-pass" style="padding:1px 6px; font-size:10px;">PASS</span> <b>Step 2:</b> Set viewport window size to 1920x1080 <span class="action-pill">windowSize</span></div></div><div class="step-timing"><span class="mono">64ms</span></div></li><li class="step-item"><div class="step-content"><div class="step-meta"><span class="badge badge-pass" style="padding:1px 6px; font-size:10px;">PASS</span> <b>Step 3:</b> Validate current page title <span class="action-pill">validateTitle</span></div></div><div class="step-timing"><span class="mono">35ms</span></div></li><li class="step-item"><div class="step-content"><div class="step-meta"><span class="badge badge-pass" style="padding:1px 6px; font-size:10px;">PASS</span> <b>Step 4:</b> Navigate to specific URL directly <span class="action-pill">enterUrl</span></div></div><div class="step-timing"><span class="mono">36ms</span></div></li><li class="step-item"><div class="step-content"><div class="step-meta"><span class="badge badge-pass" style="padding:1px 6px; font-size:10px;">PASS</span> <b>Step 5:</b> Refresh current page <span class="action-pill">refresh</span></div></div><div class="step-timing"><span class="mono">59ms</span></div></li><li class="step-item"><div class="step-content"><div class="step-meta"><span class="badge badge-pass" style="padding:1px 6px; font-size:10px;">PASS</span> <b>Step 6:</b> Navigate browser back in history <span class="action-pill">mouseBackClick</span></div></div><div class="step-timing"><span class="mono">36ms</span></div></li><li class="step-item"><div class="step-content"><div class="step-meta"><span class="badge badge-pass" style="padding:1px 6px; font-size:10px;">PASS</span> <b>Step 7:</b> Navigate browser forward in history <span class="action-pill">mouseForwardClick</span></div></div><div class="step-timing"><span class="mono">33ms</span></div></li><li class="step-item"><div class="step-content"><div class="step-meta"><span class="badge badge-pass" style="padding:1px 6px; font-size:10px;">PASS</span> <b>Step 8:</b> Maximize browser window <span class="action-pill">openAndMaximizeBrowser</span></div></div><div class="step-timing"><span class="mono">67ms</span></div></li><li class="step-item"><div class="step-content"><div class="step-meta"><span class="badge badge-pass" style="padding:1px 6px; font-size:10px;">PASS</span> <b>Step 9:</b> Capture full screenshot of viewport <span class="action-pill">takingScreenshot</span></div></div><div class="step-timing"><span class="mono">103ms</span></div></li><li class="step-item"><div class="step-content"><div class="step-meta"><span class="badge badge-pass" style="padding:1px 6px; font-size:10px;">PASS</span> <b>Step 10:</b> Close browser session cleanly <span class="action-pill">closeBrowser</span></div></div><div class="step-timing"><span class="mono">148ms</span></div></li></ul></div></div></div></div></div>
+<script>
+    let currentFilter = 'ALL';
+
+    function toggleCase(cardId) {
+        const card = document.getElementById(cardId);
+        const body = document.getElementById(cardId + '-body');
+        if (!card || !body) return;
+        card.classList.toggle('open');
+        body.classList.toggle('open');
+    }
+
+    function toggleAllCases(expand) {
+        document.querySelectorAll('.case-card').forEach(card => {
+            const body = document.getElementById(card.id + '-body');
+            if (expand) {
+                card.classList.add('open');
+                if (body) body.classList.add('open');
+            } else {
+                card.classList.remove('open');
+                if (body) body.classList.remove('open');
+            }
+        });
+    }
+
+    function filterCases(status, btn) {
+        currentFilter = status;
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+        applyFilters();
+    }
+
+    function filterSearch() {
+        applyFilters();
+    }
+
+    function applyFilters() {
+        const query = (document.getElementById('searchInput').value || '').toLowerCase().trim();
+        document.querySelectorAll('.case-card').forEach(card => {
+            const cStatus = card.getAttribute('data-status') || '';
+            const isHealed = card.getAttribute('data-healed') === 'true';
+            const text = card.innerText.toLowerCase();
+
+            let matchesStatus = (currentFilter === 'ALL') ||
+                (currentFilter === 'PASS' && cStatus === 'PASS') ||
+                (currentFilter === 'FAIL' && cStatus === 'FAIL') ||
+                (currentFilter === 'FLAKY' && cStatus === 'FLAKY') ||
+                (currentFilter === 'HEALED' && isHealed);
+
+            let matchesQuery = !query || text.includes(query);
+
+            card.style.display = (matchesStatus && matchesQuery) ? 'block' : 'none';
+        });
+    }
+
+    function copyErr(elementId, btn) {
+        const el = document.getElementById(elementId);
+        if (!el) return;
+        navigator.clipboard.writeText(el.innerText.replace(/^⚠️\s*/, '')).then(() => {
+            const orig = btn.innerText;
+            btn.innerText = 'Copied!';
+            setTimeout(() => btn.innerText = orig, 1500);
+        });
+    }
+</script>
+</body>
+</html>

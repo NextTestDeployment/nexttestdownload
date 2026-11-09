@@ -1,0 +1,100 @@
+{
+  "name": "21 Accessibility and Quality Audit Master Suite",
+  "platform": "Web",
+  "description": "Verifies web application quality standards using automated accessibility scans, broken link detection, broken image validation, and text length constraints.",
+  "data": {
+    "baseUrl": "http://127.0.0.1:3100"
+  },
+  "locators": {
+    "nav_Students": "#nav-students",
+    "nav_Courses": "#nav-courses",
+    "recordsTable": "#records-table",
+    "appHeader": "header.navbar",
+    "footer": "footer"
+  },
+  "testCases": [
+    {
+      "testCaseId": "TC-A11Y-01",
+      "Case": "Automated Web Accessibility & Compliance Audit (checkaccessibility)",
+      "isRun": true,
+      "hardStop": false,
+      "tagNames": ["accessibility", "a11y", "wcag", "quality", "compliance"],
+      "testSteps": [
+        {
+          "steps": "Navigate to CampusFlow application home page",
+          "action": "openBrowserChrome",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "http://127.0.0.1:3100",
+          "isRun": true
+        },
+        {
+          "steps": "Perform comprehensive WCAG 2.1 AA accessibility audit on page",
+          "action": "checkaccessibility",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "WCAG2AA",
+          "isRun": true
+        },
+        {
+          "steps": "Audit specific navigation header component for accessibility attributes",
+          "action": "checkaccessibility",
+          "locatorType": "css",
+          "locatorTypeValue": "header",
+          "value": "",
+          "isRun": true
+        }
+      ]
+    },
+    {
+      "testCaseId": "TC-LINK-IMG-02",
+      "Case": "Broken Hyperlinks & Missing Images Integrity Verification (validatebrokenlink, validatebrokenimage)",
+      "isRun": true,
+      "hardStop": false,
+      "tagNames": ["integrity", "broken-links", "broken-images", "seo", "assets"],
+      "testSteps": [
+        {
+          "steps": "Verify all hyperlinks on page return valid HTTP 200/300 status codes",
+          "action": "validatebrokenlink",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Scan and verify all image assets on page render with valid natural dimensions",
+          "action": "validatebrokenimage",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "",
+          "isRun": true
+        }
+      ]
+    },
+    {
+      "testCaseId": "TC-LEN-03",
+      "Case": "Data Text Length & Content Constraint Assertion (validatedatatextlength)",
+      "isRun": true,
+      "hardStop": false,
+      "tagNames": ["validation", "text-length", "constraints"],
+      "testSteps": [
+        {
+          "steps": "Assert page brand text length conforms to minimum requirements",
+          "action": "validatedatatextlength",
+          "locatorType": "css",
+          "locatorTypeValue": "h1, h2, .brand-title",
+          "value": ">=5",
+          "isRun": true
+        },
+        {
+          "steps": "Capture audit evidence screenshot",
+          "action": "takeScreenshot",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "a11y-audit-evidence.png",
+          "isRun": true
+        }
+      ]
+    }
+  ]
+}

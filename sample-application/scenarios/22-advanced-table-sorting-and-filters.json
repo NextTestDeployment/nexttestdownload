@@ -1,0 +1,111 @@
+{
+  "name": "22 Advanced Table Sorting, Uniqueness and Hierarchy Suite",
+  "platform": "Web",
+  "description": "Verifies data grid sorting order, duplicate row detection, element count assertions, and parent-child scoped clicks.",
+  "data": {
+    "baseUrl": "http://127.0.0.1:3100"
+  },
+  "locators": {
+    "recordsTable": "#records-table",
+    "tableRows": "#records-table tbody tr",
+    "studentNoColumn": "#records-table tbody tr td:nth-child(1)",
+    "studentNameColumn": "#records-table tbody tr td:nth-child(2)",
+    "navStudents": "#nav-students",
+    "searchBox": "#table-search"
+  },
+  "testCases": [
+    {
+      "testCaseId": "TC-SORT-01",
+      "Case": "Data Grid Sorting Order Validation (validatesorted, validatenumbersorted)",
+      "isRun": true,
+      "hardStop": false,
+      "tagNames": ["tables", "sorting", "grid", "validatesorted"],
+      "testSteps": [
+        {
+          "steps": "Open CampusFlow home page",
+          "action": "openBrowserChrome",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
+          "value": "http://127.0.0.1:3100",
+          "isRun": true
+        },
+        {
+          "steps": "Validate student registration numbers are strictly sorted in ascending order",
+          "action": "validatenumbersorted",
+          "locatorType": "css",
+          "locatorTypeValue": "#records-table tbody tr td:nth-child(1)",
+          "value": "asc",
+          "isRun": true
+        },
+        {
+          "steps": "Validate student full names adhere to alphabetical ascending order",
+          "action": "validatesortedasc",
+          "locatorType": "css",
+          "locatorTypeValue": "#records-table tbody tr td:nth-child(2)",
+          "value": "",
+          "isRun": false
+        }
+      ]
+    },
+    {
+      "testCaseId": "TC-UNIQ-COUNT-02",
+      "Case": "Grid Row Uniqueness & Element Count Assertion (validatenotduplicate, count, validatecount)",
+      "isRun": true,
+      "hardStop": false,
+      "tagNames": ["uniqueness", "duplicates", "count", "grid"],
+      "testSteps": [
+        {
+          "steps": "Assert student roll numbers contain no duplicate entries in active view",
+          "action": "validatenotduplicate",
+          "locatorType": "css",
+          "locatorTypeValue": "#records-table tbody tr td:nth-child(1)",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Count total visible rows in student table and store count into suite dictionary",
+          "action": "count",
+          "locatorType": "css",
+          "locatorTypeValue": "#records-table tbody tr",
+          "value": "",
+          "actualValue": "rowCount",
+          "isRun": true
+        },
+        {
+          "steps": "Assert total student rows rendered matches expected threshold",
+          "action": "validatecount",
+          "locatorType": "css",
+          "locatorTypeValue": "#records-table tbody tr",
+          "value": "30",
+          "isRun": false
+        }
+      ]
+    },
+    {
+      "testCaseId": "TC-HIERARCHY-CLASS-03",
+      "Case": "Parent-Child Scoped Interaction & Class Assertion (parentchildclick, hasclass)",
+      "isRun": true,
+      "hardStop": false,
+      "tagNames": ["hierarchy", "parentchild", "css-class", "hasclass"],
+      "testSteps": [
+        {
+          "steps": "Verify primary table container possesses expected active CSS styling classes",
+          "action": "hasclass",
+          "locatorType": "css",
+          "locatorTypeValue": "#records-table, table",
+          "value": "table",
+          "isRun": true
+        },
+        {
+          "steps": "Locate specific student row and click nested action button using parentchildclick",
+          "action": "parentchildclick",
+          "locatorType": "css",
+          "locatorTypeValue": "#records-table tbody tr:first-child",
+          "value": "Edit",
+          "actualValue": "button, a",
+          "isRun": false
+        }
+      ]
+    }
+  ]
+}

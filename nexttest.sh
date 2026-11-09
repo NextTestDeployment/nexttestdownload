@@ -22,9 +22,6 @@ elif [ -f "$ALIAS_JAR" ]; then
 else
     echo "[INFO] First run: Assembling nexttest-desktop-v${VERSION}.jar from 30MB chunks..."
     CHUNKS_DIR="${SCRIPT_DIR}/chunks"
-    if [ ! -d "$CHUNKS_DIR" ]; then
-        CHUNKS_DIR="${SCRIPT_DIR}/bin/chunks"
-    fi
     cat "${CHUNKS_DIR}"/nexttest-desktop-v${VERSION}.part* > "$TARGET_JAR"
     cp -f "$TARGET_JAR" "$ALIAS_JAR" 2>/dev/null || true
     echo "[INFO] Assembly complete. Subsequent runs will use the merged JAR directly."

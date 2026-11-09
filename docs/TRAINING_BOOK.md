@@ -20,6 +20,8 @@ Welcome to the **NextTest Automation Masterclass**. This handbook is designed to
 * **Module 8**: Headless Execution & Enterprise CI/CD Pipelines
 * **Module 9**: AI-Assisted Test Authoring (Natural Language to JSON)
 * **Module 10**: Capstone Project — Automating the CampusFlow Application
+* **Module 11**: Shipped Test Suite Directory & Complete Scenario Catalog
+* **Module 12**: Advanced Quality Engineering — Accessibility, Broken Assets & Complex Grids
 
 ---
 
@@ -46,9 +48,9 @@ tar -xf nexttest-v1.0.0.zip
 cd nexttest-v1.0.0
 
 # 2. Launch the Desktop Studio
-bin\NextTest.bat
+NextTest.bat
 ```
-*(On Linux/macOS, execute `./bin/nexttest.sh`)*
+*(On Linux/macOS, execute `./nexttest.sh`)*
 
 ### 1.4 Anatomy of NextTest Studio UI
 1. **Top Menu Bar**: File management, Scenario recorder, Test runner, Tools, and Help.
@@ -86,37 +88,39 @@ A NextTest suite consists of metadata, shared suite data, and an array of test c
         {
           "steps": "Open browser and navigate to home page",
           "action": "openBrowserChrome",
+          "locatorType": "NA",
+          "locatorTypeValue": "NA",
           "value": "${baseUrl}",
           "isRun": true
         },
         {
           "steps": "Input admin username",
-          "action": "type",
-          "locator": "id",
-          "locatorValue": "username",
+          "action": "sendKeys",
+          "locatorType": "id",
+          "locatorTypeValue": "username",
           "value": "${adminUser}",
           "isRun": true
         },
         {
-          "steps": "Input admin password",
-          "action": "type",
-          "locator": "id",
-          "locatorValue": "password",
-          "value": "Admin@123",
+          "steps": "Input admin password securely",
+          "action": "enterEncryptedPassword",
+          "locatorType": "id",
+          "locatorTypeValue": "password",
+          "value": "{{PASSWORD}}",
           "isRun": true
         },
         {
           "steps": "Click submit button",
           "action": "click",
-          "locator": "xpath",
-          "locatorValue": "//button[@type='submit']",
+          "locatorType": "xpath",
+          "locatorTypeValue": "//button[@type='submit']",
           "isRun": true
         },
         {
           "steps": "Verify welcome header appears",
           "action": "validateText",
-          "locator": "css",
-          "locatorValue": ".welcome-banner h1",
+          "locatorType": "css",
+          "locatorTypeValue": ".welcome-banner h1",
           "value": "Dashboard Overview",
           "isRun": true
         }
@@ -129,14 +133,34 @@ A NextTest suite consists of metadata, shared suite data, and an array of test c
 ### 2.2 Key Properties Explained
 * `isRun` (`boolean`): Toggle execution of an entire test case or individual step without deleting code.
 * `hardStop` (`boolean`): If `true`, a failure in this test case aborts the entire suite (ideal for authentication prerequisites).
-* `locator`: Supported locator strategies (`id`, `name`, `xpath`, `css`, `linkText`, `partialLinkText`, `className`, `tagName`).
-* `value`: The parameter or input payload delivered to the action. Can reference data variables using `${variableName}`.
+* `locatorType`: Canonical locator strategy (`id`, `name`, `xpath`, `css`, `linkText`, `partialLinkText`, `className`, `tagName`). The loader also accepts aliases (`locator`, `by`, `findBy`).
+* `locatorTypeValue`: The target selector query (also accepts `locatorValue`, `selector`, or `target`).
+* `action`: Action verb to execute (e.g., `sendKeys`, `click`, `enterEncryptedPassword`, `validateText`).
+* `value`: The parameter or input payload delivered to the action. Can reference data variables using `${variableName}` or `{{variableName}}`.
+
+### 2.3 Enterprise Credential Security: AES-GCM Encrypted Passwords & `{{PASSWORD}}`
+Hardcoding plaintext passwords or credentials in test scripts creates significant security compliance risks. NextTest solves this with native **256-bit AES-GCM** authenticated encryption:
+
+1. **`{{PASSWORD}}` Placeholder**:
+   - Reference `{{PASSWORD}}` in step `value` (e.g., `value: "{{PASSWORD}}"`), headers (`Authorization: Bearer {{PASSWORD}}`), or API JSON request bodies.
+   - The value is resolved dynamically from suite `data` or external `testData` arrays containing `ENC:GCM:<IV>:<Ciphertext>` tokens.
+2. **`enterEncryptedPassword` Action**:
+   - Automatically decrypts the token in memory right before entering it into the target element.
+   - Supported seamlessly across **Web** (Selenium, Playwright), **Mobile** (Appium), and native **Desktop** (WinAppDriver) applications.
+3. **REST API Auto-Decryption**:
+   - All `api-*` requests decrypt embedded `ENC:GCM:...` tokens within URLs, headers, and request bodies at network dispatch time.
+4. **Zero Plaintext Leakage**:
+   - Sensitive values are masked as `••••••••` in console execution logs, evidence panels, and generated HTML/XML reports.
+5. **Password Encryptor Tool**:
+   - Press **Ctrl+Alt+P** or navigate to **Tools ➔ Password Encryptor & Secret Generator…** to encrypt any password, test decryption, and copy the encrypted token to clipboard with one click.
+6. **Key Configuration**:
+   - NextTest uses a built-in default master key for zero-config team sharing. Custom enterprise keys can be set under **File ➔ Test Settings ➔ Security & Encryption** or via `NEXTTEST_ENCRYPTION_KEY`.
 
 ---
 
 ## 🌐 Module 3: Web Automation Mastery
 
-NextTest includes over 200 built-in automation commands covering all modern web interaction patterns.
+NextTest includes 214 built-in automation commands, extensions, and keyword directives (including 200 core test execution actions) covering all modern web, mobile, desktop, and API interaction patterns.
 
 ### 3.1 Common Web Actions Reference Table
 
@@ -196,10 +220,10 @@ flowchart TD
 ### 4.3 CLI Commands for Auto-Healing
 ```cmd
 # Run tests with auto-healing logging:
-bin\NextTest.bat --suite "scenarios\checkout.json" --headless --self-healing
+NextTest.bat --suite "sample-application\scenarios\01-admin-student-crud.json" --headless --self-healing
 
 # Run tests and automatically save healed locators back to disk:
-bin\NextTest.bat --suite "scenarios\checkout.json" --headless --self-healing --apply-healing
+NextTest.bat --suite "sample-application\scenarios\01-admin-student-crud.json" --headless --self-healing --apply-healing
 ```
 
 ---
@@ -266,14 +290,15 @@ Loop through hundreds of customer rows using a single test scenario:
 ## 🖥️ Module 7: Native Desktop & Visual AI Regression Testing
 
 ### 7.1 Native Windows Application Automation
-NextTest automates native desktop software (WPF, Win32, WinForms, Electron):
-* Launch desktop executables: `openDesktopApp` with path `C:\Program Files\App\app.exe`.
-* Inspect and interact with controls using UIAutomation IDs and Accessibility properties.
+NextTest automates native desktop software (WPF, Win32, WinForms, Electron) via WinAppDriver or Desktop session profiles:
+* Suite configuration specifies `"platform": "DESKTOP"` with the target executable in `suite.data` (`"app": "C:\\Program Files\\App\\app.exe"`).
+* Inspect and interact with desktop UI controls using Accessibility IDs, AutomationProperties.AutomationId (`id`), Name (`name`), and XPath.
 
 ### 7.2 Visual Baseline Testing
 Ensure visual pixels haven't shifted between releases:
-* Action `validateVisualSnapshot`: Compares the live rendered viewport against a master baseline PNG image.
-* Highlights layout shifts, font changes, and color regressions in red-line diff reports.
+* Action `validateVisualBaseline`: Compares the live rendered viewport against a saved baseline image reference.
+* Action `takingScreenshot` / `takingscreenshotappender`: Captures viewport or element snapshots into test evidence reports.
+* Highlights layout shifts, font changes, and color regressions in visual diff comparisons.
 
 ---
 
@@ -283,7 +308,7 @@ Ensure visual pixels haven't shifted between releases:
 Run NextTest from PowerShell, Bash, or CI task runners without opening GUI windows:
 
 ```cmd
-bin\NextTest.bat --suite "scenarios\regression.json" --headless --browser chrome --output-dir "target\reports" --report-formats html,junit
+NextTest.bat --suite "sample-application\scenarios\01-browser-lifecycle-and-navigation.json" --headless --browser chrome --output-dir "target\reports" --report-formats html,junit
 ```
 
 ### 8.2 GitHub Actions Pipeline Template (`.github/workflows/nexttest.yml`)
@@ -311,7 +336,7 @@ jobs:
 
     - name: Run NextTest Headless Regression
       run: |
-        .\bin\NextTest.bat --run .\scenarios\regression.json --headless --self-healing --output-dir .\reports
+        .\NextTest.bat --run .\sample-application\scenarios\01-browser-lifecycle-and-navigation.json --headless --self-healing --output-dir .\reports
 
     - name: Publish Test Report Artifacts
       uses: actions/upload-artifact@v4
@@ -348,6 +373,93 @@ To complete your training, automate the bundled sample application **CampusFlow*
 4. **Scenario 3 (Auto-Healing)**: Intentionally alter an element ID in the HTML and observe NextTest heal the locator without failing.
 5. **Scenario 4 (API Verification)**: Issue an `api-GET` to `/api/students` and assert that the newly added students exist in the JSON response.
 6. **Scenario 5 (Reporting)**: Generate a combined executive HTML report and review execution metrics.
+
+---
+
+## 📂 Module 11: Shipped Test Suite Directory & Complete Scenario Catalog
+
+NextTest ships with **43 JSON suites and 35 Microsoft Excel (.xlsx) workbooks** inside `sample-application/scenarios/`. Every test is 100% portable, requires zero network dependencies to execute, and runs across interactive studio and headless CI/CD modes.
+
+### 11.1 Shipped Scenario Catalog
+
+| Suite / Files (.json & .xlsx) | Category & Domain | Key Verified Actions | Headless Run Command |
+|---|---|---|---|
+| `01-browser-lifecycle-and-navigation` | Browser Lifecycle & Window Control | `openBrowserChrome`, `maximizeWindow`, `navigate`, `refresh`, `validateTitle`, `closeBrowser` | `NextTest.bat --suite sample-application/scenarios/01-browser-lifecycle-and-navigation.json --headless` |
+| `02-form-controls-and-inputs` | Form Controls & Interactive Inputs | `sendKeys`, `clearAndSendKeys`, `selectDropdown`, `checkboxCheck`, `mouseHover` | `NextTest.bat --suite sample-application/scenarios/02-form-controls-and-inputs.json --headless` |
+| `03-validations-and-assertions` | DOM Assertions & Visual Evidence | `validateText`, `validateAttribute`, `validateElementPresent`, `takeScreenshot` | `NextTest.bat --suite sample-application/scenarios/03-validations-and-assertions.json --headless` |
+| `04-cdp-network-mocking-and-throttling` | Chrome DevTools Protocol Emulation | `cdpNetworkThrottle`, `cdpMockResponse`, `cdpClearMocking`, `setCookie` | `NextTest.bat --suite sample-application/scenarios/04-cdp-network-mocking-and-throttling.json --headless` |
+| `05-visual-regression-and-pixel-diffing` | Visual Regression & Pixel Diffing | `validateVisualBaseline`, `takeElementScreenshot` | `NextTest.bat --suite sample-application/scenarios/05-visual-regression-and-pixel-diffing.json --headless` |
+| `06-javascript-and-script-files` | JavaScript Execution & External Files | `executeJavaScript`, `executeAsyncScript`, `runScriptFile` | `NextTest.bat --suite sample-application/scenarios/06-javascript-and-script-files.json --headless` |
+| `06-complete-actions-master-suite` | Master Action Catalog Suite | 190+ comprehensive verified actions across all domains | `NextTest.bat --suite sample-application/scenarios/06-complete-actions-master-suite.json --headless` |
+| `07-desktop-windows-calc-notepad` | Windows Native Desktop Automation | `openDesktopApp`, `desktopClick`, `desktopSendKeys`, `validateDesktopText` | `NextTest.bat --suite sample-application/scenarios/07-desktop-windows-calc-notepad.json --headless` |
+| `07-dynamic-java-and-delegates` | Dynamic Runtime Java Compilation | `executeJavaCode`, `executeJavaDelegate` | `NextTest.bat --suite sample-application/scenarios/07-dynamic-java-and-delegates.json --headless` |
+| `08-synthetic-test-data-generation` | Dynamic Synthetic Data Tokens | `${UUID}`, `${TIMESTAMP}`, `${RANDOM_INT}`, `${RANDOM_EMAIL}` | `NextTest.bat --suite sample-application/scenarios/08-synthetic-test-data-generation.json --headless` |
+| `09-api-automation-and-token-chaining` | REST API JWT Token Chaining | `sendApiRequest`, `extractApiResponseJson`, `validateApiResponseCode` | `NextTest.bat --suite sample-application/scenarios/09-api-automation-and-token-chaining.json --headless` |
+| `10-database-validation-suite` | SQL Database Assertions | `connectDatabase`, `executeSqlQuery`, `validateSqlResult`, `disconnectDatabase` | `NextTest.bat --suite sample-application/scenarios/10-database-validation-suite.json --headless` |
+| `11-mouse-drag-drop-and-actions` | Advanced Mouse Interactions | `dragAndDrop`, `mouseHover`, `contextClick`, `doubleClick` | `NextTest.bat --suite sample-application/scenarios/11-mouse-drag-drop-and-actions.json --headless` |
+| `12-windows-tabs-alerts-and-dialogs` | Multi-Tab & Native Alert Management | `switchTab`, `alertAccept`, `alertDismiss`, `validateAlertText` | `NextTest.bat --suite sample-application/scenarios/12-windows-tabs-alerts-and-dialogs.json --headless` |
+| `13-desktop-notepad-calc-workflow` | Multi-App Desktop Orchestration | `openDesktopApp`, `desktopSendKeys`, `desktopGetText` | `NextTest.bat --suite sample-application/scenarios/13-desktop-notepad-calc-workflow.json --headless` |
+| `16-api-login-and-multi-tab-data` | Hybrid REST API & Web Tab Verification | `sendApiRequest`, `switchTab`, `validateText` | `NextTest.bat --suite sample-application/scenarios/16-api-login-and-multi-tab-data.json --headless` |
+| `18-dynamic-locator-and-api-data-loop` | Parameterized Locators & Loop Data | `loop`, `sendKeys`, `validateText` | `NextTest.bat --suite sample-application/scenarios/18-dynamic-locator-and-api-data-loop.json --headless` |
+| `19-encrypted-passwords-and-aes-gcm` | AES-256-GCM Credential Security | `{{Password}}`, `sendKeys`, dynamic decrypt | `NextTest.bat --suite sample-application/scenarios/19-encrypted-passwords-and-aes-gcm.json --headless` |
+| `20-verified-api-and-ui-actions` | Complete HTTP Methods Verification | `api-GET`, `api-POST`, `api-PUT`, `api-DELETE`, `api-PATCH` | `NextTest.bat --suite sample-application/scenarios/20-verified-api-and-ui-actions.json --headless` |
+| `21-accessibility-and-quality-audit` | Automated WCAG 2.1 AA & Asset Health | `checkaccessibility`, `validatebrokenlink`, `validatebrokenimage` | `NextTest.bat --suite sample-application/scenarios/21-accessibility-and-quality-audit.json --headless` |
+| `22-advanced-table-sorting-and-filters` | Data Grid Sort, Unique & Child Clicks | `validatesorted`, `validatenumbersorted`, `validatenotduplicate`, `count`, `parentchildclick` | `NextTest.bat --suite sample-application/scenarios/22-advanced-table-sorting-and-filters.json --headless` |
+
+---
+
+## 🛡️ Module 12: Advanced Quality Engineering — Accessibility, Broken Assets & Complex Grids
+
+Modern QA automation must verify visual accessibility, asset integrity, and tabular sorting in addition to functional workflows.
+
+### 12.1 Automated Accessibility Audits (WCAG 2.1 AA)
+The `checkaccessibility` action runs automated accessibility evaluations against the active DOM without requiring third-party browser extensions or complex npm configurations:
+
+```json
+{
+  "steps": "Run WCAG 2.1 AA accessibility audit on campus portal",
+  "action": "checkaccessibility",
+  "locatorType": "NA",
+  "locatorTypeValue": "NA",
+  "value": "WCAG2AA",
+  "isRun": true
+}
+```
+
+### 12.2 Website Asset & Dead Link Detection
+- **`validatebrokenlink`**: Scans all `<a>` tags on the page, asynchronously issues HEAD/GET HTTP requests, and flags any links returning 404/500 responses.
+- **`validatebrokenimage`**: Checks every `<img>` element, verifying HTTP reachability and executing DOM JavaScript to ensure `image.naturalWidth > 0`.
+
+```json
+{
+  "steps": "Check for broken hyperlinks across portal",
+  "action": "validatebrokenlink",
+  "locatorType": "NA",
+  "locatorTypeValue": "NA",
+  "value": "NA",
+  "isRun": true
+},
+{
+  "steps": "Verify all campus badge graphics and avatars render",
+  "action": "validatebrokenimage",
+  "locatorType": "NA",
+  "locatorTypeValue": "NA",
+  "value": "NA",
+  "isRun": true
+}
+```
+
+### 12.3 Advanced Grid & Table Data Validations
+Enterprise applications rely heavily on interactive data tables. NextTest provides dedicated actions to validate sorting, uniqueness, element counts, and parent-child operations:
+
+| Action | Purpose | Example Locator | Value / Param |
+|---|---|---|---|
+| `validatesorted` | Asserts column strings are sorted alphabetically | `//table[@id='students']/tbody/tr/td[2]` | `asc` / `desc` |
+| `validatenumbersorted` | Asserts column numeric/currency values are sorted | `//table[@id='fees']/tbody/tr/td[4]` | `asc` / `desc` |
+| `validatenotduplicate` | Confirms all values in a column are strictly unique | `//table[@id='students']/tbody/tr/td[1]` | `NA` |
+| `count` / `validatecount` | Validates total matching elements | `//table[@id='students']/tbody/tr` | `15` |
+| `hasclass` | Asserts element possesses specified CSS class | `//tr[@id='row-1']//span` | `badge-success` |
+| `parentchildclick` | Locates parent row and clicks specified child control | `//tr[contains(., 'John Doe')]` | `button.btn-edit` |
 
 ---
 
