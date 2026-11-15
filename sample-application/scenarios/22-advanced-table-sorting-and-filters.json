@@ -30,6 +30,28 @@
           "isRun": true
         },
         {
+          "steps": "Sign in to CampusFlow portal",
+          "action": "click",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-submit",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Navigate to student directory table",
+          "action": "click",
+          "locatorType": "css",
+          "locatorTypeValue": "#nav-students",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Wait for student table rows to render",
+          "action": "sleep",
+          "value": "500",
+          "isRun": true
+        },
+        {
           "steps": "Validate student registration numbers are strictly sorted in ascending order",
           "action": "validatenumbersorted",
           "locatorType": "css",

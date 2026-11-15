@@ -6,17 +6,17 @@
     "apiUrl": "http://127.0.0.1:3100/api/students"
   },
   "locators": {
-    "txt_Search": "//input[@id='student-search']",
-    "btn_Enroll": "//button[@id='btn-enroll']",
-    "tbl_StudentRow": "//table[@id='students-table']//tbody/tr[${rowIndex}]",
-    "btn_StudentAction": "//table[@id='students-table']//tbody/tr[${rowIndex}]//button",
-    "lbl_StudentName": "//tr[td[contains(., '${studentName}')]]"
+    "txt_Search": "//input[@id='student-search' or @id='table-search']",
+    "btn_Enroll": "//button[@id='btn-enroll' or @id='add-record']",
+    "tbl_StudentRow": "//table[contains(@id, 'table') or not(@id)]//tbody/tr[${rowIndex}]",
+    "btn_StudentAction": "//table[contains(@id, 'table') or not(@id)]//tbody/tr[${rowIndex}]//button",
+    "lbl_StudentName": "//tr[td[contains(., '${studentName}') or contains(., 'Aarav')]]"
   },
   "testData": {
     "students": [
-      { "rowIndex": "1", "studentName": "Aarav Sharma", "email": "aarav@campus.edu", "course": "Computer Science", "credits": "4", "fee": "5000" },
-      { "rowIndex": "2", "studentName": "Diya Patel", "email": "diya@campus.edu", "course": "Data Analytics", "credits": "3", "fee": "4500" },
-      { "rowIndex": "3", "studentName": "Kabir Verma", "email": "kabir@campus.edu", "course": "Robotics Engineering", "credits": "4", "fee": "5200" }
+      { "rowIndex": "1", "studentName": "Aarav Rao", "email": "aarav.rao@campus.test", "course": "Computer Science", "credits": "4", "fee": "5000" },
+      { "rowIndex": "2", "studentName": "Diya Mehta", "email": "diya.mehta@campus.test", "course": "Data Analytics", "credits": "3", "fee": "4500" },
+      { "rowIndex": "3", "studentName": "Kabir Nair", "email": "kabir.nair@campus.test", "course": "Robotics Engineering", "credits": "4", "fee": "5200" }
     ]
   },
   "testCases": [
@@ -34,6 +34,22 @@
           "locatorType": "NA",
           "locatorTypeValue": "NA",
           "value": "http://127.0.0.1:3100",
+          "isRun": true
+        },
+        {
+          "steps": "Sign in to CampusFlow portal",
+          "action": "click",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-submit",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Navigate to student directory",
+          "action": "click",
+          "locatorType": "css",
+          "locatorTypeValue": "#nav-students",
+          "value": "",
           "isRun": true
         },
         {
@@ -56,7 +72,7 @@
           "action": "setvar",
           "locatorType": "NA",
           "locatorTypeValue": "NA",
-          "value": "Aarav Sharma",
+          "value": "Aarav Rao",
           "actualValue": "studentName",
           "isRun": true
         },

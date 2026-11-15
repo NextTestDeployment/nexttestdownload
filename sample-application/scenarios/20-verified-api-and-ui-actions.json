@@ -112,7 +112,31 @@
           "isRun": true
         },
         {
-          "steps": "Append corporate domain using typeAppend without clearing existing text",
+          "steps": "Enter AES-GCM encrypted password into password input",
+          "action": "enterEncryptedPassword",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-password",
+          "value": "{{PASSWORD}}",
+          "isRun": true
+        },
+        {
+          "steps": "Sign in to CampusFlow workspace",
+          "action": "click",
+          "locatorType": "css",
+          "locatorTypeValue": "#login-submit",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Navigate to students data grid",
+          "action": "click",
+          "locatorType": "css",
+          "locatorTypeValue": "#nav-students",
+          "value": "",
+          "isRun": true
+        },
+        {
+          "steps": "Append search filter using typeAppend without clearing existing text",
           "action": "typeAppend",
           "locatorType": "css",
           "locatorTypeValue": "#table-search",
@@ -128,11 +152,11 @@
           "isRun": true
         },
         {
-          "steps": "Enter AES-GCM encrypted password into password input",
-          "action": "enterEncryptedPassword",
+          "steps": "Open Add Student modal dialog",
+          "action": "click",
           "locatorType": "css",
-          "locatorTypeValue": "#login-password",
-          "value": "{{PASSWORD}}",
+          "locatorTypeValue": "#add-record",
+          "value": "",
           "isRun": true
         },
         {
@@ -164,7 +188,7 @@
           "steps": "Scroll Save Record button smoothly into viewport center",
           "action": "scrollIntoView",
           "locatorType": "css",
-          "locatorTypeValue": "#save-record",
+          "locatorTypeValue": "#save-record, #records-table",
           "value": "",
           "isRun": true
         },

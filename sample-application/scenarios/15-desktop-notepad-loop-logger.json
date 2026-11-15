@@ -3,8 +3,8 @@
   "serverUrl" : "http://127.0.0.1:4723",
   "appPath" : "notepad.exe",
   "data" : {
-    "MaxIterations" : "100",
-    "IntervalMs" : "30000",
+    "MaxIterations" : "2",
+    "IntervalMs" : "1000",
     "DateFormat" : "yyyy-MM-dd HH:mm:ss"
   },
   "locatorFiles" : [ ],

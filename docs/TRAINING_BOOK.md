@@ -40,12 +40,12 @@ NextTest is a unified, standalone test automation platform engineered to bridge 
 - **Browsers Supported**: Google Chrome, Mozilla Firefox, Microsoft Edge (headless and interactive)
 
 ### 1.3 Quick Installation & First Launch
-NextTest requires no installation wizard. Simply extract the release package:
+NextTest requires no installation wizard. Download the package from [GitHub Releases (main.zip)](https://github.com/NextTestDeployment/nexttestdownload/archive/refs/heads/main.zip) and extract it:
 
 ```cmd
 # 1. Unzip the distribution package
-tar -xf nexttest-v1.0.0.zip
-cd nexttest-v1.0.0
+tar -xf nexttestdownload-main.zip
+cd nexttestdownload-main
 
 # 2. Launch the Desktop Studio
 NextTest.bat
