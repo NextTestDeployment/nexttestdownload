@@ -6,7 +6,7 @@ $scriptDir = $PSScriptRoot
 if (-not $scriptDir) { $scriptDir = Get-Location }
 
 $versionFile = Join-Path $scriptDir "version.v"
-$version = if (Test-Path $versionFile) { (Get-Content $versionFile -Raw).Trim() } else { "1.0.0" }
+$version = if (Test-Path $versionFile) { (Get-Content $versionFile -Raw).Trim() } else { "1.0.1" }
 
 $targetJar = Join-Path $scriptDir "nexttest-desktop-v$version.jar"
 $aliasJar = Join-Path $scriptDir "nexttest-desktop.jar"
@@ -20,7 +20,10 @@ if (Test-Path $targetJar) {
     $chunksDir = Join-Path $scriptDir "chunks"
     $parts = Get-ChildItem -Path $chunksDir -Filter "nexttest-desktop-v$version.part*" | Sort-Object { [int]($_.Name -replace '.*\.part','') }
     if ($parts.Count -eq 0) {
-        Write-Error "No chunks found in '$chunksDir' for version $version!"
+        $parts = Get-ChildItem -Path $chunksDir -Filter "nexttest-desktop-*.part*" | Sort-Object { [int]($_.Name -replace '.*\.part','') }
+    }
+    if ($parts.Count -eq 0) {
+        Write-Error "No chunks found in '$chunksDir'!"
         exit 1
     }
     $outStream = [System.IO.File]::Create($targetJar)

@@ -22,16 +22,16 @@ NextTest is an autonomous, AI-assisted, cross-platform test automation platform 
 - `version.v` - Current version descriptor (`1.0.0`).
 - `templates/ci-cd/` - Enterprise CI/CD pipeline automation templates (GitHub Actions, Jenkinsfile, GitLab CI).
 
-## ðŸš€ Key Enterprise Capabilities
+## 🚀 Key Enterprise Capabilities
 
-- **ðŸŽ¬ Live Test Recorder & Inspector**: Built-in in-browser floating HUD with hover inspection, 1-click assertion builder, pause/resume, and CLI recording (`--record`).
-- **â˜ï¸ Cloud Grid Connectors**: Seamless remote execution on BrowserStack, Sauce Labs, LambdaTest, and Selenium Grid v4 clusters (`--grid-url`, `--grid-provider`).
-- **ðŸ“Š Executive Visual Reporting Dashboard**: 100% self-contained, air-gapped safe HTML reporting with SVG animated donut chart, latency waterfall, live search, and error trace copy (`nexttest-report.html`).
-- **âš¡ Dual Automation Engine**: Interchangeable execution across Selenium WebDriver and Playwright (`--engine selenium|playwright`).
-- **ðŸ©¹ AI Self-Healing Engine**: Real-time recovery from broken IDs and dynamic DOM changes (`--self-healing`, `--apply-healing`).
-- **ðŸ‘ï¸ Perceptual Visual Regression**: Automated pixel diffing with split comparison and threshold overrides.
+- **🎬 Live Test Recorder & Inspector**: Built-in in-browser floating HUD with hover inspection, 1-click assertion builder, pause/resume, and CLI recording (`--record`).
+- **☁️ Cloud Grid Connectors**: Seamless remote execution on BrowserStack, Sauce Labs, LambdaTest, and Selenium Grid v4 clusters (`--grid-url`, `--grid-provider`).
+- **📊 Executive Visual Reporting Dashboard**: 100% self-contained, air-gapped safe HTML reporting with SVG animated donut chart, latency waterfall, live search, and error trace copy (`nexttest-report.html`).
+- **⚡ Dual Automation Engine**: Interchangeable execution across Selenium WebDriver and Playwright (`--engine selenium|playwright`).
+- **🩹 AI Self-Healing Engine**: Real-time recovery from broken IDs and dynamic DOM changes (`--self-healing`, `--apply-healing`).
+- **👁️ Perceptual Visual Regression**: Automated pixel diffing with split comparison and threshold overrides.
 
-## ðŸ“¦ Binary Chunking & Auto-Merge Policy (Max 30MB)
+## 📦 Binary Chunking & Auto-Merge Policy (Max 30MB)
 
 To comply with GitHub's 50MB/100MB file limits and cloud distribution constraints:
 1. The fat JAR is sliced into max **30MB versioned chunks** (`chunks/nexttest-desktop-v1.0.0.part*`).
